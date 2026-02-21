@@ -3,802 +3,824 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Biological Diversity — Essential Study Reference</title>
+  <title>Biology II Fundamentals — Diversity of Life</title>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f7f9f7;
+      --bg: #faf8f5;
       --bg-card: #ffffff;
       --text: #2c2c2c;
-      --text-muted: #6b7b6b;
-      --accent: #1a6b4a;
-      --accent-light: #e4f0ea;
-      --accent-warm: #8b6a3c;
-      --border: #d6ddd6;
-      --border-light: #e6ece6;
-      --highlight: #f0faf0;
+      --text-muted: #6b6b6b;
+      --accent: #2a5e8b;
+      --accent-light: #e6eef5;
+      --accent-warm: #8b5e3c;
+      --border: #e2ddd6;
+      --border-light: #f0ece6;
+      --highlight: #fffbe6;
       --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.04);
       --shadow-hover: 0 2px 8px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06);
     }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family:'Source Sans 3',sans-serif; background:var(--bg); color:var(--text); line-height:1.7; font-size:16px; }
-    .hero { background:linear-gradient(135deg,#0d3b2a 0%,#1a6b4a 40%,#2a8b5a 100%); color:white; padding:4rem 2rem 3.5rem; text-align:center; position:relative; overflow:hidden; }
-    .hero::before { content:''; position:absolute; top:0; left:0; right:0; bottom:0; background:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); opacity:.5; }
-    .hero h1 { font-family:'Crimson Pro',serif; font-size:clamp(2rem,5vw,3.2rem); font-weight:700; letter-spacing:-.02em; position:relative; }
-    .hero .subtitle { font-size:1.1rem; font-weight:300; opacity:.85; margin-top:.5rem; position:relative; }
-    .hero .tagline { font-family:'JetBrains Mono',monospace; font-size:.85rem; opacity:.6; margin-top:.75rem; letter-spacing:.05em; position:relative; }
-    .container { max-width:960px; margin:0 auto; padding:2rem 1.5rem 4rem; }
-    .toc { background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:2rem; margin-bottom:2.5rem; box-shadow:var(--shadow); }
-    .toc h2 { font-family:'Crimson Pro',serif; font-size:1.4rem; color:var(--accent); margin-bottom:1rem; }
-    .toc-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:.5rem; }
-    .toc-grid a { display:flex; align-items:center; gap:.6rem; padding:.5rem .75rem; color:var(--text); text-decoration:none; border-radius:8px; transition:all .2s; font-size:.92rem; }
-    .toc-grid a:hover { background:var(--accent-light); color:var(--accent); }
-    .toc-num { font-family:'JetBrains Mono',monospace; font-size:.75rem; background:var(--accent); color:white; width:28px; height:28px; border-radius:6px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-    .section-card { background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:2.5rem; margin-bottom:2rem; box-shadow:var(--shadow); transition:box-shadow .3s; }
-    .section-card:hover { box-shadow:var(--shadow-hover); }
-    .section-card h2 { font-family:'Crimson Pro',serif; font-size:1.6rem; color:var(--accent); margin-bottom:1rem; display:flex; align-items:center; gap:.75rem; }
-    .sec-num { font-family:'JetBrains Mono',monospace; font-size:.8rem; background:var(--accent); color:white; width:32px; height:32px; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-    .section-card h3 { font-family:'Crimson Pro',serif; font-size:1.15rem; color:var(--accent-warm); margin:1.5rem 0 .5rem; }
-    .section-card p { margin-bottom:.75rem; }
-    .fact-table { width:100%; border-collapse:collapse; margin:1rem 0 1.25rem; font-size:.9rem; }
-    .fact-table th { background:var(--accent); color:white; padding:.5rem .75rem; text-align:left; font-weight:600; }
-    .fact-table td { padding:.5rem .75rem; border-bottom:1px solid var(--border-light); }
-    .fact-table tr:nth-child(even) td { background:var(--highlight); }
-    .fact-table tr:hover td { background:var(--accent-light); }
-    .callout { background:var(--highlight); border-left:4px solid var(--accent); padding:1rem 1.25rem; border-radius:0 8px 8px 0; margin:1rem 0; font-size:.92rem; }
-    .callout strong { color:var(--accent); }
-    .mnemonic { background:#fff8e1; border-left:4px solid var(--accent-warm); padding:1rem 1.25rem; border-radius:0 8px 8px 0; margin:1rem 0; font-size:.92rem; }
-    .mnemonic strong { color:var(--accent-warm); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Source Sans 3', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 16px; }
 
-    /* Quiz styles */
-    .quiz-container { margin-top:1.5rem; }
-    .quiz-q { background:var(--highlight); border:1px solid var(--border); border-radius:10px; padding:1.25rem; margin-bottom:1rem; }
-    .quiz-q p { font-weight:600; margin-bottom:.75rem; }
-    .quiz-opt { display:block; width:100%; text-align:left; padding:.6rem 1rem; margin:.35rem 0; border:1px solid var(--border); border-radius:8px; background:white; cursor:pointer; font-family:inherit; font-size:.9rem; transition:all .2s; }
-    .quiz-opt:hover:not(:disabled) { border-color:var(--accent); background:var(--accent-light); }
-    .quiz-opt.correct { background:#d4edda; border-color:#28a745; color:#155724; }
-    .quiz-opt.incorrect { background:#f8d7da; border-color:#dc3545; color:#721c24; }
-    .quiz-explain { margin-top:.5rem; padding:.75rem; background:white; border-radius:6px; font-size:.88rem; color:var(--text-muted); display:none; }
-    .quiz-score { text-align:center; padding:1.25rem; background:var(--accent); color:white; border-radius:10px; font-size:1.1rem; margin-top:1rem; }
+    /* HERO */
+    .hero { background: linear-gradient(135deg, #1a2e4a 0%, #2a5e8b 40%, #3a7eab 100%); color: white; padding: 4rem 2rem 3.5rem; text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); opacity: 0.5; }
+    .hero h1 { font-family: 'Crimson Pro', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 300; letter-spacing: -0.02em; margin-bottom: 0.5rem; position: relative; }
+    .hero p { font-size: 1.1rem; opacity: 0.85; font-weight: 300; position: relative; max-width: 600px; margin: 0 auto; }
 
-    /* Flashcard styles */
-    .fc-controls { display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:1.25rem; }
-    .fc-btn { padding:.4rem .9rem; border:1px solid var(--border); border-radius:20px; background:white; cursor:pointer; font-family:inherit; font-size:.82rem; transition:all .2s; }
-    .fc-btn:hover,.fc-btn.active { background:var(--accent); color:white; border-color:var(--accent); }
-    .fc-deck { display:flex; align-items:center; gap:1rem; justify-content:center; margin:1.5rem 0; }
-    .fc-nav { width:44px; height:44px; border-radius:50%; border:1px solid var(--border); background:white; cursor:pointer; font-size:1.2rem; display:flex; align-items:center; justify-content:center; transition:all .2s; flex-shrink:0; }
-    .fc-nav:hover { background:var(--accent); color:white; border-color:var(--accent); }
-    .fc-card-wrapper { perspective:1000px; width:100%; max-width:500px; height:280px; cursor:pointer; }
-    .fc-card { width:100%; height:100%; position:relative; transform-style:preserve-3d; transition:transform .6s; }
-    .fc-card.flipped { transform:rotateY(180deg); }
-    .fc-face { position:absolute; width:100%; height:100%; backface-visibility:hidden; border-radius:12px; border:1px solid var(--border); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:1.5rem; text-align:center; }
-    .fc-front { background:var(--accent); color:white; }
-    .fc-front .fc-label { font-family:'JetBrains Mono',monospace; font-size:.7rem; opacity:.6; margin-bottom:.5rem; letter-spacing:.08em; }
-    .fc-front .fc-term { font-family:'Crimson Pro',serif; font-size:1.3rem; font-weight:600; }
-    .fc-back { background:white; transform:rotateY(180deg); font-size:.95rem; line-height:1.6; color:var(--text); }
-    .fc-counter { text-align:center; font-family:'JetBrains Mono',monospace; font-size:.8rem; color:var(--text-muted); }
+    /* CONTAINER */
+    .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
 
-    /* Short answer styles */
-    .sa-block { background:var(--highlight); border:1px solid var(--border); border-radius:10px; padding:1.25rem; margin-bottom:1.25rem; }
-    .sa-block p { font-weight:600; margin-bottom:.75rem; }
-    .sa-input { width:100%; min-height:80px; padding:.75rem; border:1px solid var(--border); border-radius:8px; font-family:inherit; font-size:.9rem; resize:vertical; }
-    .sa-submit { margin-top:.5rem; padding:.5rem 1.25rem; background:var(--accent); color:white; border:none; border-radius:8px; cursor:pointer; font-family:inherit; font-size:.9rem; }
-    .sa-submit:hover { opacity:.9; }
-    .sa-result { margin-top:.75rem; display:none; }
-    .sa-bar { height:8px; background:var(--border); border-radius:4px; overflow:hidden; margin:.5rem 0; }
-    .sa-fill { height:100%; border-radius:4px; transition:width .5s; }
-    .sa-tags { display:flex; flex-wrap:wrap; gap:.35rem; margin:.5rem 0; }
-    .sa-tag { padding:.2rem .6rem; border-radius:12px; font-size:.78rem; font-family:'JetBrains Mono',monospace; }
-    .sa-tag.hit { background:#d4edda; color:#155724; }
-    .sa-tag.miss { background:#e9ecef; color:#6c757d; }
-    .sa-model { margin-top:.5rem; }
-    .sa-toggle { background:none; border:none; color:var(--accent); cursor:pointer; font-family:inherit; font-size:.85rem; text-decoration:underline; }
-    .sa-model-text { display:none; margin-top:.5rem; padding:.75rem; background:white; border-radius:6px; font-size:.88rem; line-height:1.6; }
+    /* TABLE OF CONTENTS */
+    .toc { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 2rem; margin-bottom: 3rem; box-shadow: var(--shadow); }
+    .toc h2 { font-family: 'Crimson Pro', serif; font-size: 1.4rem; font-weight: 600; color: var(--accent); margin-bottom: 1rem; }
+    .toc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 0.4rem 2rem; }
+    .toc a { color: var(--text); text-decoration: none; font-size: 0.95rem; padding: 0.3rem 0; display: block; border-bottom: 1px solid transparent; transition: all 0.2s; }
+    .toc a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+    .toc a .toc-num { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; margin-right: 0.5rem; }
 
-    .back-to-top { position:fixed; bottom:24px; right:24px; width:44px; height:44px; background:var(--accent); color:#fff; border:none; border-radius:50%; font-size:1.2rem; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,.2); opacity:0; transition:opacity .3s; z-index:100; }
-    .back-to-top.visible { opacity:1; }
-    @media(max-width:768px) { .container{padding:1.25rem 1rem 3rem} .section-card{padding:1.5rem} .toc-grid{grid-template-columns:1fr} .fact-table{font-size:.85rem} .fact-table th,.fact-table td{padding:.4rem .5rem} .fc-card-wrapper{height:260px} }
+    /* CARDS */
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 2rem; margin-bottom: 2rem; box-shadow: var(--shadow); transition: box-shadow 0.3s; }
+    .card:hover { box-shadow: var(--shadow-hover); }
+    .card h2 { font-family: 'Crimson Pro', serif; font-size: 1.6rem; font-weight: 600; color: var(--accent); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--accent-light); }
+    .card h3 { font-family: 'Crimson Pro', serif; font-size: 1.2rem; font-weight: 600; color: var(--text); margin: 1.5rem 0 0.5rem; }
+    .card p { margin-bottom: 0.8rem; }
+
+    /* TABLES */
+    .fact-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.92rem; }
+    .fact-table th { background: var(--accent-light); color: var(--accent); font-weight: 600; text-align: left; padding: 0.6rem 0.8rem; border: 1px solid var(--border); font-family: 'Source Sans 3', sans-serif; }
+    .fact-table td { padding: 0.5rem 0.8rem; border: 1px solid var(--border-light); vertical-align: top; }
+    .fact-table tr:nth-child(even) td { background: #fafafa; }
+
+    /* FORMULA CALLOUT */
+    .formula { background: var(--highlight); border-left: 3px solid var(--accent-warm); padding: 0.8rem 1rem; margin: 1rem 0; border-radius: 0 6px 6px 0; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; }
+
+    /* MNEMONIC BOX */
+    .mnemonic { background: #f0e6f6; border: 1px solid #d4b8e8; border-radius: 6px; padding: 0.8rem 1rem; margin: 1rem 0; font-size: 0.92rem; }
+    .mnemonic strong { color: #6a3d7d; }
+
+    /* STYLED LIST ITEMS (for cards only) */
+    .card ul { list-style: none; padding-left: 0; margin: 0.5rem 0; }
+    .card ul li { padding: 0.3rem 0 0.3rem 1.2rem; position: relative; font-size: 0.95rem; }
+    .card ul li::before { content: ''; position: absolute; left: 0; top: 0.7rem; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
+
+    /* INTERACTIVE SECTION TABS */
+    .interactive-section { margin-top: 3rem; }
+    .tab-bar { display: flex; gap: 0; border-bottom: 2px solid var(--border); margin-bottom: 2rem; }
+    .tab-btn { font-family: 'Source Sans 3', sans-serif; font-size: 1rem; font-weight: 600; padding: 0.8rem 1.5rem; background: none; border: none; color: var(--text-muted); cursor: pointer; position: relative; transition: color 0.2s; }
+    .tab-btn.active { color: var(--accent); }
+    .tab-btn.active::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 2px; background: var(--accent); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* QUIZ STYLES */
+    .quiz-progress { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; }
+    .quiz-question { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-bottom: 1rem; }
+    .quiz-question p { font-weight: 500; margin-bottom: 1rem; }
+    .quiz-option { display: block; width: 100%; text-align: left; padding: 0.7rem 1rem; margin: 0.4rem 0; border: 1px solid var(--border); border-radius: 6px; background: white; cursor: pointer; font-family: 'Source Sans 3', sans-serif; font-size: 0.95rem; transition: all 0.2s; }
+    .quiz-option:hover:not(:disabled) { border-color: var(--accent); background: var(--accent-light); }
+    .quiz-option.correct { background: #e6f4ea; border-color: #34a853; color: #1e7e34; }
+    .quiz-option.incorrect { background: #fde8e8; border-color: #ea4335; color: #c62828; }
+    .quiz-option:disabled { cursor: default; opacity: 0.85; }
+    .quiz-explanation { margin-top: 0.8rem; padding: 0.8rem; background: var(--accent-light); border-radius: 6px; font-size: 0.9rem; display: none; }
+    .quiz-score { font-family: 'JetBrains Mono', monospace; font-size: 1.1rem; text-align: center; padding: 1rem; background: var(--accent-light); border-radius: 8px; margin-top: 1rem; }
+
+    /* FLASHCARD STYLES */
+    .fc-filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+    .fc-filter-btn { padding: 0.4rem 0.9rem; border: 1px solid var(--border); border-radius: 20px; background: white; cursor: pointer; font-family: 'Source Sans 3', sans-serif; font-size: 0.85rem; transition: all 0.2s; }
+    .fc-filter-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+    .fc-container { perspective: 1000px; max-width: 500px; margin: 0 auto; }
+    .fc-card { width: 100%; min-height: 220px; position: relative; cursor: pointer; transform-style: preserve-3d; transition: transform 0.5s; }
+    .fc-card.flipped { transform: rotateY(180deg); }
+    .fc-face { position: absolute; top: 0; left: 0; right: 0; bottom: 0; backface-visibility: hidden; border: 1px solid var(--border); border-radius: 8px; padding: 2rem; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 1.05rem; }
+    .fc-front { background: var(--bg-card); }
+    .fc-back { background: var(--accent-light); transform: rotateY(180deg); }
+    .fc-nav { display: flex; justify-content: center; align-items: center; gap: 1.5rem; margin-top: 1.5rem; }
+    .fc-nav button { padding: 0.5rem 1.2rem; border: 1px solid var(--border); border-radius: 6px; background: white; cursor: pointer; font-family: 'Source Sans 3', sans-serif; font-size: 0.9rem; transition: all 0.2s; }
+    .fc-nav button:hover { background: var(--accent-light); border-color: var(--accent); }
+    .fc-counter { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--text-muted); }
+
+    /* SHORT ANSWER STYLES */
+    .sa-question { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; }
+    .sa-question p { font-weight: 500; margin-bottom: 1rem; }
+    .sa-textarea { width: 100%; min-height: 80px; padding: 0.8rem; border: 1px solid var(--border); border-radius: 6px; font-family: 'Source Sans 3', sans-serif; font-size: 0.95rem; resize: vertical; line-height: 1.6; }
+    .sa-textarea:focus { outline: none; border-color: var(--accent); }
+    .sa-submit { margin-top: 0.5rem; padding: 0.5rem 1.2rem; background: var(--accent); color: white; border: none; border-radius: 6px; cursor: pointer; font-family: 'Source Sans 3', sans-serif; font-size: 0.9rem; transition: background 0.2s; }
+    .sa-submit:hover { background: #1e4a6e; }
+    .sa-submit:disabled { opacity: 0.5; cursor: default; }
+    .sa-feedback { display: none; margin-top: 0.8rem; padding: 0.8rem; border-radius: 6px; font-size: 0.9rem; }
+    .sa-feedback.show { display: block; }
+    .sa-feedback.grade-good { background: #e6f4ea; border: 1px solid #34a853; }
+    .sa-feedback.grade-partial { background: #fef7e0; border: 1px solid #f9ab00; }
+    .sa-feedback.grade-needs-work { background: #fde8e8; border: 1px solid #ea4335; }
+    .sa-note { background: var(--accent-light); border-radius: 8px; padding: 1rem 1.2rem; margin-bottom: 1.5rem; font-size: 0.9rem; color: var(--text-muted); }
+    .sa-loading { display: none; margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-muted); }
+
+    /* FOOTER */
+    footer { text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border-light); margin-top: 3rem; }
+
+    @media (max-width: 600px) {
+      .hero { padding: 2.5rem 1.2rem 2rem; }
+      .container { padding: 1.2rem 1rem; }
+      .card { padding: 1.2rem; }
+      .toc-grid { grid-template-columns: 1fr; }
+      .tab-btn { padding: 0.6rem 0.8rem; font-size: 0.9rem; }
+    }
   </style>
 </head>
 <body>
 
 <div class="hero">
-  <h1>Biological Diversity</h1>
-  <div class="subtitle">Essential Study Reference</div>
-  <div class="tagline">The facts you just know</div>
+  <h1>Biology II Fundamentals</h1>
+  <p>Diversity of Life — The essential facts, comparisons, and definitions you need to know</p>
 </div>
 
 <div class="container">
 
-<div class="toc">
-  <h2>Table of Contents</h2>
-  <div class="toc-grid">
-    <a href="#evolution"><span class="toc-num">01</span>Evolution &amp; Natural Selection</a>
-    <a href="#populations"><span class="toc-num">02</span>Evolution of Populations</a>
-    <a href="#speciation"><span class="toc-num">03</span>Speciation &amp; History of Life</a>
-    <a href="#phylogeny"><span class="toc-num">04</span>Phylogeny &amp; Systematics</a>
-    <a href="#prokaryotes"><span class="toc-num">05</span>Prokaryotes</a>
-    <a href="#protists"><span class="toc-num">06</span>Protists</a>
-    <a href="#plants"><span class="toc-num">07</span>Land Plants &amp; Seed Plants</a>
-    <a href="#fungi"><span class="toc-num">08</span>Fungi</a>
-    <a href="#animal-intro"><span class="toc-num">09</span>Animal Diversity &amp; Invertebrates</a>
-    <a href="#vertebrates"><span class="toc-num">10</span>Vertebrates</a>
-    <a href="#ecology"><span class="toc-num">11</span>Ecology</a>
-    <a href="#quiz"><span class="toc-num">Q</span>Multiple Choice Quiz</a>
-    <a href="#flashcards"><span class="toc-num">F</span>Flashcards</a>
-    <a href="#short-answer"><span class="toc-num">SA</span>Short Answer Practice</a>
+  <!-- TABLE OF CONTENTS -->
+  <div class="toc">
+    <h2>Contents</h2>
+    <div class="toc-grid">
+      <a href="#tree-of-life"><span class="toc-num">01</span>Tree of Life &amp; Phylogenetics</a>
+      <a href="#bacteria-archaea"><span class="toc-num">02</span>Bacteria &amp; Archaea</a>
+      <a href="#protists"><span class="toc-num">03</span>Protists</a>
+      <a href="#fungi"><span class="toc-num">04</span>Fungi</a>
+      <a href="#plants"><span class="toc-num">05</span>Plant Diversity</a>
+      <a href="#animal-diversity"><span class="toc-num">06</span>Animal Diversity &amp; Body Plans</a>
+      <a href="#invertebrates"><span class="toc-num">07</span>Invertebrates</a>
+      <a href="#vertebrates"><span class="toc-num">08</span>Vertebrates</a>
+      <a href="#plant-function"><span class="toc-num">09</span>Plant Form &amp; Function</a>
+      <a href="#animal-function"><span class="toc-num">10</span>Animal Form &amp; Function</a>
+      <a href="#ecology"><span class="toc-num">11</span>Ecology</a>
+      <a href="#key-numbers"><span class="toc-num">12</span>Key Numbers &amp; Constants</a>
+      <a href="#interactive"><span class="toc-num">⚡</span>Quiz, Flashcards &amp; Practice</a>
+    </div>
   </div>
-</div>
-
-
-<div class="section-card" id="evolution">
-  <h2><span class="sec-num">01</span>Evolution &amp; Natural Selection</h2>
-  <p>Evolution is the change in allele frequencies in a population over time. It is the unifying theme of biology and explains both the unity and diversity of life. Charles Darwin and Alfred Russel Wallace independently proposed natural selection as the mechanism driving adaptive evolution.</p>
-
-  <h3>Darwin's Key Observations</h3>
-  <p>Individuals in a population vary in their traits, and many of these variations are heritable. All species produce more offspring than can survive, leading to a struggle for existence. Individuals whose traits give them an advantage in their environment are more likely to survive and reproduce, passing those traits to the next generation. Over time, this differential reproductive success changes the composition of the population.</p>
-
-  <h3>Evidence for Evolution</h3>
-  <table class="fact-table">
-    <tr><th>Evidence Type</th><th>What It Shows</th></tr>
-    <tr><td>Fossil record</td><td>Documents changes in species over time; shows transitional forms linking major groups</td></tr>
-    <tr><td>Homologous structures</td><td>Similar anatomy in different species due to shared ancestry (e.g., forelimbs of mammals)</td></tr>
-    <tr><td>Analogous structures</td><td>Similar function but different origin due to convergent evolution (e.g., wings of bats and insects)</td></tr>
-    <tr><td>Vestigial structures</td><td>Reduced or nonfunctional remnants of structures useful in ancestors (e.g., human appendix, whale pelvis)</td></tr>
-    <tr><td>Biogeography</td><td>Geographic distribution of species reflects evolutionary history and continental drift</td></tr>
-    <tr><td>Molecular biology</td><td>DNA and protein sequence similarities correspond to evolutionary relatedness</td></tr>
-    <tr><td>Direct observation</td><td>Evolution observed in real time: antibiotic resistance, pesticide resistance, Darwin's finches</td></tr>
-  </table>
-
-  <div class="callout"><strong>Key distinction:</strong> Homologous structures share a common ancestor (divergent evolution). Analogous structures evolved independently under similar selective pressures (convergent evolution). Only homologous structures are useful for building phylogenies.</div>
-
-  <h3>Types of Selection</h3>
-  <table class="fact-table">
-    <tr><th>Type</th><th>Effect on Phenotype Distribution</th><th>Example</th></tr>
-    <tr><td>Directional</td><td>Shifts the curve toward one extreme</td><td>Larger beak size during drought in finches</td></tr>
-    <tr><td>Stabilizing</td><td>Narrows the curve around the mean</td><td>Human birth weight (intermediate is optimal)</td></tr>
-    <tr><td>Disruptive</td><td>Favors both extremes over the middle</td><td>Beak size in seed-cracker finches (large or small, not medium)</td></tr>
-    <tr><td>Sexual</td><td>Traits that increase mating success are favored</td><td>Peacock tail feathers, elk antlers</td></tr>
-  </table>
-
-  <div class="callout"><strong>Artificial selection</strong> is the intentional breeding by humans for desired traits. Dog breeds, crop plants, and livestock are all products of artificial selection, and Darwin used this as an analogy for natural selection.</div>
-</div>
-
-
-<div class="section-card" id="populations">
-  <h2><span class="sec-num">02</span>Evolution of Populations</h2>
-  <p>Evolution acts on populations, not individuals. A population's gene pool is the total collection of alleles in that population. Microevolution is a change in allele frequencies from one generation to the next.</p>
-
-  <h3>Hardy-Weinberg Equilibrium</h3>
-  <p>The Hardy-Weinberg principle states that allele and genotype frequencies remain constant from generation to generation in a population that is not evolving. This serves as a null model: if a population deviates from Hardy-Weinberg expectations, evolution is occurring.</p>
-
-  <div class="callout"><strong>Hardy-Weinberg Equations:</strong><br>
-  Allele frequencies: <span style="font-family:'JetBrains Mono',monospace;">p + q = 1</span><br>
-  Genotype frequencies: <span style="font-family:'JetBrains Mono',monospace;">p&sup2; + 2pq + q&sup2; = 1</span><br>
-  where p = frequency of dominant allele, q = frequency of recessive allele, p&sup2; = homozygous dominant, 2pq = heterozygous, q&sup2; = homozygous recessive.</div>
-
-  <h3>Five Conditions for Hardy-Weinberg Equilibrium</h3>
-  <p>The population must be very large (no genetic drift), have no migration (no gene flow), have no mutations, have random mating, and have no natural selection. If any condition is violated, the population will evolve.</p>
-
-  <div class="mnemonic"><strong>Mnemonic (violations that cause evolution):</strong> "Darwinian Mechanics Might Not Stop" = Drift, Mutation, Migration (gene flow), Nonrandom mating, Selection.</div>
-
-  <h3>Mechanisms of Evolution</h3>
-  <table class="fact-table">
-    <tr><th>Mechanism</th><th>Description</th><th>Effect</th></tr>
-    <tr><td>Natural selection</td><td>Differential survival and reproduction based on fitness</td><td>Only mechanism that is adaptive (increases fitness)</td></tr>
-    <tr><td>Genetic drift</td><td>Random changes in allele frequency due to chance</td><td>Greater effect in small populations; reduces variation</td></tr>
-    <tr><td>Gene flow</td><td>Movement of alleles between populations via migration</td><td>Tends to reduce differences between populations</td></tr>
-    <tr><td>Mutation</td><td>Changes in DNA sequence creating new alleles</td><td>Ultimate source of all new genetic variation</td></tr>
-    <tr><td>Nonrandom mating</td><td>Mate choice based on phenotype (e.g., sexual selection)</td><td>Changes genotype frequencies but not allele frequencies alone</td></tr>
-  </table>
-
-  <h3>Genetic Drift</h3>
-  <p>Genetic drift has a disproportionate effect on small populations. Two special cases are the bottleneck effect, where a drastic reduction in population size causes a loss of genetic variation (e.g., cheetahs, Northern elephant seals), and the founder effect, where a small group colonizes a new area carrying only a fraction of the original gene pool (e.g., Amish populations and Ellis-van Creveld syndrome).</p>
-
-  <div class="callout"><strong>Key point:</strong> Natural selection is the only mechanism of evolution that consistently leads to adaptive change. Genetic drift, gene flow, and mutation can cause evolution, but the changes are not necessarily adaptive.</div>
-</div>
-
-
-<div class="section-card" id="speciation">
-  <h2><span class="sec-num">03</span>Speciation &amp; History of Life</h2>
-  <p>A species, under the biological species concept, is a group of organisms that can interbreed and produce fertile offspring in nature. Speciation is the formation of new species, and it requires reproductive isolation between populations.</p>
-
-  <h3>Reproductive Barriers</h3>
-  <table class="fact-table">
-    <tr><th>Category</th><th>Barrier</th><th>Description</th></tr>
-    <tr><td rowspan="5">Prezygotic (before fertilization)</td><td>Habitat isolation</td><td>Species live in different habitats in the same area</td></tr>
-    <tr><td>Temporal isolation</td><td>Species breed at different times (seasons, times of day)</td></tr>
-    <tr><td>Behavioral isolation</td><td>Species have different courtship rituals or signals</td></tr>
-    <tr><td>Mechanical isolation</td><td>Structural differences prevent mating</td></tr>
-    <tr><td>Gametic isolation</td><td>Gametes are incompatible and cannot fuse</td></tr>
-    <tr><td rowspan="3">Postzygotic (after fertilization)</td><td>Reduced hybrid viability</td><td>Hybrid embryos do not develop properly</td></tr>
-    <tr><td>Reduced hybrid fertility</td><td>Hybrids are viable but sterile (e.g., mule)</td></tr>
-    <tr><td>Hybrid breakdown</td><td>First generation hybrids are fertile, but subsequent generations are weak or sterile</td></tr>
-  </table>
-
-  <h3>Modes of Speciation</h3>
-  <p>Allopatric speciation occurs when populations are geographically separated by a physical barrier (mountain range, river, ocean). Reproductive isolation develops during separation. Sympatric speciation occurs without geographic separation, often through polyploidy in plants (autopolyploidy from the same species or allopolyploidy from hybridization between species) or habitat differentiation.</p>
-
-  <div class="callout"><strong>Polyploidy</strong> is the most common mechanism of sympatric speciation in plants. An autopolyploid has more than two chromosome sets from a single species (e.g., 4n from failed meiosis). An allopolyploid has chromosome sets from two different species, formed by hybridization followed by chromosome doubling.</div>
-
-  <h3>Patterns in the History of Life</h3>
-  <p>Adaptive radiation is the rapid diversification of a single lineage into many species filling diverse ecological roles, often after a mass extinction or colonization of new habitat (e.g., Darwin's finches, Hawaiian silverswords, mammals after dinosaur extinction). Punctuated equilibrium describes a pattern of long periods of stasis interrupted by brief episodes of rapid speciation, contrasting with the gradualism model of steady, continuous change.</p>
-
-  <h3>Major Events in Earth's History</h3>
-  <table class="fact-table">
-    <tr><th>Event</th><th>When</th><th>Significance</th></tr>
-    <tr><td>Origin of Earth</td><td>~4.6 BYA</td><td>Formation of the planet</td></tr>
-    <tr><td>First prokaryotes</td><td>~3.5 BYA</td><td>Oldest fossils (stromatolites)</td></tr>
-    <tr><td>Great Oxygenation Event</td><td>~2.7 BYA</td><td>Cyanobacteria produce O&#8322;, transforming atmosphere</td></tr>
-    <tr><td>First eukaryotes</td><td>~2.1 BYA</td><td>Endosymbiosis leads to mitochondria and chloroplasts</td></tr>
-    <tr><td>Cambrian explosion</td><td>~541 MYA</td><td>Rapid diversification of most animal phyla</td></tr>
-    <tr><td>Colonization of land</td><td>~475 MYA (plants)</td><td>Plants, then arthropods, then vertebrates move onto land</td></tr>
-    <tr><td>Permian extinction</td><td>~252 MYA</td><td>Largest mass extinction: ~96% of marine species lost</td></tr>
-    <tr><td>Cretaceous extinction</td><td>~66 MYA</td><td>Asteroid impact; dinosaurs (except birds) go extinct</td></tr>
-  </table>
-</div>
-
-
-<div class="section-card" id="phylogeny">
-  <h2><span class="sec-num">04</span>Phylogeny &amp; Systematics</h2>
-  <p>Phylogeny is the evolutionary history of a species or group of species. Systematics is the discipline that classifies organisms and determines their evolutionary relationships. Phylogenetic trees are diagrams that represent these relationships.</p>
-
-  <h3>Reading Phylogenetic Trees</h3>
-  <p>The tips (terminal nodes) represent taxa (species or groups). Internal nodes (branch points) represent common ancestors. Sister taxa share the most recent common ancestor. The root represents the oldest ancestor in the tree. The pattern of branching, not the length of branches or the order of taxa on the tips, indicates relatedness.</p>
-
-  <div class="callout"><strong>Common misconception:</strong> Taxa that are next to each other on a tree are not necessarily most closely related. You must trace back to their most recent common ancestor. Branches can be rotated at any node without changing the relationships.</div>
-
-  <h3>Key Terms in Systematics</h3>
-  <table class="fact-table">
-    <tr><th>Term</th><th>Definition</th></tr>
-    <tr><td>Clade / Monophyletic group</td><td>An ancestor and ALL of its descendants</td></tr>
-    <tr><td>Paraphyletic group</td><td>An ancestor and SOME but not all descendants (e.g., "reptiles" excluding birds)</td></tr>
-    <tr><td>Polyphyletic group</td><td>Members from different lineages grouped by convergent traits, not ancestry</td></tr>
-    <tr><td>Shared derived character (synapomorphy)</td><td>A trait shared by members of a clade that originated in their common ancestor</td></tr>
-    <tr><td>Shared ancestral character (symplesiomorphy)</td><td>A trait shared due to a more distant common ancestor, not useful for defining a particular clade</td></tr>
-    <tr><td>Outgroup</td><td>A taxon outside the group of interest, used to determine which traits are ancestral vs. derived</td></tr>
-    <tr><td>Parsimony</td><td>The simplest explanation (fewest evolutionary changes) is preferred</td></tr>
-  </table>
-
-  <h3>Taxonomy</h3>
-  <div class="mnemonic"><strong>Mnemonic for taxonomic hierarchy:</strong> "Dear King Philip Came Over For Good Spaghetti" = Domain, Kingdom, Phylum, Class, Order, Family, Genus, Species.</div>
-
-  <h3>Three Domains of Life</h3>
-  <table class="fact-table">
-    <tr><th>Domain</th><th>Cell Type</th><th>Key Features</th></tr>
-    <tr><td>Bacteria</td><td>Prokaryotic</td><td>Peptidoglycan cell walls, most diverse metabolically</td></tr>
-    <tr><td>Archaea</td><td>Prokaryotic</td><td>No peptidoglycan, many extremophiles, some genes more similar to eukaryotes</td></tr>
-    <tr><td>Eukarya</td><td>Eukaryotic</td><td>Membrane-bound nucleus and organelles; includes protists, fungi, plants, animals</td></tr>
-  </table>
-</div>
-
-
-<div class="section-card" id="prokaryotes">
-  <h2><span class="sec-num">05</span>Prokaryotes</h2>
-  <p>Prokaryotes are the most abundant and metabolically diverse organisms on Earth. They lack a membrane-bound nucleus and membrane-bound organelles. The two domains of prokaryotes, Bacteria and Archaea, are fundamentally different despite superficial similarities.</p>
-
-  <h3>Prokaryotic Cell Structure</h3>
-  <p>All prokaryotes have a plasma membrane, cytoplasm with ribosomes (70S), a nucleoid region with circular DNA, and most have a cell wall. Many also have flagella for motility, pili for attachment or conjugation, and a capsule or slime layer for protection.</p>
-
-  <table class="fact-table">
-    <tr><th>Feature</th><th>Bacteria</th><th>Archaea</th></tr>
-    <tr><td>Cell wall</td><td>Peptidoglycan</td><td>Pseudopeptidoglycan or other polymers (never peptidoglycan)</td></tr>
-    <tr><td>Membrane lipids</td><td>Ester-linked fatty acids</td><td>Ether-linked branched hydrocarbons</td></tr>
-    <tr><td>RNA polymerase</td><td>One type</td><td>Multiple types (more like eukaryotes)</td></tr>
-    <tr><td>Histones</td><td>Absent</td><td>Present (like eukaryotes)</td></tr>
-    <tr><td>Response to antibiotics</td><td>Many are sensitive</td><td>Generally resistant</td></tr>
-  </table>
-
-  <h3>Gram Staining</h3>
-  <p>Gram-positive bacteria have a thick peptidoglycan wall and stain purple/violet. Gram-negative bacteria have a thin peptidoglycan wall plus an outer membrane containing lipopolysaccharides (LPS) and stain pink/red. Gram-negative bacteria are generally more resistant to antibiotics because the outer membrane acts as an additional barrier.</p>
-
-  <h3>Metabolic Diversity</h3>
-  <table class="fact-table">
-    <tr><th>Mode</th><th>Energy Source</th><th>Carbon Source</th><th>Example</th></tr>
-    <tr><td>Photoautotroph</td><td>Light</td><td>CO&#8322;</td><td>Cyanobacteria</td></tr>
-    <tr><td>Chemoautotroph</td><td>Inorganic chemicals</td><td>CO&#8322;</td><td>Nitrifying bacteria, deep-sea vent archaea</td></tr>
-    <tr><td>Photoheterotroph</td><td>Light</td><td>Organic compounds</td><td>Purple nonsulfur bacteria</td></tr>
-    <tr><td>Chemoheterotroph</td><td>Organic compounds</td><td>Organic compounds</td><td>Most bacteria, all animals, all fungi</td></tr>
-  </table>
-
-  <h3>Genetic Recombination in Prokaryotes</h3>
-  <p>Prokaryotes reproduce asexually by binary fission, but they can gain genetic diversity through three mechanisms: transformation (uptake of free DNA from the environment), transduction (transfer of DNA by bacteriophages), and conjugation (direct transfer of DNA through a pilus, often carrying plasmids with antibiotic resistance genes).</p>
-
-  <div class="callout"><strong>Ecological importance:</strong> Prokaryotes are essential decomposers and nutrient cyclers. Nitrogen-fixing bacteria convert atmospheric N&#8322; to ammonia (NH&#8323;) that plants can use. Cyanobacteria are major oxygen producers. Gut bacteria aid in digestion and vitamin synthesis. Prokaryotes are used in bioremediation, food production, and biotechnology.</div>
-</div>
-
-
-<div class="section-card" id="protists">
-  <h2><span class="sec-num">06</span>Protists</h2>
-  <p>Protists are eukaryotes that are not plants, animals, or fungi. "Protista" is not a true clade but a polyphyletic grouping of diverse eukaryotic lineages. Protists can be unicellular, colonial, or multicellular, and they display enormous diversity in nutrition, reproduction, and habitat.</p>
-
-  <h3>Endosymbiotic Theory</h3>
-  <p>Mitochondria evolved from an aerobic alpha-proteobacterium engulfed by a host cell. Chloroplasts evolved from a photosynthetic cyanobacterium engulfed by a eukaryotic cell. Evidence includes the double membranes, their own circular DNA, 70S ribosomes, and binary fission-like division.</p>
-
-  <div class="callout"><strong>Key evidence for endosymbiosis:</strong> Both mitochondria and chloroplasts have double membranes (inner from the engulfed cell, outer from the host vacuole), their own circular DNA, their own ribosomes (70S, bacterial-type), and they replicate by a fission process independent of the cell cycle.</div>
-
-  <h3>Major Protist Groups</h3>
-  <table class="fact-table">
-    <tr><th>Group</th><th>Key Features</th><th>Examples</th></tr>
-    <tr><td>Excavata</td><td>Modified mitochondria or feeding groove; includes parasites and flagellates</td><td>Giardia, Trypanosoma, Euglena</td></tr>
-    <tr><td>SAR clade: Stramenopiles</td><td>Hairy and smooth flagella; includes diatoms and brown algae</td><td>Diatoms, brown algae, water molds (oomycetes)</td></tr>
-    <tr><td>SAR clade: Alveolates</td><td>Membrane-bound sacs (alveoli) under the cell surface</td><td>Dinoflagellates, apicomplexans (Plasmodium), ciliates (Paramecium)</td></tr>
-    <tr><td>SAR clade: Rhizaria</td><td>Amoebas with threadlike pseudopodia or internal shells</td><td>Foraminifera (forams), radiolarians</td></tr>
-    <tr><td>Archaeplastida</td><td>Red algae, green algae, and land plants; primary endosymbiosis</td><td>Red algae, Chlamydomonas, Ulva</td></tr>
-    <tr><td>Amoebozoa</td><td>Lobe-shaped pseudopodia; includes slime molds</td><td>Amoeba, plasmodial slime molds, cellular slime molds</td></tr>
-    <tr><td>Opisthokonta</td><td>Rear-facing flagellum; includes fungi, animals, and their protist relatives</td><td>Choanoflagellates (closest living relatives of animals)</td></tr>
-  </table>
-
-  <div class="mnemonic"><strong>Remember:</strong> Plasmodium (malaria) is an apicomplexan, not an amoeba or a slime mold. Apicomplexans are all parasitic and have an apical complex for invading host cells.</div>
-</div>
-
-
-<div class="section-card" id="plants">
-  <h2><span class="sec-num">07</span>Land Plants &amp; Seed Plants</h2>
-  <p>Plants evolved from green algae (charophytes are the closest living relatives). The move to land required adaptations to prevent desiccation, provide structural support, transport water, and reproduce without standing water.</p>
-
-  <h3>Key Adaptations to Land</h3>
-  <table class="fact-table">
-    <tr><th>Adaptation</th><th>Function</th></tr>
-    <tr><td>Cuticle</td><td>Waxy coating prevents water loss from aerial surfaces</td></tr>
-    <tr><td>Stomata</td><td>Pores that regulate gas exchange (CO&#8322; in, O&#8322; and H&#8322;O out)</td></tr>
-    <tr><td>Vascular tissue</td><td>Xylem (water up) and phloem (sugar transport); absent in bryophytes</td></tr>
-    <tr><td>Roots / rhizoids</td><td>Anchor plant and absorb water and minerals</td></tr>
-    <tr><td>Sporopollenin</td><td>Tough polymer in spore and pollen walls; resists desiccation</td></tr>
-    <tr><td>Seeds</td><td>Protect and nourish embryo; allow dispersal without water</td></tr>
-    <tr><td>Pollen</td><td>Delivers sperm without water (in seed plants)</td></tr>
-  </table>
-
-  <h3>Alternation of Generations</h3>
-  <p>All land plants alternate between a multicellular haploid stage (gametophyte, produces gametes by mitosis) and a multicellular diploid stage (sporophyte, produces spores by meiosis). The trend in plant evolution is a reduction of the gametophyte and increasing dominance of the sporophyte.</p>
-
-  <div class="callout"><strong>Trend:</strong> Bryophytes = dominant gametophyte, small sporophyte. Ferns = dominant sporophyte, independent gametophyte. Seed plants = dominant sporophyte, microscopic gametophyte (pollen grain and embryo sac).</div>
-
-  <h3>Major Plant Groups</h3>
-  <table class="fact-table">
-    <tr><th>Group</th><th>Vascular?</th><th>Seeds?</th><th>Flowers?</th><th>Key Features</th></tr>
-    <tr><td>Bryophytes (mosses, liverworts, hornworts)</td><td>No</td><td>No</td><td>No</td><td>Require moist habitat; flagellated sperm; dominant gametophyte</td></tr>
-    <tr><td>Seedless vascular plants (ferns, club mosses, horsetails)</td><td>Yes</td><td>No</td><td>No</td><td>Flagellated sperm; dominant sporophyte; sporangia on fronds</td></tr>
-    <tr><td>Gymnosperms (conifers, cycads, ginkgo, gnetophytes)</td><td>Yes</td><td>Yes (naked)</td><td>No</td><td>Seeds not enclosed in fruit; pollen (no flagellated sperm in most); cones</td></tr>
-    <tr><td>Angiosperms (flowering plants)</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Seeds enclosed in fruit; flowers for reproduction; double fertilization</td></tr>
-  </table>
-
-  <h3>Angiosperm Specifics</h3>
-  <p>Angiosperms undergo double fertilization: one sperm fuses with the egg to form the diploid zygote (2n), and a second sperm fuses with the two polar nuclei to form the triploid endosperm (3n), which nourishes the developing embryo. The flower is the reproductive structure. Sepals protect the bud, petals attract pollinators, stamens produce pollen (male), and the carpel (pistil) contains the ovule (female). The ovary develops into the fruit after fertilization.</p>
-
-  <table class="fact-table">
-    <tr><th>Monocots</th><th>Eudicots</th></tr>
-    <tr><td>One cotyledon (seed leaf)</td><td>Two cotyledons</td></tr>
-    <tr><td>Parallel leaf veins</td><td>Branching (net) leaf veins</td></tr>
-    <tr><td>Flower parts in multiples of 3</td><td>Flower parts in multiples of 4 or 5</td></tr>
-    <tr><td>Scattered vascular bundles in stem</td><td>Ring arrangement of vascular bundles</td></tr>
-    <tr><td>Fibrous root system</td><td>Taproot system</td></tr>
-  </table>
-
-  <div class="mnemonic"><strong>Remember double fertilization:</strong> "One sperm + egg = zygote (2n). Second sperm + 2 polar nuclei = endosperm (3n)." Only angiosperms do this.</div>
-</div>
-
-
-<div class="section-card" id="fungi">
-  <h2><span class="sec-num">08</span>Fungi</h2>
-  <p>Fungi are heterotrophic eukaryotes that digest food externally by secreting enzymes and then absorbing the nutrients (absorptive heterotrophy). They have cell walls made of chitin, not cellulose. Most fungi are multicellular and composed of threadlike hyphae that form a mycelium. Fungi are more closely related to animals than to plants.</p>
-
-  <h3>Fungal Structure</h3>
-  <p>A hypha is a filamentous cell or chain of cells. The entire network of hyphae is called the mycelium. Septate hyphae have cross-walls (septa) between cells; coenocytic hyphae lack septa and are essentially multinucleate tubes. The large surface area of the mycelium is ideal for absorption.</p>
-
-  <h3>Major Fungal Phyla</h3>
-  <table class="fact-table">
-    <tr><th>Phylum</th><th>Common Name</th><th>Key Features</th><th>Examples</th></tr>
-    <tr><td>Chytridiomycota</td><td>Chytrids</td><td>Only fungi with flagellated spores (zoospores); mostly aquatic</td><td>Batrachochytrium (frog pathogen)</td></tr>
-    <tr><td>Zygomycota</td><td>Zygote fungi</td><td>Zygosporangium (resistant sexual structure); coenocytic hyphae</td><td>Rhizopus (bread mold)</td></tr>
-    <tr><td>Glomeromycota</td><td>AM fungi</td><td>Form arbuscular mycorrhizae with ~80% of plant species</td><td>Glomus</td></tr>
-    <tr><td>Ascomycota</td><td>Sac fungi</td><td>Sexual spores (ascospores) produced in sac-like asci</td><td>Yeasts, morels, truffles, Penicillium</td></tr>
-    <tr><td>Basidiomycota</td><td>Club fungi</td><td>Sexual spores (basidiospores) on club-shaped basidia</td><td>Mushrooms, puffballs, shelf fungi, rusts</td></tr>
-  </table>
-
-  <h3>Ecological Roles of Fungi</h3>
-  <p>Fungi serve as decomposers (breaking down dead organic matter and recycling nutrients, especially carbon and nitrogen), mutualists (mycorrhizae with plant roots enhance nutrient uptake; lichens are a mutualism between a fungus and a photosynthetic partner), and parasites/pathogens (athlete's foot, ringworm, Dutch elm disease, chytrid fungus devastating amphibians worldwide).</p>
-
-  <div class="callout"><strong>Mycorrhizae</strong> are mutualistic associations between fungi and plant roots. The fungus receives sugars from the plant and provides the plant with increased water and mineral absorption (especially phosphorus). About 80-90% of all plant species form mycorrhizal associations. The two main types are ectomycorrhizae (fungal hyphae surround root cells) and arbuscular mycorrhizae (fungal hyphae penetrate root cell walls).</div>
-
-  <div class="callout"><strong>Lichens</strong> are a mutualistic association between a fungus (usually ascomycete) and a photosynthetic partner (green alga or cyanobacterium). The fungus provides structure and protection; the photosynthetic partner provides food. Lichens are pioneer species that can colonize bare rock.</div>
-</div>
-
-
-<div class="section-card" id="animal-intro">
-  <h2><span class="sec-num">09</span>Animal Diversity &amp; Invertebrates</h2>
-  <p>Animals are multicellular, heterotrophic eukaryotes that lack cell walls and obtain nutrients by ingestion. Most animals have some form of nervous and muscle tissue. Animals are thought to have evolved from choanoflagellate-like ancestors.</p>
-
-  <h3>Key Features Used to Classify Animals</h3>
-  <table class="fact-table">
-    <tr><th>Feature</th><th>Options</th></tr>
-    <tr><td>Symmetry</td><td>Radial (cnidarians, echinoderms as adults) or bilateral (most animals)</td></tr>
-    <tr><td>Tissue layers</td><td>Diploblastic (2 layers: ectoderm, endoderm) or triploblastic (3 layers: + mesoderm)</td></tr>
-    <tr><td>Body cavity</td><td>Acoelomate (no cavity), pseudocoelomate (cavity not fully lined by mesoderm), coelomate (true coelom lined by mesoderm)</td></tr>
-    <tr><td>Development</td><td>Protostome (mouth first, spiral cleavage) or deuterostome (anus first, radial cleavage)</td></tr>
-    <tr><td>Segmentation</td><td>Present (annelids, arthropods, chordates) or absent</td></tr>
-  </table>
-
-  <div class="callout"><strong>Protostome vs. Deuterostome:</strong> In protostomes (mollusks, annelids, arthropods), the blastopore becomes the mouth. In deuterostomes (echinoderms, chordates), the blastopore becomes the anus. "Deutero" = second, meaning the mouth is the second opening to form.</div>
-
-  <h3>Major Invertebrate Phyla</h3>
-  <table class="fact-table">
-    <tr><th>Phylum</th><th>Key Features</th><th>Examples</th></tr>
-    <tr><td>Porifera</td><td>No true tissues; filter feeders with choanocytes; sessile</td><td>Sponges</td></tr>
-    <tr><td>Cnidaria</td><td>Radial symmetry; diploblastic; cnidocytes (stinging cells); polyp and medusa body forms</td><td>Jellyfish, coral, hydra, sea anemones</td></tr>
-    <tr><td>Platyhelminthes</td><td>Flat; acoelomate; some parasitic (tapeworms, flukes); cephalization</td><td>Planaria, tapeworms, flukes</td></tr>
-    <tr><td>Nematoda</td><td>Roundworms; pseudocoelomate; complete digestive tract; ecdysis</td><td>C. elegans, hookworms, pinworms</td></tr>
-    <tr><td>Mollusca</td><td>Soft body; muscular foot, visceral mass, mantle; many have shells; open or closed circulatory system</td><td>Snails, clams, octopuses, squid</td></tr>
-    <tr><td>Annelida</td><td>Segmented worms; true coelom; closed circulatory system</td><td>Earthworms, leeches, polychaetes</td></tr>
-    <tr><td>Arthropoda</td><td>Exoskeleton (chitin); jointed appendages; segmented; open circulatory system; most diverse phylum</td><td>Insects, spiders, crustaceans, myriapods</td></tr>
-    <tr><td>Echinodermata</td><td>Deuterostomes; radial symmetry as adults (bilateral larvae); water vascular system; endoskeleton</td><td>Sea stars, sea urchins, sand dollars</td></tr>
-  </table>
-
-  <div class="mnemonic"><strong>Remember:</strong> Arthropods are the most species-rich phylum on Earth. Insects alone account for more species than all other animal groups combined.</div>
-
-  <h3>Arthropod Subgroups</h3>
-  <table class="fact-table">
-    <tr><th>Subgroup</th><th>Body Regions</th><th>Legs</th><th>Other Features</th></tr>
-    <tr><td>Insects</td><td>Head, thorax, abdomen</td><td>6 (3 pairs)</td><td>Wings (most); antennae; tracheal system for gas exchange</td></tr>
-    <tr><td>Arachnids</td><td>Cephalothorax, abdomen</td><td>8 (4 pairs)</td><td>No antennae; chelicerae; book lungs</td></tr>
-    <tr><td>Crustaceans</td><td>Cephalothorax, abdomen</td><td>Variable (often 10)</td><td>2 pairs of antennae; gills; biramous appendages</td></tr>
-    <tr><td>Myriapods</td><td>Head + many segments</td><td>Many pairs</td><td>Centipedes (1 pair/segment), millipedes (2 pairs/segment)</td></tr>
-  </table>
-
-  <h3>Molluscan Classes</h3>
-  <table class="fact-table">
-    <tr><th>Class</th><th>Examples</th><th>Key Features</th></tr>
-    <tr><td>Gastropoda</td><td>Snails, slugs, nudibranchs</td><td>Single shell (or none in slugs); torsion; radula for feeding</td></tr>
-    <tr><td>Bivalvia</td><td>Clams, mussels, oysters, scallops</td><td>Two-part hinged shell; filter feeders; no radula; no distinct head</td></tr>
-    <tr><td>Cephalopoda</td><td>Octopuses, squid, nautilus, cuttlefish</td><td>Large brain; closed circulatory system; tentacles; jet propulsion; most intelligent invertebrates</td></tr>
-  </table>
-</div>
-
-
-<div class="section-card" id="vertebrates">
-  <h2><span class="sec-num">10</span>Vertebrates</h2>
-  <p>Vertebrates belong to Phylum Chordata. All chordates share four features at some point in development: a notochord, a dorsal hollow nerve cord, pharyngeal slits (or clefts), and a post-anal tail. In vertebrates, the notochord is largely replaced by the vertebral column.</p>
-
-  <h3>Chordate Characteristics</h3>
-  <table class="fact-table">
-    <tr><th>Feature</th><th>Description</th><th>In Humans</th></tr>
-    <tr><td>Notochord</td><td>Flexible rod providing support</td><td>Reduced to discs between vertebrae</td></tr>
-    <tr><td>Dorsal hollow nerve cord</td><td>Develops into central nervous system</td><td>Becomes brain and spinal cord</td></tr>
-    <tr><td>Pharyngeal slits</td><td>Openings in pharynx; become gills in fish</td><td>Modified into ear and throat structures</td></tr>
-    <tr><td>Post-anal tail</td><td>Tail extending past the digestive opening</td><td>Reduced to coccyx (tailbone)</td></tr>
-  </table>
-
-  <h3>Major Vertebrate Groups</h3>
-  <table class="fact-table">
-    <tr><th>Group</th><th>Key Features</th><th>Examples</th></tr>
-    <tr><td>Jawless fish (Cyclostomata)</td><td>No jaws; cartilaginous skeleton; no paired fins</td><td>Lampreys, hagfish</td></tr>
-    <tr><td>Chondrichthyes</td><td>Cartilaginous skeleton; jaws; lateral line system</td><td>Sharks, rays, skates</td></tr>
-    <tr><td>Osteichthyes (bony fish)</td><td>Bony skeleton; operculum (gill cover); swim bladder (ray-finned)</td><td>Salmon, tuna, lungfish, coelacanth</td></tr>
-    <tr><td>Amphibians</td><td>Moist skin for gas exchange; aquatic larvae, terrestrial adults (usually); external fertilization (most)</td><td>Frogs, salamanders, caecilians</td></tr>
-    <tr><td>Reptiles (non-avian)</td><td>Amniotic egg; scales (keratin); ectothermic; internal fertilization</td><td>Lizards, snakes, turtles, crocodilians</td></tr>
-    <tr><td>Birds (Aves)</td><td>Feathers; endothermic; lightweight bones; amniotic egg with hard shell; evolved from theropod dinosaurs</td><td>Eagles, penguins, hummingbirds</td></tr>
-    <tr><td>Mammals</td><td>Hair/fur; mammary glands; endothermic; most are viviparous; neocortex in brain</td><td>Humans, whales, bats, platypus</td></tr>
-  </table>
-
-  <h3>The Amniotic Egg</h3>
-  <p>The amniotic egg was a key adaptation for life on land, allowing reptiles, birds, and mammals to reproduce without returning to water. Its four extraembryonic membranes are the amnion (fluid-filled sac cushioning the embryo), the chorion (gas exchange), the allantois (waste storage), and the yolk sac (nutrition).</p>
-
-  <div class="callout"><strong>Ectotherm vs. Endotherm:</strong> Ectotherms (fish, amphibians, most reptiles) rely on external heat sources to regulate body temperature. Endotherms (birds, mammals) generate metabolic heat internally. Endothermy allows sustained high activity but requires much more food.</div>
-
-  <h3>Mammalian Subgroups</h3>
-  <table class="fact-table">
-    <tr><th>Group</th><th>Reproduction</th><th>Examples</th></tr>
-    <tr><td>Monotremes</td><td>Lay eggs; produce milk but lack nipples</td><td>Platypus, echidna</td></tr>
-    <tr><td>Marsupials</td><td>Short gestation; young develop in pouch (marsupium)</td><td>Kangaroo, koala, opossum</td></tr>
-    <tr><td>Eutherians (placental)</td><td>Long gestation; nourished via placenta</td><td>Humans, whales, bats, rodents</td></tr>
-  </table>
-</div>
-
-
-<div class="section-card" id="ecology">
-  <h2><span class="sec-num">11</span>Ecology</h2>
-  <p>Ecology is the scientific study of interactions between organisms and their environment. It operates at multiple levels: organismal, population, community, ecosystem, and biosphere.</p>
-
-  <h3>Population Ecology</h3>
-  <p>A population is a group of individuals of the same species in the same area at the same time. Population size is affected by births, deaths, immigration, and emigration.</p>
-
-  <table class="fact-table">
-    <tr><th>Concept</th><th>Definition / Formula</th></tr>
-    <tr><td>Population density</td><td>Number of individuals per unit area or volume</td></tr>
-    <tr><td>Exponential growth</td><td>dN/dt = rN; J-shaped curve; unlimited resources</td></tr>
-    <tr><td>Logistic growth</td><td>dN/dt = rN(K-N)/K; S-shaped curve; includes carrying capacity (K)</td></tr>
-    <tr><td>Carrying capacity (K)</td><td>Maximum population size the environment can sustain</td></tr>
-    <tr><td>r-selected species</td><td>High reproductive rate, little parental care, small body, short lifespan (e.g., insects, bacteria)</td></tr>
-    <tr><td>K-selected species</td><td>Low reproductive rate, high parental care, large body, long lifespan (e.g., elephants, whales)</td></tr>
-    <tr><td>Density-dependent factors</td><td>Competition, predation, disease (effects increase as population grows)</td></tr>
-    <tr><td>Density-independent factors</td><td>Weather, natural disasters, habitat destruction (unrelated to population size)</td></tr>
-  </table>
-
-  <div class="callout"><strong>Exponential vs. Logistic:</strong> Exponential growth assumes unlimited resources (J-curve). Logistic growth incorporates a carrying capacity K and slows as the population approaches K (S-curve). In nature, most populations approximate logistic growth.</div>
-
-  <h3>Community Ecology</h3>
-  <p>A community is all the populations of different species in an area. Species interactions shape community structure.</p>
-
-  <table class="fact-table">
-    <tr><th>Interaction</th><th>Effect (Species 1 / Species 2)</th><th>Example</th></tr>
-    <tr><td>Competition (-/-)</td><td>Both harmed</td><td>Lions and hyenas competing for prey</td></tr>
-    <tr><td>Predation (+/-)</td><td>Predator benefits, prey harmed</td><td>Cheetah and gazelle</td></tr>
-    <tr><td>Herbivory (+/-)</td><td>Herbivore benefits, plant harmed</td><td>Caterpillars eating leaves</td></tr>
-    <tr><td>Parasitism (+/-)</td><td>Parasite benefits, host harmed</td><td>Tapeworms in intestines</td></tr>
-    <tr><td>Mutualism (+/+)</td><td>Both benefit</td><td>Mycorrhizae (fungi and plant roots)</td></tr>
-    <tr><td>Commensalism (+/0)</td><td>One benefits, other unaffected</td><td>Barnacles on whales</td></tr>
-  </table>
-
-  <p>The competitive exclusion principle states that two species competing for the same limited resource cannot coexist indefinitely; one will outcompete the other. This drives resource partitioning, where species divide resources to reduce competition. A keystone species has a disproportionately large impact on its community relative to its abundance (e.g., sea otters, sea stars).</p>
-
-  <h3>Ecosystem Ecology</h3>
-  <p>An ecosystem includes all organisms in an area plus the abiotic (nonliving) environment. Energy flows through ecosystems in one direction (sunlight to producers to consumers to decomposers), while nutrients are recycled.</p>
-
-  <table class="fact-table">
-    <tr><th>Trophic Level</th><th>Role</th><th>Examples</th></tr>
-    <tr><td>Primary producers</td><td>Convert solar energy to chemical energy (photosynthesis)</td><td>Plants, algae, cyanobacteria</td></tr>
-    <tr><td>Primary consumers</td><td>Herbivores that eat producers</td><td>Rabbits, zooplankton, grasshoppers</td></tr>
-    <tr><td>Secondary consumers</td><td>Carnivores that eat herbivores</td><td>Frogs, small fish</td></tr>
-    <tr><td>Tertiary consumers</td><td>Top carnivores</td><td>Hawks, sharks, large cats</td></tr>
-    <tr><td>Decomposers/detritivores</td><td>Break down dead matter, recycle nutrients</td><td>Fungi, bacteria, earthworms</td></tr>
-  </table>
-
-  <div class="callout"><strong>10% Rule:</strong> Only about 10% of energy at one trophic level is transferred to the next. The rest is lost as heat through cellular respiration. This is why food chains are typically limited to 4-5 levels and why there are far fewer top predators than producers.</div>
-
-  <h3>Biogeochemical Cycles</h3>
-  <p>The water cycle moves water through evaporation, transpiration, precipitation, and runoff. The carbon cycle moves carbon through photosynthesis (CO&#8322; to organic molecules), cellular respiration (organic molecules to CO&#8322;), decomposition, and fossil fuel combustion. The nitrogen cycle converts atmospheric N&#8322; to usable forms through nitrogen fixation (bacteria), nitrification, assimilation by plants, and denitrification back to N&#8322;.</p>
-
-  <h3>Conservation Ecology</h3>
-  <p>Biodiversity is threatened by habitat destruction (the single greatest threat), invasive species, overexploitation, pollution, and climate change. Biodiversity has three levels: genetic diversity (within species), species diversity (among species), and ecosystem diversity (variety of ecosystems). Conservation strategies include establishing protected areas, habitat corridors, captive breeding, and addressing the underlying causes of biodiversity loss.</p>
-
-  <div class="mnemonic"><strong>Threats to biodiversity (HIPPO):</strong> Habitat loss, Invasive species, Pollution, Population growth (human), Overexploitation.</div>
-</div>
-
-
-<div class="section-card" id="quiz">
-  <h2><span class="sec-num">Q</span>Multiple Choice Quiz</h2>
-  <p>Test your knowledge across all topics. Select an answer to see immediate feedback with explanations.</p>
-  <div class="quiz-container" id="quizContainer"></div>
-  <div class="quiz-score" id="quizScore" style="display:none;"></div>
-</div>
-
-
-<div class="section-card" id="flashcards">
-  <h2><span class="sec-num">F</span>Flashcards</h2>
-  <p>Click a card to flip. Use the arrows or arrow keys to navigate. Filter by category.</p>
-  <div class="fc-controls" id="fcControls"></div>
-  <div class="fc-deck">
-    <button class="fc-nav" id="fcPrev">&#8592;</button>
-    <div class="fc-card-wrapper" id="fcWrapper">
-      <div class="fc-card" id="fcCard">
-        <div class="fc-face fc-front">
-          <div class="fc-label" id="fcLabel"></div>
-          <div class="fc-term" id="fcTerm"></div>
+
+  <!-- SECTION 1: TREE OF LIFE -->
+  <div class="card" id="tree-of-life">
+    <h2>01 — Tree of Life &amp; Phylogenetics</h2>
+    <p>All life is classified into three domains: Bacteria, Archaea, and Eukarya. Bacteria and Archaea are prokaryotic (no membrane-bound nucleus), while Eukarya includes all organisms with membrane-bound nuclei and organelles. The three-domain system was proposed by Carl Woese based on ribosomal RNA sequence comparisons.</p>
+
+    <table class="fact-table">
+      <tr><th>Domain</th><th>Cell Type</th><th>Membrane Lipids</th><th>Examples</th></tr>
+      <tr><td>Bacteria</td><td>Prokaryotic</td><td>Ester-linked, unbranched fatty acids</td><td>E. coli, Streptococcus, cyanobacteria</td></tr>
+      <tr><td>Archaea</td><td>Prokaryotic</td><td>Ether-linked, branched hydrocarbons</td><td>Methanogens, halophiles, thermophiles</td></tr>
+      <tr><td>Eukarya</td><td>Eukaryotic</td><td>Ester-linked, unbranched fatty acids</td><td>Animals, plants, fungi, protists</td></tr>
+    </table>
+
+    <h3>Reading a Phylogenetic Tree</h3>
+    <p>A phylogenetic tree shows evolutionary relationships. The branch points (nodes) represent common ancestors. Sister taxa share the most recent common ancestor. An outgroup is the most distantly related taxon used to root the tree. Monophyletic groups (clades) include an ancestor and all its descendants. Paraphyletic groups include an ancestor but not all descendants. Polyphyletic groups do not include the common ancestor of all members.</p>
+
+    <div class="mnemonic"><strong>Remember:</strong> "Mono = one ancestor, all kids. Para = one ancestor, missing kids. Poly = no shared ancestor at all."</div>
+
+    <h3>Key Concepts</h3>
+    <p>Homologous structures share a common evolutionary origin (bat wing vs. human arm). Analogous structures have similar function but different origins (bird wing vs. insect wing) and result from convergent evolution. Molecular phylogenetics uses DNA, RNA, or protein sequences to determine relationships. The more similar the sequences, the more closely related the organisms.</p>
+  </div>
+
+  <!-- SECTION 2: BACTERIA & ARCHAEA -->
+  <div class="card" id="bacteria-archaea">
+    <h2>02 — Bacteria &amp; Archaea</h2>
+    <p>Prokaryotes are the most abundant organisms on Earth. They lack a membrane-bound nucleus and membrane-bound organelles. Their DNA is a single circular chromosome in the nucleoid region, and many carry small circular DNA molecules called plasmids. Ribosomes are 70S (compared to 80S in eukaryotes).</p>
+
+    <h3>Bacterial Cell Structure</h3>
+    <p>All bacteria have a plasma membrane, cytoplasm, ribosomes, and DNA. Most have a cell wall made of peptidoglycan. Gram-positive bacteria have a thick peptidoglycan wall that retains the crystal violet stain (appears purple). Gram-negative bacteria have a thin peptidoglycan layer surrounded by an outer membrane with lipopolysaccharides (LPS), stain pink with safranin counterstain.</p>
+
+    <div class="formula">Gram stain procedure: Crystal violet → Iodine (mordant) → Alcohol decolorizer → Safranin (counterstain)</div>
+
+    <h3>Bacterial Shapes</h3>
+    <table class="fact-table">
+      <tr><th>Shape</th><th>Name</th><th>Example</th></tr>
+      <tr><td>Sphere</td><td>Coccus (pl. cocci)</td><td>Staphylococcus, Streptococcus</td></tr>
+      <tr><td>Rod</td><td>Bacillus (pl. bacilli)</td><td>E. coli, Bacillus subtilis</td></tr>
+      <tr><td>Spiral</td><td>Spirillum / Spirochete</td><td>Treponema (syphilis), Borrelia (Lyme)</td></tr>
+    </table>
+
+    <h3>Bacterial Reproduction &amp; Genetic Diversity</h3>
+    <p>Bacteria reproduce asexually by binary fission (one cell splits into two identical daughter cells). Genetic diversity comes from three mechanisms of horizontal gene transfer: transformation (uptake of free DNA from environment), transduction (transfer via bacteriophage), and conjugation (direct transfer through a pilus, requires F plasmid).</p>
+
+    <div class="mnemonic"><strong>Remember horizontal gene transfer:</strong> "TransForMation = Free DNA. TransDuction = phage Does it. Conjugation = Contact (pilus)."</div>
+
+    <h3>Metabolic Diversity</h3>
+    <table class="fact-table">
+      <tr><th>Category</th><th>Energy Source</th><th>Carbon Source</th><th>Example</th></tr>
+      <tr><td>Photoautotroph</td><td>Light</td><td>CO₂</td><td>Cyanobacteria</td></tr>
+      <tr><td>Chemoautotroph</td><td>Inorganic chemicals</td><td>CO₂</td><td>Nitrifying bacteria</td></tr>
+      <tr><td>Photoheterotroph</td><td>Light</td><td>Organic compounds</td><td>Purple nonsulfur bacteria</td></tr>
+      <tr><td>Chemoheterotroph</td><td>Organic chemicals</td><td>Organic compounds</td><td>Most bacteria, all animals</td></tr>
+    </table>
+
+    <h3>Archaea vs. Bacteria</h3>
+    <p>Archaea are often found in extreme environments (extremophiles), though many live in moderate conditions. Key differences from bacteria: archaea lack peptidoglycan in their cell walls, have ether-linked membrane lipids (branched isoprene chains), and their RNA polymerase and ribosomal proteins are more similar to eukaryotes. Archaea are not known to cause human disease.</p>
+  </div>
+
+  <!-- SECTION 3: PROTISTS -->
+  <div class="card" id="protists">
+    <h2>03 — Protists</h2>
+    <p>Protists are eukaryotes that are not plants, animals, or fungi. They are an informal, polyphyletic group (meaning they do not share a single common ancestor exclusive to the group). Protists can be unicellular, colonial, or multicellular, and include autotrophs, heterotrophs, and mixotrophs.</p>
+
+    <h3>Animal-like Protists (Protozoa)</h3>
+    <p>Protozoa are heterotrophic and motile. Amoebas move by pseudopodia (cytoplasmic extensions). Ciliates like Paramecium use cilia for movement and feeding. Flagellates use one or more flagella. Apicomplexans are parasitic and have an apical complex for invading host cells. Plasmodium (causes malaria) is the most important apicomplexan, transmitted by Anopheles mosquitoes.</p>
+
+    <h3>Plant-like Protists (Algae)</h3>
+    <p>Algae are photosynthetic protists. Green algae (Chlorophyta) are the closest relatives of land plants, sharing chlorophylls a and b plus starch storage. Red algae (Rhodophyta) have phycoerythrin pigment and can live at greater depths. Brown algae (Phaeophyta) include kelp and are the largest protists. Diatoms have glass-like silica cell walls. Dinoflagellates have two flagella and cellulose plates; some cause red tides and some are bioluminescent.</p>
+
+    <h3>Fungus-like Protists</h3>
+    <p>Slime molds and water molds superficially resemble fungi but are not closely related. Plasmodial slime molds form a large multinucleate mass called a plasmodium. Cellular slime molds live as individual amoeboid cells that aggregate when food is scarce. Oomycetes (water molds) have cellulose cell walls (not chitin like true fungi) and include Phytophthora infestans, which caused the Irish potato famine.</p>
+  </div>
+
+  <!-- SECTION 4: FUNGI -->
+  <div class="card" id="fungi">
+    <h2>04 — Fungi</h2>
+    <p>Fungi are eukaryotic heterotrophs that digest food externally by secreting enzymes and absorbing nutrients (absorptive heterotrophy). Cell walls are made of chitin. Most are multicellular except yeasts. The body of a multicellular fungus is called a mycelium, composed of thread-like hyphae. Hyphae can be septate (divided by cross-walls) or coenocytic (no septa, multinucleate).</p>
+
+    <h3>Major Fungal Phyla</h3>
+    <table class="fact-table">
+      <tr><th>Phylum</th><th>Common Name</th><th>Key Feature</th><th>Examples</th></tr>
+      <tr><td>Chytridiomycota</td><td>Chytrids</td><td>Flagellated spores (only fungi with flagella)</td><td>Batrachochytrium (frog pathogen)</td></tr>
+      <tr><td>Zygomycota</td><td>Bread molds</td><td>Zygospore (thick-walled sexual spore)</td><td>Rhizopus (black bread mold)</td></tr>
+      <tr><td>Ascomycota</td><td>Sac fungi</td><td>Ascus (sac-shaped spore structure)</td><td>Yeast, morels, truffles, Penicillium</td></tr>
+      <tr><td>Basidiomycota</td><td>Club fungi</td><td>Basidium (club-shaped spore structure)</td><td>Mushrooms, puffballs, shelf fungi, rusts</td></tr>
+    </table>
+
+    <h3>Ecological Roles</h3>
+    <p>Fungi are critical decomposers, breaking down dead organic matter and recycling nutrients. Mycorrhizae are mutualistic associations between fungi and plant roots. Ectomycorrhizae form a sheath around roots; arbuscular mycorrhizae penetrate root cell walls. About 90% of plant species associate with mycorrhizal fungi. Lichens are a mutualism between a fungus (usually ascomycete) and a photosynthetic partner (green alga or cyanobacterium). The fungus provides structure and moisture; the photosynthetic partner provides food.</p>
+
+    <div class="mnemonic"><strong>Remember:</strong> "Fungi are not plants. They don't photosynthesize. Chitin walls, external digestion, absorptive nutrition."</div>
+  </div>
+
+  <!-- SECTION 5: PLANT DIVERSITY -->
+  <div class="card" id="plants">
+    <h2>05 — Plant Diversity</h2>
+    <p>Plants are multicellular, photosynthetic eukaryotes with cell walls made of cellulose. They evolved from green algae (Charophytes are the closest living relatives). All plants exhibit alternation of generations, cycling between a diploid sporophyte and a haploid gametophyte.</p>
+
+    <div class="formula">Alternation of generations: Sporophyte (2n) → meiosis → spores → Gametophyte (n) → mitosis → gametes → fertilization → Sporophyte (2n)</div>
+
+    <h3>Four Major Plant Groups</h3>
+    <table class="fact-table">
+      <tr><th>Group</th><th>Vascular?</th><th>Seeds?</th><th>Flowers?</th><th>Examples</th></tr>
+      <tr><td>Bryophytes</td><td>No</td><td>No</td><td>No</td><td>Mosses, liverworts, hornworts</td></tr>
+      <tr><td>Seedless vascular</td><td>Yes</td><td>No</td><td>No</td><td>Ferns, horsetails, club mosses</td></tr>
+      <tr><td>Gymnosperms</td><td>Yes</td><td>Yes (naked)</td><td>No</td><td>Conifers, cycads, ginkgo</td></tr>
+      <tr><td>Angiosperms</td><td>Yes</td><td>Yes (enclosed)</td><td>Yes</td><td>Grasses, oaks, roses, orchids</td></tr>
+    </table>
+
+    <h3>Key Adaptations to Land</h3>
+    <p>The move from water to land required several adaptations: a waxy cuticle to prevent desiccation, stomata for gas exchange, vascular tissue (xylem and phloem) for transport in taller plants, seeds for protection and dispersal in dry conditions, and pollen for fertilization without water. Bryophytes still require water for fertilization (swimming sperm) and have a dominant gametophyte generation. In vascular plants, the sporophyte is dominant.</p>
+
+    <h3>Monocots vs. Eudicots</h3>
+    <table class="fact-table">
+      <tr><th>Feature</th><th>Monocots</th><th>Eudicots</th></tr>
+      <tr><td>Cotyledons</td><td>One</td><td>Two</td></tr>
+      <tr><td>Leaf veins</td><td>Parallel</td><td>Branching (net)</td></tr>
+      <tr><td>Flower parts</td><td>Multiples of 3</td><td>Multiples of 4 or 5</td></tr>
+      <tr><td>Vascular bundles</td><td>Scattered in stem</td><td>Ring arrangement</td></tr>
+      <tr><td>Root system</td><td>Fibrous</td><td>Taproot</td></tr>
+      <tr><td>Examples</td><td>Grasses, lilies, corn, rice</td><td>Roses, beans, oaks, sunflowers</td></tr>
+    </table>
+  </div>
+
+  <!-- SECTION 6: ANIMAL DIVERSITY -->
+  <div class="card" id="animal-diversity">
+    <h2>06 — Animal Diversity &amp; Body Plans</h2>
+    <p>Animals are multicellular, heterotrophic eukaryotes that lack cell walls. Most animals reproduce sexually, and most are motile at some stage of life. Animals evolved from a colonial, flagellated protist ancestor.</p>
+
+    <h3>Body Plan Features</h3>
+    <p>Symmetry: animals are either asymmetrical (sponges), radially symmetrical (cnidarians, echinoderms), or bilaterally symmetrical (most animals). Bilateral symmetry is associated with cephalization (concentration of sensory organs at the head end).</p>
+
+    <p>Tissue layers: diploblastic animals have two germ layers (ectoderm and endoderm), like cnidarians. Triploblastic animals have three germ layers (ectoderm, mesoderm, endoderm), which is the case for all bilaterians.</p>
+
+    <p>Body cavities: acoelomates have no body cavity (flatworms). Pseudocoelomates have a body cavity not fully lined by mesoderm (roundworms). Coelomates have a true coelom fully lined by mesoderm (annelids, chordates).</p>
+
+    <div class="formula">Ectoderm → skin, nervous system | Mesoderm → muscle, bone, circulatory | Endoderm → gut lining, lungs, liver</div>
+
+    <h3>Protostomes vs. Deuterostomes</h3>
+    <table class="fact-table">
+      <tr><th>Feature</th><th>Protostomes</th><th>Deuterostomes</th></tr>
+      <tr><td>Mouth forms</td><td>First (from blastopore)</td><td>Second</td></tr>
+      <tr><td>Cleavage</td><td>Spiral, determinate</td><td>Radial, indeterminate</td></tr>
+      <tr><td>Coelom formation</td><td>Schizocoely (splitting of mesoderm)</td><td>Enterocoely (outpocketing of gut)</td></tr>
+      <tr><td>Examples</td><td>Arthropods, mollusks, annelids</td><td>Echinoderms, chordates</td></tr>
+    </table>
+
+    <div class="mnemonic"><strong>Remember:</strong> "Protostome = mouth first (proto = first, stoma = mouth). Deuterostome = mouth second (deutero = second)."</div>
+  </div>
+
+  <!-- SECTION 7: INVERTEBRATES -->
+  <div class="card" id="invertebrates">
+    <h2>07 — Invertebrates</h2>
+
+    <table class="fact-table">
+      <tr><th>Phylum</th><th>Key Features</th><th>Examples</th></tr>
+      <tr><td>Porifera</td><td>Sessile, no true tissues, filter feeders, choanocytes</td><td>Sponges</td></tr>
+      <tr><td>Cnidaria</td><td>Radial symmetry, diploblastic, cnidocytes (stinging cells), polyp and medusa forms</td><td>Jellyfish, corals, hydra, anemones</td></tr>
+      <tr><td>Platyhelminthes</td><td>Bilateral, acoelomate, flat body for gas exchange, some parasitic</td><td>Planaria, tapeworms, flukes</td></tr>
+      <tr><td>Nematoda</td><td>Pseudocoelomate, round cross-section, complete digestive tract</td><td>Roundworms, hookworms, C. elegans</td></tr>
+      <tr><td>Mollusca</td><td>Soft body, muscular foot, visceral mass, mantle (may secrete shell)</td><td>Snails, clams, octopus, squid</td></tr>
+      <tr><td>Annelida</td><td>Segmented worms, true coelom, closed circulatory system</td><td>Earthworms, leeches, polychaetes</td></tr>
+      <tr><td>Arthropoda</td><td>Exoskeleton (chitin), jointed appendages, segmented, open circulatory system, most species-rich phylum</td><td>Insects, spiders, crabs, centipedes</td></tr>
+      <tr><td>Echinodermata</td><td>Deuterostome, radial symmetry as adults, water vascular system, endoskeleton of calcium carbonate</td><td>Sea stars, urchins, sea cucumbers</td></tr>
+    </table>
+
+    <h3>Arthropod Subgroups</h3>
+    <table class="fact-table">
+      <tr><th>Subgroup</th><th>Body Regions</th><th>Legs</th><th>Antennae</th><th>Examples</th></tr>
+      <tr><td>Insects</td><td>Head, thorax, abdomen</td><td>6 (3 pairs)</td><td>1 pair</td><td>Beetles, butterflies, ants</td></tr>
+      <tr><td>Arachnids</td><td>Cephalothorax, abdomen</td><td>8 (4 pairs)</td><td>None</td><td>Spiders, ticks, scorpions</td></tr>
+      <tr><td>Crustaceans</td><td>Cephalothorax, abdomen</td><td>Variable (5+ pairs)</td><td>2 pairs</td><td>Crabs, lobsters, shrimp</td></tr>
+      <tr><td>Myriapods</td><td>Head + many segments</td><td>Many pairs</td><td>1 pair</td><td>Centipedes, millipedes</td></tr>
+    </table>
+
+    <h3>Mollusk Body Plan</h3>
+    <p>All mollusks share three basic features: a muscular foot (for movement), a visceral mass (containing internal organs), and a mantle (tissue that may secrete a shell). Gastropods (snails, slugs) have a single shell or none. Bivalves (clams, mussels) have two hinged shells. Cephalopods (octopus, squid) have a reduced or absent shell, a closed circulatory system, and are the most intelligent invertebrates.</p>
+  </div>
+
+  <!-- SECTION 8: VERTEBRATES -->
+  <div class="card" id="vertebrates">
+    <h2>08 — Vertebrates</h2>
+    <p>All vertebrates are chordates (Phylum Chordata). The four defining chordate features, present at some stage of life, are: a notochord, a dorsal hollow nerve cord, pharyngeal slits, and a post-anal tail. In vertebrates, the notochord is largely replaced by a vertebral column.</p>
+
+    <h3>Vertebrate Classes</h3>
+    <table class="fact-table">
+      <tr><th>Class</th><th>Key Features</th><th>Heart</th><th>Respiration</th><th>Examples</th></tr>
+      <tr><td>Chondrichthyes</td><td>Cartilaginous skeleton, no swim bladder, lateral line</td><td>2-chambered</td><td>Gills</td><td>Sharks, rays, skates</td></tr>
+      <tr><td>Osteichthyes</td><td>Bony skeleton, swim bladder, operculum covers gills</td><td>2-chambered</td><td>Gills</td><td>Salmon, tuna, goldfish</td></tr>
+      <tr><td>Amphibia</td><td>Moist skin for gas exchange, aquatic larvae, terrestrial adults (most)</td><td>3-chambered</td><td>Gills (larval), lungs + skin (adult)</td><td>Frogs, salamanders, caecilians</td></tr>
+      <tr><td>Reptilia</td><td>Scales, amniotic egg, ectothermic</td><td>3-chambered (crocs: 4)</td><td>Lungs</td><td>Lizards, snakes, turtles, crocodilians</td></tr>
+      <tr><td>Aves (Birds)</td><td>Feathers, hollow bones, high metabolism, endothermic</td><td>4-chambered</td><td>Lungs (air sacs)</td><td>Eagles, penguins, sparrows</td></tr>
+      <tr><td>Mammalia</td><td>Hair/fur, mammary glands, endothermic, neocortex</td><td>4-chambered</td><td>Lungs (diaphragm)</td><td>Humans, whales, bats, platypus</td></tr>
+    </table>
+
+    <h3>Amniotic Egg</h3>
+    <p>The amniotic egg was a major adaptation allowing reproduction on land without water. It has four membranes: the amnion (fluid-filled sac cushioning the embryo), the chorion (gas exchange), the allantois (waste storage), and the yolk sac (nutrition). Reptiles, birds, and egg-laying mammals have shelled amniotic eggs. In placental mammals, these membranes are modified to form the placenta.</p>
+
+    <h3>Mammal Subgroups</h3>
+    <p>Monotremes lay eggs (platypus, echidna). Marsupials give birth to very undeveloped young that complete development in a pouch (kangaroo, opossum, koala). Placental mammals (eutherians) have long gestation with nourishment via a placenta and represent the vast majority of living mammal species.</p>
+
+    <h3>Ectotherms vs. Endotherms</h3>
+    <p>Ectotherms rely on external sources to regulate body temperature (fish, amphibians, reptiles). Endotherms generate their own body heat through metabolism (birds, mammals). Endothermy allows activity in cold environments but requires significantly more food/energy.</p>
+  </div>
+
+  <!-- SECTION 9: PLANT FORM & FUNCTION -->
+  <div class="card" id="plant-function">
+    <h2>09 — Plant Form &amp; Function</h2>
+    <p>Vascular plants have two transport tissues: xylem carries water and dissolved minerals upward from roots (dead cells at maturity, tracheids and vessel elements), and phloem transports sugars (sucrose) from sources to sinks (living cells, sieve-tube elements with companion cells).</p>
+
+    <div class="formula">Transpiration-Cohesion-Tension: Water evaporates from stomata (transpiration) → creates tension → pulls water up xylem via cohesion (H-bonds between water molecules) and adhesion (water sticking to xylem walls)</div>
+
+    <h3>Roots, Stems, Leaves</h3>
+    <p>Roots absorb water and minerals via root hairs (extensions of epidermal cells). The Casparian strip in the endodermis forces water through cell membranes, providing selective control over what enters the vascular tissue. Stems provide support and contain vascular bundles. Leaves are the primary site of photosynthesis. Stomata are pores on leaves regulated by guard cells that open and close to balance gas exchange with water loss.</p>
+
+    <h3>Flower Structure</h3>
+    <p>A complete flower has four whorls: sepals (protect bud), petals (attract pollinators), stamens (male: anther produces pollen, filament supports anther), and carpels/pistils (female: stigma receives pollen, style connects to ovary, ovary contains ovules).</p>
+
+    <h3>Double Fertilization (Angiosperms only)</h3>
+    <p>One sperm fuses with the egg to form the zygote (2n). A second sperm fuses with two polar nuclei to form the endosperm (3n), which nourishes the developing embryo. This is unique to angiosperms. After fertilization, the ovule becomes the seed and the ovary becomes the fruit.</p>
+
+    <div class="formula">Ovule → Seed | Ovary → Fruit | Zygote (2n) + Endosperm (3n) = Double fertilization</div>
+  </div>
+
+  <!-- SECTION 10: ANIMAL FORM & FUNCTION -->
+  <div class="card" id="animal-function">
+    <h2>10 — Animal Form &amp; Function</h2>
+
+    <h3>Gas Exchange</h3>
+    <p>All gas exchange requires a moist surface. Aquatic organisms use gills (large surface area, countercurrent exchange in fish maximizes O₂ extraction). Terrestrial insects use tracheae (branching tubes delivering air directly to cells). Terrestrial vertebrates use lungs. Amphibians supplement lung breathing with cutaneous (skin) respiration.</p>
+
+    <h3>Circulatory Systems</h3>
+    <p>Open circulatory systems (arthropods, most mollusks): hemolymph bathes organs directly in a hemocoel; no distinction between blood and interstitial fluid. Closed circulatory systems (annelids, cephalopods, vertebrates): blood confined to vessels, allowing higher pressure and more efficient delivery. Vertebrate heart evolution: 2-chambered (fish) → 3-chambered (amphibians, most reptiles) → 4-chambered (crocodilians, birds, mammals) with complete separation of oxygenated and deoxygenated blood.</p>
+
+    <h3>Digestion</h3>
+    <p>Incomplete digestive systems have one opening (cnidarians, flatworms). Complete digestive systems have a mouth and anus, allowing specialization of regions and one-way flow. Ruminants (cows) have a four-chambered stomach with symbiotic microbes to digest cellulose.</p>
+
+    <h3>Reproduction</h3>
+    <p>Asexual reproduction: budding (hydra), fragmentation (sea stars), parthenogenesis (development from unfertilized egg, some reptiles and insects). Sexual reproduction involves meiosis and fusion of gametes. External fertilization occurs in water (most fish, amphibians). Internal fertilization occurs on land (reptiles, birds, mammals) and requires less gamete production but more parental investment.</p>
+  </div>
+
+  <!-- SECTION 11: ECOLOGY -->
+  <div class="card" id="ecology">
+    <h2>11 — Ecology</h2>
+
+    <h3>Population Ecology</h3>
+    <p>Population size is affected by births, deaths, immigration, and emigration. Exponential growth (J-curve) occurs with unlimited resources: dN/dt = rN. Logistic growth (S-curve) accounts for carrying capacity (K): dN/dt = rN(K-N)/K. The population levels off near K due to density-dependent factors (competition, predation, disease).</p>
+
+    <div class="formula">Exponential: dN/dt = rN | Logistic: dN/dt = rN((K - N) / K)</div>
+
+    <p>r-selected species produce many offspring with little investment (insects, bacteria). K-selected species produce few offspring with high investment (elephants, whales). Survivorship curves: Type I (high survival until old age, humans), Type II (constant mortality, songbirds), Type III (high early mortality, oysters).</p>
+
+    <h3>Community Interactions</h3>
+    <table class="fact-table">
+      <tr><th>Interaction</th><th>Species 1</th><th>Species 2</th><th>Example</th></tr>
+      <tr><td>Mutualism</td><td>+</td><td>+</td><td>Mycorrhizae (fungus + plant roots)</td></tr>
+      <tr><td>Commensalism</td><td>+</td><td>0</td><td>Barnacles on whales</td></tr>
+      <tr><td>Parasitism</td><td>+</td><td>-</td><td>Tapeworm in host intestine</td></tr>
+      <tr><td>Competition</td><td>-</td><td>-</td><td>Lions and hyenas for prey</td></tr>
+      <tr><td>Predation</td><td>+</td><td>-</td><td>Owl eating mouse</td></tr>
+    </table>
+
+    <p>Competitive exclusion principle: two species cannot occupy the same niche indefinitely. Resource partitioning allows similar species to coexist by using slightly different resources. Keystone species have a disproportionately large effect on community structure relative to their abundance (e.g., sea otters controlling sea urchin populations).</p>
+
+    <h3>Energy Flow</h3>
+    <p>Energy flows through ecosystems in one direction. Producers (autotrophs) fix energy from sunlight. Primary consumers eat producers, secondary consumers eat primary consumers, and so on. Only about 10% of energy transfers between trophic levels (10% rule). Decomposers recycle nutrients at every level. A food web is more realistic than a food chain because most organisms eat and are eaten by multiple species.</p>
+
+    <div class="formula">10% Rule: Of energy consumed, ~10% is passed to the next trophic level; the rest is lost as heat via cellular respiration.</div>
+
+    <h3>Biodiversity Threats</h3>
+    <p>The major threats to biodiversity can be remembered by HIPPO: Habitat loss (the single greatest threat), Invasive species, Pollution, Population growth (human), and Overexploitation. Habitat fragmentation reduces connectivity and increases edge effects.</p>
+
+    <div class="mnemonic"><strong>HIPPO:</strong> Habitat loss, Invasive species, Pollution, Population (human), Overexploitation</div>
+  </div>
+
+  <!-- SECTION 12: KEY NUMBERS -->
+  <div class="card" id="key-numbers">
+    <h2>12 — Key Numbers &amp; Constants</h2>
+    <table class="fact-table">
+      <tr><th>Fact</th><th>Value / Detail</th></tr>
+      <tr><td>Domains of life</td><td>3 (Bacteria, Archaea, Eukarya)</td></tr>
+      <tr><td>Kingdoms in Eukarya</td><td>4 (Protista, Fungi, Plantae, Animalia)</td></tr>
+      <tr><td>Linnean hierarchy</td><td>Domain, Kingdom, Phylum, Class, Order, Family, Genus, Species</td></tr>
+      <tr><td>Prokaryotic ribosome size</td><td>70S</td></tr>
+      <tr><td>Eukaryotic ribosome size</td><td>80S</td></tr>
+      <tr><td>Trophic transfer efficiency</td><td>~10%</td></tr>
+      <tr><td>Most species-rich animal phylum</td><td>Arthropoda</td></tr>
+      <tr><td>Most species-rich insect order</td><td>Coleoptera (beetles)</td></tr>
+      <tr><td>Endosperm ploidy (angiosperms)</td><td>Triploid (3n)</td></tr>
+      <tr><td>Alternation of generations</td><td>Sporophyte (2n) ↔ Gametophyte (n)</td></tr>
+      <tr><td>Fish heart chambers</td><td>2</td></tr>
+      <tr><td>Amphibian heart chambers</td><td>3</td></tr>
+      <tr><td>Mammal/bird heart chambers</td><td>4</td></tr>
+      <tr><td>Biggest threat to biodiversity</td><td>Habitat loss</td></tr>
+      <tr><td>Closest algal relatives of plants</td><td>Charophytes (green algae)</td></tr>
+    </table>
+
+    <div class="mnemonic"><strong>Taxonomy order:</strong> "Dear King Philip Came Over For Good Spaghetti" = Domain, Kingdom, Phylum, Class, Order, Family, Genus, Species</div>
+  </div>
+
+  <!-- INTERACTIVE SECTION -->
+  <div class="interactive-section" id="interactive">
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="switchTab('quiz')">Multiple Choice Quiz</button>
+      <button class="tab-btn" onclick="switchTab('flashcards')">Flashcards</button>
+      <button class="tab-btn" onclick="switchTab('shortanswer')">Short Answer</button>
+    </div>
+
+    <!-- QUIZ PANEL -->
+    <div class="tab-panel active" id="panel-quiz">
+      <div class="quiz-progress" id="quiz-progress">Question 1 of 30 | Score: 0</div>
+      <div id="quiz-container"></div>
+      <div class="quiz-score" id="quiz-final" style="display:none;"></div>
+    </div>
+
+    <!-- FLASHCARD PANEL -->
+    <div class="tab-panel" id="panel-flashcards">
+      <div class="fc-filters" id="fc-filters"></div>
+      <div class="fc-container">
+        <div class="fc-card" id="fc-card" onclick="flipCard()">
+          <div class="fc-face fc-front" id="fc-front"></div>
+          <div class="fc-face fc-back" id="fc-back"></div>
         </div>
-        <div class="fc-face fc-back" id="fcBack"></div>
+      </div>
+      <div class="fc-nav">
+        <button onclick="prevCard()">← Prev</button>
+        <span class="fc-counter" id="fc-counter">1 / 45</span>
+        <button onclick="nextCard()">Next →</button>
       </div>
     </div>
-    <button class="fc-nav" id="fcNext">&#8594;</button>
+
+    <!-- SHORT ANSWER PANEL -->
+    <div class="tab-panel" id="panel-shortanswer">
+      <div class="sa-note">
+        The grader looks for whether you've addressed the important ideas, not for exact wording. Write in your own words as if explaining to a classmate. After grading, a model answer is shown so you can compare.
+      </div>
+      <div id="sa-container"></div>
+    </div>
   </div>
-  <div class="fc-counter" id="fcCounter"></div>
+
 </div>
 
-
-<div class="section-card" id="short-answer">
-  <h2><span class="sec-num">SA</span>Short Answer Practice</h2>
-  <p>Type your answer and submit. The grader matches key concepts and gives you a score with feedback.</p>
-  <div id="saContainer"></div>
-</div>
-
-</div><!-- end container -->
-
-<button class="back-to-top" id="backToTop" title="Back to top">&#8593;</button>
+<footer>Biology II Fundamentals — Diversity of Life — Study Reference</footer>
 
 <script>
-// ==================== QUIZ DATA ====================
-const quizData = [
-  {q:"Which is the ONLY mechanism of evolution that consistently leads to adaptive change?",opts:["Genetic drift","Gene flow","Natural selection","Mutation"],ans:2,exp:"Natural selection is the only evolutionary mechanism that is adaptive, meaning it consistently improves the match between organisms and their environment."},
-  {q:"In Hardy-Weinberg equilibrium, if q = 0.3, what is the frequency of heterozygotes (2pq)?",opts:["0.09","0.42","0.49","0.21"],ans:1,exp:"If q = 0.3, then p = 0.7. Heterozygote frequency = 2pq = 2(0.7)(0.3) = 0.42."},
-  {q:"A population bottleneck is an example of:",opts:["Natural selection","Gene flow","Genetic drift","Mutation"],ans:2,exp:"A bottleneck drastically reduces population size, causing random changes in allele frequency (genetic drift), not selection-driven changes."},
-  {q:"Which reproductive barrier involves the production of sterile hybrid offspring?",opts:["Gametic isolation","Reduced hybrid viability","Reduced hybrid fertility","Temporal isolation"],ans:2,exp:"Reduced hybrid fertility means the hybrid is viable but cannot produce fertile offspring. The mule (horse x donkey) is the classic example."},
-  {q:"Polyploidy is most commonly associated with sympatric speciation in:",opts:["Animals","Fungi","Plants","Prokaryotes"],ans:2,exp:"Polyploidy (having extra chromosome sets) is the most common mechanism of sympatric speciation in plants."},
-  {q:"Which of these is a shared derived character (synapomorphy)?",opts:["A trait shared by all life","A trait unique to one species","A trait present in a clade's common ancestor and all its descendants","A trait resulting from convergent evolution"],ans:2,exp:"A synapomorphy is a derived trait shared by members of a clade that originated in their common ancestor. It is used to define clades."},
-  {q:"A group that includes an ancestor and ALL of its descendants is called:",opts:["Paraphyletic","Polyphyletic","Monophyletic (clade)","Analogous"],ans:2,exp:"A monophyletic group (clade) includes a common ancestor and every one of its descendants."},
-  {q:"Peptidoglycan is found in the cell walls of:",opts:["Archaea","Bacteria","Both Bacteria and Archaea","Fungi"],ans:1,exp:"Peptidoglycan is unique to bacterial cell walls. Archaea have pseudopeptidoglycan or other polymers, never true peptidoglycan."},
-  {q:"Which process transfers DNA between bacteria via a bacteriophage?",opts:["Transformation","Conjugation","Transduction","Binary fission"],ans:2,exp:"Transduction is the transfer of bacterial DNA by a bacteriophage (virus that infects bacteria)."},
-  {q:"Gram-negative bacteria stain pink because they have:",opts:["A thick peptidoglycan wall","No cell wall","A thin peptidoglycan wall plus an outer membrane","Chitin in their cell wall"],ans:2,exp:"Gram-negative bacteria have a thin peptidoglycan layer plus an outer membrane with LPS. The crystal violet washes out, and they pick up the pink counterstain."},
-  {q:"The endosymbiotic theory explains the origin of:",opts:["Ribosomes","Mitochondria and chloroplasts","The nucleus","Flagella"],ans:1,exp:"Endosymbiosis explains how mitochondria (from aerobic bacteria) and chloroplasts (from cyanobacteria) became organelles within eukaryotic cells."},
-  {q:"Which protist group includes the organism that causes malaria?",opts:["Excavata","Amoebozoa","Alveolata (Apicomplexans)","Rhizaria"],ans:2,exp:"Plasmodium, the malaria parasite, is an apicomplexan within the Alveolata. Apicomplexans are all parasitic."},
-  {q:"Choanoflagellates are significant because they are:",opts:["Ancestors of plants","The closest living relatives of animals","Parasites of coral","The first eukaryotes"],ans:1,exp:"Choanoflagellates are colonial protists that are the closest living relatives of animals, based on molecular and structural evidence."},
-  {q:"Which plant group has a dominant gametophyte generation?",opts:["Ferns","Gymnosperms","Angiosperms","Bryophytes"],ans:3,exp:"Bryophytes (mosses, liverworts, hornworts) are the only plant group where the gametophyte is the dominant, visible stage."},
-  {q:"Double fertilization is unique to:",opts:["All land plants","Gymnosperms","Angiosperms","Ferns"],ans:2,exp:"Double fertilization (one sperm + egg = zygote, one sperm + 2 polar nuclei = triploid endosperm) occurs only in angiosperms."},
-  {q:"In double fertilization, the endosperm is:",opts:["Haploid (n)","Diploid (2n)","Triploid (3n)","Tetraploid (4n)"],ans:2,exp:"The endosperm is triploid (3n), formed by the fusion of one sperm (n) with two polar nuclei (n + n)."},
-  {q:"Which characteristic distinguishes fungi from plants?",opts:["Fungi are autotrophic","Fungi have cell walls made of chitin","Fungi perform photosynthesis","Fungi are prokaryotic"],ans:1,exp:"Fungal cell walls are made of chitin, while plant cell walls are made of cellulose. Fungi are heterotrophic, not autotrophic."},
-  {q:"Which fungal phylum is the only group with flagellated spores?",opts:["Ascomycota","Basidiomycota","Zygomycota","Chytridiomycota"],ans:3,exp:"Chytrids are the only fungi with flagellated spores (zoospores) and are mostly aquatic."},
-  {q:"Mycorrhizae primarily help plants absorb:",opts:["Nitrogen and carbon dioxide","Phosphorus and water","Oxygen and glucose","Calcium and sodium"],ans:1,exp:"Mycorrhizal fungi dramatically enhance the plant's uptake of phosphorus and water from the soil."},
-  {q:"In animal development, protostomes are characterized by:",opts:["The blastopore becoming the anus","Radial cleavage","The blastopore becoming the mouth","Deuterostome development"],ans:2,exp:"In protostomes (proto = first, stome = mouth), the blastopore develops into the mouth. Protostomes also show spiral cleavage."},
-  {q:"Which animal phylum is the most species-rich on Earth?",opts:["Mollusca","Chordata","Arthropoda","Nematoda"],ans:2,exp:"Arthropoda is the most diverse phylum, with insects alone outnumbering all other animal species combined."},
-  {q:"Cnidocytes are the defining feature of:",opts:["Porifera","Cnidaria","Platyhelminthes","Echinodermata"],ans:1,exp:"Cnidocytes are specialized stinging cells unique to Cnidaria (jellyfish, corals, hydra, sea anemones)."},
-  {q:"Which mollusk class includes the most intelligent invertebrates?",opts:["Gastropoda","Bivalvia","Cephalopoda","Polyplacophora"],ans:2,exp:"Cephalopods (octopuses, squid) have the most complex brains among invertebrates, with closed circulatory systems and sophisticated behaviors."},
-  {q:"Echinoderms are notable because they are:",opts:["Protostomes with radial symmetry","Deuterostomes with a water vascular system","The simplest animals","Acoelomate worms"],ans:1,exp:"Echinoderms are deuterostomes (related to chordates) with secondary radial symmetry as adults and a unique water vascular system."},
-  {q:"All chordates share which four features at some stage of development?",opts:["Vertebral column, skull, jaws, limbs","Notochord, dorsal hollow nerve cord, pharyngeal slits, post-anal tail","Exoskeleton, jointed legs, segmentation, compound eyes","Radial symmetry, water vascular system, tube feet, endoskeleton"],ans:1,exp:"The four chordate characteristics are notochord, dorsal hollow nerve cord, pharyngeal slits/clefts, and a post-anal tail."},
-  {q:"Which vertebrate group was the first to develop the amniotic egg?",opts:["Amphibians","Reptiles","Mammals","Bony fish"],ans:1,exp:"Reptiles were the first vertebrates to evolve the amniotic egg, which freed them from needing water for reproduction."},
-  {q:"Monotremes differ from other mammals because they:",opts:["Lack hair","Lay eggs","Are ectothermic","Lack mammary glands"],ans:1,exp:"Monotremes (platypus, echidna) are egg-laying mammals. They still have hair and produce milk, but lack nipples."},
-  {q:"In logistic growth, what happens as population size (N) approaches carrying capacity (K)?",opts:["Growth rate increases exponentially","Growth rate slows and approaches zero","The population immediately crashes","Growth rate becomes negative"],ans:1,exp:"In logistic growth, as N approaches K, the term (K-N)/K approaches zero, slowing the growth rate."},
-  {q:"The competitive exclusion principle states that:",opts:["All species can coexist if resources are abundant","Two species competing for the same limited resource cannot coexist indefinitely","Competition always leads to extinction","Predators always eliminate prey"],ans:1,exp:"Gause's competitive exclusion principle predicts that two species with identical niches cannot coexist; one will be driven to local extinction."},
-  {q:"Approximately what percentage of energy is transferred between trophic levels?",opts:["1%","10%","50%","90%"],ans:1,exp:"The 10% rule: only about 10% of energy at one trophic level is passed to the next. The rest is lost as heat through cellular respiration."},
-  {q:"Which is the single greatest threat to biodiversity today?",opts:["Invasive species","Pollution","Habitat destruction","Overexploitation"],ans:2,exp:"Habitat destruction (deforestation, urbanization, agriculture) is the single greatest threat to biodiversity worldwide."},
-  {q:"A keystone species is one that:",opts:["Is the most abundant in its community","Has a disproportionately large impact relative to its abundance","Is always a top predator","Is found only on islands"],ans:1,exp:"A keystone species has an outsized effect on community structure relative to its abundance. Removing it causes dramatic community changes."}
+// ============ TAB SWITCHING ============
+function switchTab(tab) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById('panel-' + tab).classList.add('active');
+}
+
+// ============ QUIZ DATA ============
+const quizQuestions = [
+  { q: "Which domain includes organisms with ether-linked membrane lipids?", options: ["Bacteria", "Archaea", "Eukarya", "Protista"], correct: 1, explanation: "Archaea have unique ether-linked, branched hydrocarbon membrane lipids, distinguishing them from both Bacteria and Eukarya which have ester-linked lipids." },
+  { q: "What is the function of cnidocytes?", options: ["Photosynthesis", "Stinging prey/defense", "Filter feeding", "Gas exchange"], correct: 1, explanation: "Cnidocytes are specialized stinging cells unique to Phylum Cnidaria (jellyfish, corals, hydra). They contain nematocysts that discharge to capture prey or deter predators." },
+  { q: "Which group of protists is most closely related to land plants?", options: ["Red algae", "Brown algae", "Green algae (Charophytes)", "Diatoms"], correct: 2, explanation: "Charophyte green algae share chlorophylls a and b, starch storage, and cellulose cell walls with land plants, and molecular evidence confirms they are the closest living relatives." },
+  { q: "Fungi cell walls are made of:", options: ["Cellulose", "Peptidoglycan", "Chitin", "Silica"], correct: 2, explanation: "Fungal cell walls are made of chitin, the same polysaccharide found in arthropod exoskeletons. This distinguishes them from plants (cellulose) and bacteria (peptidoglycan)." },
+  { q: "What does the Gram stain differentiate?", options: ["Living vs. dead bacteria", "Thick vs. thin peptidoglycan walls", "Bacteria vs. Archaea", "Aerobic vs. anaerobic bacteria"], correct: 1, explanation: "Gram-positive bacteria have thick peptidoglycan walls that retain crystal violet (purple). Gram-negative bacteria have thin peptidoglycan with an outer membrane and stain pink with safranin." },
+  { q: "In alternation of generations, spores are produced by:", options: ["Mitosis of gametophyte", "Meiosis of sporophyte", "Mitosis of sporophyte", "Meiosis of gametophyte"], correct: 1, explanation: "The diploid sporophyte undergoes meiosis to produce haploid spores. These spores grow into the haploid gametophyte, which produces gametes by mitosis." },
+  { q: "Which is NOT a chordate feature?", options: ["Notochord", "Dorsal hollow nerve cord", "Ventral heart", "Post-anal tail"], correct: 2, explanation: "The four defining chordate features are notochord, dorsal hollow nerve cord, pharyngeal slits, and post-anal tail. A ventral heart is a vertebrate feature but not one of the four defining chordate characteristics." },
+  { q: "Plasmodium, which causes malaria, belongs to which protist group?", options: ["Ciliates", "Flagellates", "Apicomplexans", "Amoebas"], correct: 2, explanation: "Plasmodium is an apicomplexan, characterized by an apical complex of organelles used to penetrate host cells. All apicomplexans are obligate parasites." },
+  { q: "What structure in the root forces water to pass through cell membranes?", options: ["Root hairs", "Casparian strip", "Cortex", "Pericycle"], correct: 1, explanation: "The Casparian strip is a waxy barrier in the endodermis that blocks the apoplastic pathway, forcing water and dissolved minerals to pass through cell membranes for selective uptake." },
+  { q: "An animal with three germ layers and no body cavity is:", options: ["Coelomate", "Pseudocoelomate", "Acoelomate", "Diploblastic"], correct: 2, explanation: "Acoelomates are triploblastic (three germ layers) but lack a body cavity. Flatworms (Platyhelminthes) are the classic example." },
+  { q: "Xylem transports:", options: ["Sugars downward", "Water and minerals upward", "Hormones only", "Amino acids to roots"], correct: 1, explanation: "Xylem carries water and dissolved minerals upward from roots to shoots. The cells are dead at maturity and include tracheids and vessel elements." },
+  { q: "Which is the most species-rich animal phylum?", options: ["Mollusca", "Chordata", "Arthropoda", "Nematoda"], correct: 2, explanation: "Arthropoda contains more described species than any other phylum, with insects alone accounting for the majority. Beetles (Coleoptera) are the most species-rich order." },
+  { q: "Double fertilization is unique to:", options: ["Gymnosperms", "Bryophytes", "Angiosperms", "Ferns"], correct: 2, explanation: "Double fertilization, where one sperm fertilizes the egg (2n zygote) and another fuses with two polar nuclei (3n endosperm), is exclusive to angiosperms (flowering plants)." },
+  { q: "A lichen is a mutualism between:", options: ["Two fungi", "A fungus and a plant root", "A fungus and an alga or cyanobacterium", "An alga and a bacterium"], correct: 2, explanation: "Lichens consist of a fungus (usually ascomycete) providing structure/moisture and a photosynthetic partner (green alga or cyanobacterium) providing food via photosynthesis." },
+  { q: "Which type of horizontal gene transfer uses a bacteriophage?", options: ["Transformation", "Transduction", "Conjugation", "Binary fission"], correct: 1, explanation: "Transduction is the transfer of bacterial DNA from one cell to another via a bacteriophage (bacterial virus). Transformation uses free DNA, and conjugation uses a pilus." },
+  { q: "Countercurrent exchange in fish gills maximizes:", options: ["CO₂ retention", "O₂ extraction from water", "Temperature regulation", "Nutrient absorption"], correct: 1, explanation: "In countercurrent exchange, blood flows opposite to water flow across the gills, maintaining a concentration gradient that allows fish to extract up to 80% of dissolved oxygen." },
+  { q: "The carrying capacity of an environment is represented by:", options: ["r", "N", "K", "dN/dt"], correct: 2, explanation: "K represents the carrying capacity, the maximum population size an environment can sustain long-term. In the logistic growth equation, population growth slows as N approaches K." },
+  { q: "Which organisms are deuterostomes?", options: ["Arthropods and mollusks", "Annelids and nematodes", "Echinoderms and chordates", "Cnidarians and sponges"], correct: 2, explanation: "Deuterostomes include echinoderms and chordates. In deuterostome development, the blastopore becomes the anus and the mouth forms second." },
+  { q: "A mushroom belongs to which fungal phylum?", options: ["Chytridiomycota", "Zygomycota", "Ascomycota", "Basidiomycota"], correct: 3, explanation: "Mushrooms are Basidiomycota (club fungi). They produce spores on club-shaped structures called basidia, typically found on the gills of the mushroom cap." },
+  { q: "Monocots differ from eudicots by having:", options: ["Two cotyledons", "Net-veined leaves", "Flower parts in multiples of 3", "Vascular bundles in a ring"], correct: 2, explanation: "Monocots have one cotyledon, parallel leaf veins, flower parts in multiples of 3, scattered vascular bundles, and fibrous roots. Eudicots have the opposite characteristics." },
+  { q: "The competitive exclusion principle states that:", options: ["Two species can share the same niche if resources are abundant", "Two species cannot coexist in the same niche indefinitely", "Competition always leads to extinction", "Predators exclude competitors from habitats"], correct: 1, explanation: "Competitive exclusion (Gause's principle) states that two species competing for identical resources cannot stably coexist. One will outcompete the other, leading to local extinction or niche partitioning." },
+  { q: "Which animal group has a 3-chambered heart?", options: ["Fish", "Amphibians", "Birds", "Mammals"], correct: 1, explanation: "Amphibians (and most reptiles) have a 3-chambered heart: two atria and one ventricle. Fish have 2 chambers, and birds/mammals have 4 fully separated chambers." },
+  { q: "Sponges (Porifera) lack:", options: ["Cells", "Choanocytes", "True tissues", "A means of filter feeding"], correct: 2, explanation: "Sponges are the only animals that lack true tissues. They have specialized cells like choanocytes (collar cells) for filter feeding but no organized tissue layers." },
+  { q: "The greatest threat to global biodiversity is:", options: ["Invasive species", "Pollution", "Habitat loss", "Overexploitation"], correct: 2, explanation: "Habitat loss (primarily from agriculture, urbanization, and deforestation) is the single greatest threat to biodiversity worldwide. Remember HIPPO: Habitat loss, Invasive species, Pollution, Population, Overexploitation." },
+  { q: "Mycorrhizae are associations between:", options: ["Fungi and algae", "Fungi and plant roots", "Bacteria and plant roots", "Two different fungi"], correct: 1, explanation: "Mycorrhizae are mutualistic associations between fungi and plant roots. The fungus enhances nutrient/water absorption while receiving sugars from the plant. About 90% of plant species form mycorrhizal associations." },
+  { q: "In a food chain, approximately what percentage of energy passes to the next trophic level?", options: ["1%", "10%", "50%", "90%"], correct: 1, explanation: "The 10% rule states that roughly 10% of energy at one trophic level is transferred to the next. The remaining 90% is lost primarily as heat through cellular respiration." },
+  { q: "Which protist group caused the Irish potato famine?", options: ["Dinoflagellates", "Oomycetes (water molds)", "Plasmodial slime molds", "Diatoms"], correct: 1, explanation: "Phytophthora infestans, an oomycete (water mold), caused the late blight that destroyed potato crops in Ireland in the 1840s. Despite resembling fungi, oomycetes have cellulose cell walls and are protists." },
+  { q: "A keystone species is one that:", options: ["Is the most abundant in its community", "Has a disproportionately large effect relative to its abundance", "Is always a top predator", "Is found in every ecosystem"], correct: 1, explanation: "A keystone species has an outsized impact on community structure relative to its abundance. Removing it causes dramatic changes. Sea otters controlling sea urchins is a classic example." },
+  { q: "The endosperm in a flowering plant is:", options: ["Haploid (n)", "Diploid (2n)", "Triploid (3n)", "Tetraploid (4n)"], correct: 2, explanation: "The endosperm forms when the second sperm fuses with two polar nuclei during double fertilization, creating a triploid (3n) nutritive tissue for the developing embryo." },
+  { q: "Which feature distinguishes Archaea from Bacteria?", options: ["Archaea have a nucleus", "Archaea have peptidoglycan walls", "Archaea have ether-linked membrane lipids", "Archaea are always pathogenic"], correct: 2, explanation: "Archaea have ether-linked membrane lipids with branched isoprene chains, lack peptidoglycan, and are not known to cause human disease. Their transcription machinery is more similar to eukaryotes." }
 ];
 
-// ==================== FLASHCARD DATA ====================
-const flashcardData = [
-  {cat:"Evolution",term:"Natural Selection",def:"Differential survival and reproduction of individuals based on heritable variation. The only adaptive mechanism of evolution."},
-  {cat:"Evolution",term:"Directional Selection",def:"Favors one extreme phenotype, shifting the population mean in that direction. Example: larger beak size during drought."},
-  {cat:"Evolution",term:"Stabilizing Selection",def:"Favors intermediate phenotypes, reducing variation. Example: human birth weight."},
-  {cat:"Evolution",term:"Disruptive Selection",def:"Favors both extreme phenotypes over the intermediate. Can lead to speciation."},
-  {cat:"Evolution",term:"Sexual Selection",def:"Selection based on mating success. Includes intersexual (mate choice) and intrasexual (competition) selection."},
-  {cat:"Evolution",term:"Homologous Structures",def:"Structures with shared ancestry but potentially different functions (e.g., bat wing, human arm). Evidence of divergent evolution."},
-  {cat:"Evolution",term:"Analogous Structures",def:"Structures with similar function but different evolutionary origin (e.g., bird wing, insect wing). Result of convergent evolution."},
-  {cat:"Population Genetics",term:"Hardy-Weinberg Equilibrium",def:"p + q = 1 and p² + 2pq + q² = 1. Allele and genotype frequencies remain constant when no evolution is occurring."},
-  {cat:"Population Genetics",term:"Genetic Drift",def:"Random change in allele frequency, strongest in small populations. Includes bottleneck effect and founder effect."},
-  {cat:"Population Genetics",term:"Bottleneck Effect",def:"Drastic reduction in population size reduces genetic variation. Survivors' alleles may not represent the original population."},
-  {cat:"Population Genetics",term:"Founder Effect",def:"Small group colonizes new area, carrying only a fraction of original gene pool. Can lead to high frequency of rare alleles."},
-  {cat:"Population Genetics",term:"Gene Flow",def:"Movement of alleles between populations via migration. Tends to reduce differences between populations."},
-  {cat:"Speciation",term:"Biological Species Concept",def:"A species is a group of organisms that can interbreed and produce fertile offspring in nature."},
-  {cat:"Speciation",term:"Allopatric Speciation",def:"Speciation due to geographic isolation. A physical barrier separates populations, allowing independent evolution."},
-  {cat:"Speciation",term:"Sympatric Speciation",def:"Speciation without geographic separation. Often via polyploidy in plants or habitat differentiation."},
-  {cat:"Speciation",term:"Prezygotic Barriers",def:"Prevent zygote formation: habitat, temporal, behavioral, mechanical, and gametic isolation."},
-  {cat:"Speciation",term:"Postzygotic Barriers",def:"Act after fertilization: reduced hybrid viability, reduced hybrid fertility, and hybrid breakdown."},
-  {cat:"Speciation",term:"Adaptive Radiation",def:"Rapid diversification from a single ancestor into many species filling different ecological niches."},
-  {cat:"Phylogeny",term:"Monophyletic Group (Clade)",def:"An ancestor and ALL of its descendants. The only valid grouping in modern systematics."},
-  {cat:"Phylogeny",term:"Outgroup",def:"A taxon outside the study group, used to determine which character states are ancestral vs. derived."},
-  {cat:"Phylogeny",term:"Parsimony",def:"The principle that the simplest explanation (fewest evolutionary changes) is most likely correct."},
-  {cat:"Prokaryotes",term:"Gram-Positive Bacteria",def:"Thick peptidoglycan wall, stain purple/violet. Generally more susceptible to antibiotics."},
-  {cat:"Prokaryotes",term:"Gram-Negative Bacteria",def:"Thin peptidoglycan + outer membrane with LPS, stain pink/red. More resistant to antibiotics."},
-  {cat:"Prokaryotes",term:"Conjugation",def:"Direct DNA transfer between bacteria through a pilus. Often transfers plasmids with antibiotic resistance."},
-  {cat:"Prokaryotes",term:"Transformation",def:"Uptake of free DNA from the environment by a bacterium."},
-  {cat:"Prokaryotes",term:"Transduction",def:"Transfer of DNA between bacteria via a bacteriophage (virus)."},
-  {cat:"Prokaryotes",term:"Nitrogen Fixation",def:"Conversion of atmospheric N₂ to ammonia (NH₃) by certain bacteria. Essential for making nitrogen available to plants."},
-  {cat:"Protists",term:"Endosymbiotic Theory",def:"Mitochondria evolved from engulfed aerobic bacteria; chloroplasts from engulfed cyanobacteria. Evidence: double membrane, own DNA, 70S ribosomes."},
-  {cat:"Protists",term:"Apicomplexans",def:"Alveolates that are all parasitic, with an apical complex for host cell invasion. Includes Plasmodium (malaria)."},
-  {cat:"Protists",term:"Diatoms",def:"Stramenopiles with glass-like silica cell walls. Major marine photosynthesizers and oxygen producers."},
-  {cat:"Protists",term:"Choanoflagellates",def:"Colonial flagellated protists that are the closest living relatives of animals."},
-  {cat:"Plants",term:"Alternation of Generations",def:"Plant life cycle alternates between haploid gametophyte (produces gametes) and diploid sporophyte (produces spores)."},
-  {cat:"Plants",term:"Bryophytes",def:"Non-vascular plants (mosses, liverworts, hornworts). Dominant gametophyte, flagellated sperm, require moist habitat."},
-  {cat:"Plants",term:"Gymnosperms",def:"Seed plants without flowers. Seeds are 'naked' (not in fruit). Include conifers, cycads, ginkgo. Use pollen, have cones."},
-  {cat:"Plants",term:"Angiosperms",def:"Flowering plants. Seeds enclosed in fruit. Double fertilization produces triploid endosperm. Most diverse plant group."},
-  {cat:"Plants",term:"Double Fertilization",def:"Unique to angiosperms: one sperm + egg = zygote (2n); second sperm + 2 polar nuclei = endosperm (3n)."},
-  {cat:"Plants",term:"Xylem vs. Phloem",def:"Xylem: transports water and minerals UP from roots (dead cells). Phloem: transports sugars from source to sink (living cells)."},
-  {cat:"Plants",term:"Monocots vs. Eudicots",def:"Monocots: 1 cotyledon, parallel veins, flower parts in 3s. Eudicots: 2 cotyledons, net veins, flower parts in 4s or 5s."},
-  {cat:"Fungi",term:"Chitin",def:"The structural polysaccharide in fungal cell walls (also found in arthropod exoskeletons). Distinguishes fungi from plants."},
-  {cat:"Fungi",term:"Mycelium",def:"Network of fungal hyphae. Provides enormous surface area for absorptive nutrition."},
-  {cat:"Fungi",term:"Mycorrhizae",def:"Mutualistic association of fungi and plant roots. Fungus gets sugars; plant gets enhanced water and phosphorus uptake."},
-  {cat:"Fungi",term:"Lichens",def:"Mutualism between a fungus (usually ascomycete) and a photosynthetic partner (alga or cyanobacterium). Pioneer species."},
-  {cat:"Animals",term:"Protostome vs. Deuterostome",def:"Protostome: blastopore → mouth; spiral cleavage. Deuterostome: blastopore → anus; radial cleavage."},
-  {cat:"Animals",term:"Cnidaria",def:"Radial symmetry, diploblastic, cnidocytes (stinging cells), polyp and medusa forms. Jellyfish, coral, hydra."},
-  {cat:"Animals",term:"Arthropoda",def:"Most diverse phylum. Exoskeleton of chitin, jointed appendages, segmented body, open circulatory system."},
-  {cat:"Animals",term:"Complete vs. Incomplete Metamorphosis",def:"Complete: egg → larva → pupa → adult (butterfly). Incomplete: egg → nymph → adult (grasshopper)."},
-  {cat:"Animals",term:"Water Vascular System",def:"Unique to echinoderms. Hydraulic system powers tube feet for locomotion, feeding, and gas exchange."},
-  {cat:"Vertebrates",term:"Four Chordate Characters",def:"Notochord, dorsal hollow nerve cord, pharyngeal slits, post-anal tail. Present at some stage in all chordates."},
-  {cat:"Vertebrates",term:"Amniotic Egg",def:"Has four membranes: amnion (fluid), chorion (gas exchange), allantois (waste), yolk sac (nutrition). Frees reproduction from water."},
-  {cat:"Vertebrates",term:"Ectotherm vs. Endotherm",def:"Ectotherms use external heat (fish, amphibians, reptiles). Endotherms generate internal heat (birds, mammals). Endothermy requires more food."},
-  {cat:"Vertebrates",term:"Monotremes",def:"Egg-laying mammals (platypus, echidna). Have hair and produce milk but lack nipples."},
-  {cat:"Ecology",term:"Exponential Growth",def:"dN/dt = rN. J-shaped curve. Occurs with unlimited resources. Population grows faster as it gets larger."},
-  {cat:"Ecology",term:"Logistic Growth",def:"dN/dt = rN(K-N)/K. S-shaped curve. Growth slows as population approaches carrying capacity (K)."},
-  {cat:"Ecology",term:"Competitive Exclusion",def:"Two species with identical niches cannot coexist indefinitely. One will outcompete the other."},
-  {cat:"Ecology",term:"Keystone Species",def:"A species with a disproportionately large community impact relative to its abundance. Removal causes major changes."},
-  {cat:"Ecology",term:"10% Rule",def:"Only ~10% of energy transfers between trophic levels. Limits food chain length to 4-5 levels."},
-  {cat:"Ecology",term:"Primary Succession",def:"Colonization of a lifeless area (bare rock, new volcanic island). Starts with pioneer species like lichens."},
-  {cat:"Ecology",term:"Secondary Succession",def:"Recovery of a disturbed community where soil remains (after fire, farming). Faster than primary succession."},
-  {cat:"Ecology",term:"HIPPO Threats",def:"Habitat loss, Invasive species, Pollution, Population growth, Overexploitation. Major threats to biodiversity."},
-];
-
-// ==================== SHORT ANSWER DATA ====================
-const saData = [
-  {q:"Explain why natural selection is considered the only adaptive mechanism of evolution, and contrast it with genetic drift.",
-   concepts:[{term:"natural selection",weight:2},{term:"adaptive",weight:2},{term:"fitness",weight:1},{term:"genetic drift",weight:2},{term:"random",weight:1},{term:"small population",weight:1},{term:"non-adaptive",weight:1},{term:"allele frequency",weight:1}],
-   model:"Natural selection is the only adaptive mechanism because it consistently improves the match between organisms and their environment by favoring individuals with traits that increase fitness. Genetic drift, by contrast, is random change in allele frequencies caused by chance events, most pronounced in small populations. Drift is non-adaptive because changes are not related to fitness, meaning alleles can increase or decrease regardless of whether they are beneficial."},
-  {q:"Describe the endosymbiotic theory and list at least three pieces of evidence supporting it.",
-   concepts:[{term:"endosymbiosis",weight:2},{term:"mitochondria",weight:2},{term:"chloroplast",weight:2},{term:"aerobic bacteria",weight:1},{term:"cyanobacteria",weight:1},{term:"double membrane",weight:2},{term:"own DNA",weight:2},{term:"circular",weight:1},{term:"70S ribosome",weight:1},{term:"binary fission",weight:1}],
-   model:"The endosymbiotic theory proposes that mitochondria evolved from engulfed aerobic bacteria and chloroplasts from engulfed cyanobacteria. Evidence includes: both organelles have double membranes (inner from the engulfed cell, outer from the host's vacuole), their own circular DNA similar to bacterial DNA, 70S ribosomes (bacterial type, not the 80S found in the eukaryotic cytoplasm), and they replicate by a process resembling binary fission, independent of cell division."},
-  {q:"Compare and contrast allopatric and sympatric speciation. Include the role of polyploidy.",
-   concepts:[{term:"allopatric",weight:2},{term:"geographic",weight:2},{term:"barrier",weight:1},{term:"sympatric",weight:2},{term:"without geographic",weight:1},{term:"polyploidy",weight:2},{term:"autopolyploid",weight:1},{term:"allopolyploid",weight:1},{term:"reproductive isolation",weight:1},{term:"plants",weight:1}],
-   model:"Allopatric speciation occurs when populations are separated by a geographic barrier (mountain, river, ocean), preventing gene flow and allowing independent evolution and reproductive isolation. Sympatric speciation occurs without geographic separation, often through polyploidy in plants. An autopolyploid gains extra chromosome sets from its own species (e.g., failed meiosis producing 4n), while an allopolyploid results from hybridization between two species followed by chromosome doubling. Polyploidy creates instant reproductive isolation because polyploid offspring cannot successfully mate with the parent species."},
-  {q:"Explain alternation of generations in plants and describe the trend from bryophytes to angiosperms.",
-   concepts:[{term:"alternation of generations",weight:2},{term:"gametophyte",weight:2},{term:"sporophyte",weight:2},{term:"haploid",weight:1},{term:"diploid",weight:1},{term:"spore",weight:1},{term:"gamete",weight:1},{term:"bryophyte",weight:1},{term:"dominant gametophyte",weight:1},{term:"dominant sporophyte",weight:1},{term:"reduced",weight:1},{term:"angiosperm",weight:1}],
-   model:"Alternation of generations is the plant life cycle in which a multicellular haploid gametophyte (which produces gametes by mitosis) alternates with a multicellular diploid sporophyte (which produces spores by meiosis). In bryophytes, the gametophyte is the dominant, visible stage and the sporophyte is small and dependent. The evolutionary trend is toward increasing dominance of the sporophyte and reduction of the gametophyte. In ferns, the sporophyte is dominant but the gametophyte is still independent. In seed plants (gymnosperms and angiosperms), the sporophyte is overwhelmingly dominant and the gametophyte is reduced to microscopic structures (pollen grain and embryo sac)."},
-  {q:"Describe the difference between protostomes and deuterostomes and give examples of phyla in each group.",
-   concepts:[{term:"protostome",weight:2},{term:"deuterostome",weight:2},{term:"blastopore",weight:2},{term:"mouth",weight:1},{term:"anus",weight:1},{term:"spiral cleavage",weight:1},{term:"radial cleavage",weight:1},{term:"arthropod",weight:1},{term:"mollusk",weight:1},{term:"annelid",weight:1},{term:"echinoderm",weight:1},{term:"chordate",weight:1}],
-   model:"In protostomes, the blastopore (first opening in embryonic development) becomes the mouth, and they typically exhibit spiral cleavage. Protostome phyla include Arthropoda, Mollusca, Annelida, Nematoda, and Platyhelminthes. In deuterostomes, the blastopore becomes the anus (the mouth forms second), and they exhibit radial cleavage. Deuterostome phyla include Echinodermata and Chordata. This fundamental difference in embryonic development reflects a deep evolutionary split."},
-  {q:"Explain the 10% rule in ecosystem ecology and why food chains are typically limited to 4-5 trophic levels.",
-   concepts:[{term:"10%",weight:2},{term:"energy",weight:2},{term:"trophic level",weight:2},{term:"transfer",weight:1},{term:"heat",weight:1},{term:"cellular respiration",weight:1},{term:"lost",weight:1},{term:"producer",weight:1},{term:"consumer",weight:1},{term:"food chain",weight:1},{term:"limited",weight:1}],
-   model:"The 10% rule states that only about 10% of energy at one trophic level is transferred to the next level. The other 90% is lost primarily as heat through cellular respiration at each level. This means that by the time energy reaches a tertiary or quaternary consumer, very little of the original energy captured by producers remains available. This progressive energy loss limits food chains to about 4-5 trophic levels because there is simply not enough energy to support additional levels of consumers."},
-  {q:"Compare r-selected and K-selected species and explain when each strategy is advantageous.",
-   concepts:[{term:"r-selected",weight:2},{term:"K-selected",weight:2},{term:"reproductive rate",weight:1},{term:"parental care",weight:1},{term:"carrying capacity",weight:1},{term:"unstable",weight:1},{term:"stable",weight:1},{term:"small body",weight:1},{term:"large body",weight:1},{term:"many offspring",weight:1},{term:"few offspring",weight:1}],
-   model:"r-selected species have high reproductive rates, produce many small offspring with little parental care, have small body size and short lifespans. This strategy is advantageous in unstable or unpredictable environments where rapid reproduction can exploit temporary resources. K-selected species have low reproductive rates, produce few large offspring with extensive parental care, have large body size and long lifespans. This strategy is advantageous in stable environments near carrying capacity where competition is intense and offspring quality matters more than quantity."},
-  {q:"Describe the ecological role of fungi, including their importance as decomposers and mutualists.",
-   concepts:[{term:"decomposer",weight:2},{term:"absorptive",weight:1},{term:"nutrient cycling",weight:1},{term:"carbon",weight:1},{term:"nitrogen",weight:1},{term:"mycorrhizae",weight:2},{term:"phosphorus",weight:1},{term:"mutualist",weight:1},{term:"lichen",weight:1},{term:"plant roots",weight:1},{term:"break down",weight:1}],
-   model:"Fungi are essential decomposers that break down dead organic matter by secreting digestive enzymes externally and absorbing the released nutrients (absorptive heterotrophy). This recycling releases carbon, nitrogen, and other elements back into the ecosystem. As mutualists, fungi form mycorrhizae with plant roots, where the fungus provides enhanced water and phosphorus uptake while receiving sugars from the plant. Approximately 80-90% of plant species depend on mycorrhizal associations. Lichens represent another mutualism where a fungus partners with a photosynthetic alga or cyanobacterium, enabling colonization of bare rock as pioneer species."}
-];
-
-// ==================== QUIZ ENGINE ====================
-(function(){
-  const c=document.getElementById('quizContainer');
-  let score=0,answered=0;
-  quizData.forEach((q,qi)=>{
-    const div=document.createElement('div');div.className='quiz-q';
-    div.innerHTML='<p>'+(qi+1)+'. '+q.q+'</p>';
-    const expDiv=document.createElement('div');expDiv.className='quiz-explain';expDiv.textContent=q.exp;
-    q.opts.forEach((o,oi)=>{
-      const btn=document.createElement('button');btn.className='quiz-opt';btn.textContent=o;
-      btn.addEventListener('click',()=>{
-        if(div.dataset.done) return; div.dataset.done='1';answered++;
-        div.querySelectorAll('.quiz-opt').forEach((b,bi)=>{
-          b.disabled=true;
-          if(bi===q.ans) b.classList.add('correct');
-          if(bi===oi&&oi!==q.ans) b.classList.add('incorrect');
-        });
-        if(oi===q.ans) score++;
-        expDiv.style.display='block';
-        if(answered===quizData.length){const s=document.getElementById('quizScore');s.style.display='block';s.textContent='Score: '+score+' / '+quizData.length+' ('+Math.round(score/quizData.length*100)+'%)';}
-      });
-      div.appendChild(btn);
-    });
-    div.appendChild(expDiv);c.appendChild(div);
+// ============ QUIZ ENGINE ============
+let quizIndex = 0, quizScore = 0;
+function buildQuiz() {
+  const c = document.getElementById('quiz-container');
+  c.innerHTML = '';
+  const q = quizQuestions[quizIndex];
+  let html = '<div class="quiz-question"><p>' + (quizIndex + 1) + '. ' + q.q + '</p>';
+  q.options.forEach((opt, i) => {
+    html += '<button class="quiz-option" onclick="answerQuiz(' + i + ')">' + opt + '</button>';
   });
-})();
+  html += '<div class="quiz-explanation" id="quiz-exp">' + q.explanation + '</div></div>';
+  c.innerHTML = html;
+  document.getElementById('quiz-progress').textContent = 'Question ' + (quizIndex + 1) + ' of ' + quizQuestions.length + ' | Score: ' + quizScore;
+}
 
-// ==================== FLASHCARD ENGINE ====================
-(function(){
-  const cats=[...new Set(flashcardData.map(f=>f.cat))];
-  const ctrl=document.getElementById('fcControls');
-  let activeCat='All',filtered=[...flashcardData],idx=0;
-  const allBtn=document.createElement('button');allBtn.className='fc-btn active';allBtn.textContent='All';
-  allBtn.addEventListener('click',()=>filterCat('All'));ctrl.appendChild(allBtn);
-  cats.forEach(cat=>{const b=document.createElement('button');b.className='fc-btn';b.textContent=cat;b.addEventListener('click',()=>filterCat(cat));ctrl.appendChild(b);});
-  function filterCat(cat){activeCat=cat;filtered=cat==='All'?[...flashcardData]:flashcardData.filter(f=>f.cat===cat);idx=0;ctrl.querySelectorAll('.fc-btn').forEach(b=>b.classList.toggle('active',b.textContent===cat));render();}
-  function render(){if(!filtered.length)return;const f=filtered[idx];document.getElementById('fcLabel').textContent=f.cat.toUpperCase();document.getElementById('fcTerm').textContent=f.term;document.getElementById('fcBack').textContent=f.def;document.getElementById('fcCard').classList.remove('flipped');document.getElementById('fcCounter').textContent=(idx+1)+' / '+filtered.length;}
-  document.getElementById('fcWrapper').addEventListener('click',()=>document.getElementById('fcCard').classList.toggle('flipped'));
-  document.getElementById('fcPrev').addEventListener('click',()=>{idx=(idx-1+filtered.length)%filtered.length;render();});
-  document.getElementById('fcNext').addEventListener('click',()=>{idx=(idx+1)%filtered.length;render();});
-  document.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){idx=(idx-1+filtered.length)%filtered.length;render();}else if(e.key==='ArrowRight'){idx=(idx+1)%filtered.length;render();}});
-  render();
-})();
-
-// ==================== SHORT ANSWER ENGINE ====================
-(function(){
-  const c=document.getElementById('saContainer');
-  saData.forEach((q,qi)=>{
-    const div=document.createElement('div');div.className='sa-block';
-    div.innerHTML='<p>'+(qi+1)+'. '+q.q+'</p>';
-    const ta=document.createElement('textarea');ta.className='sa-input';ta.placeholder='Type your answer here...';div.appendChild(ta);
-    const btn=document.createElement('button');btn.className='sa-submit';btn.textContent='Check Answer';div.appendChild(btn);
-    const res=document.createElement('div');res.className='sa-result';div.appendChild(res);
-    btn.addEventListener('click',()=>{
-      const ans=ta.value.toLowerCase();
-      let totalW=0,earnedW=0;const tags=[];
-      q.concepts.forEach(con=>{
-        totalW+=con.weight;
-        const terms=con.term.toLowerCase().split(' ');
-        const hit=terms.every(t=>ans.includes(t));
-        if(hit){earnedW+=con.weight;tags.push({t:con.term,hit:true});}else{tags.push({t:con.term,hit:false});}
-      });
-      const pct=Math.round(earnedW/totalW*100);
-      const color=pct>=70?'#28a745':pct>=40?'#ffc107':'#dc3545';
-      res.style.display='block';
-      var tagsHtml=tags.map(function(t){return '<span class="sa-tag '+(t.hit?'hit':'miss')+'">'+(t.hit?'&#10003;':'&#10007;')+' '+t.t+'</span>';}).join('');
-      res.innerHTML='<div class="sa-bar"><div class="sa-fill" style="width:'+pct+'%;background:'+color+';"></div></div><div style="font-weight:600;color:'+color+';">'+pct+'% concept match</div><div class="sa-tags">'+tagsHtml+'</div><div class="sa-model"><button class="sa-toggle">Show model answer</button><div class="sa-model-text">'+q.model+'</div></div>';
-      res.querySelector('.sa-toggle').addEventListener('click',function(){var m=this.nextElementSibling;m.style.display=m.style.display==="block"?"none":"block";});
-    });
-    c.appendChild(div);
+function answerQuiz(selected) {
+  const q = quizQuestions[quizIndex];
+  const buttons = document.querySelectorAll('.quiz-option');
+  buttons.forEach((b, i) => {
+    b.disabled = true;
+    if (i === q.correct) b.classList.add('correct');
+    if (i === selected && selected !== q.correct) b.classList.add('incorrect');
   });
-})();
+  if (selected === q.correct) quizScore++;
+  document.getElementById('quiz-exp').style.display = 'block';
+  document.getElementById('quiz-progress').textContent = 'Question ' + (quizIndex + 1) + ' of ' + quizQuestions.length + ' | Score: ' + quizScore;
+  setTimeout(() => {
+    quizIndex++;
+    if (quizIndex < quizQuestions.length) { buildQuiz(); }
+    else {
+      document.getElementById('quiz-container').innerHTML = '';
+      const pct = Math.round(quizScore / quizQuestions.length * 100);
+      document.getElementById('quiz-final').style.display = 'block';
+      document.getElementById('quiz-final').textContent = 'Final Score: ' + quizScore + ' / ' + quizQuestions.length + ' (' + pct + '%)';
+    }
+  }, 2200);
+}
 
-// ==================== BACK TO TOP ====================
-const btt=document.getElementById('backToTop');
-window.addEventListener('scroll',()=>btt.classList.toggle('visible',window.scrollY>400));
-btt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+// ============ FLASHCARD DATA ============
+const flashcards = [
+  { front: "What are the three domains of life?", back: "Bacteria, Archaea, and Eukarya", cat: "Tree of Life" },
+  { front: "Who proposed the three-domain system?", back: "Carl Woese, based on ribosomal RNA comparisons", cat: "Tree of Life" },
+  { front: "What is a monophyletic group (clade)?", back: "A group that includes an ancestor and ALL of its descendants", cat: "Tree of Life" },
+  { front: "Homologous vs. analogous structures?", back: "Homologous: shared evolutionary origin (bat wing/human arm). Analogous: similar function, different origin (bird wing/insect wing = convergent evolution)", cat: "Tree of Life" },
+  { front: "What is peptidoglycan?", back: "A polymer of sugars and amino acids forming bacterial cell walls. Thick in Gram-positive, thin in Gram-negative.", cat: "Bacteria" },
+  { front: "Gram-positive vs. Gram-negative?", back: "Gram+: thick peptidoglycan, stains purple. Gram-: thin peptidoglycan + outer membrane with LPS, stains pink.", cat: "Bacteria" },
+  { front: "Three bacterial shapes?", back: "Coccus (sphere), Bacillus (rod), Spirillum/Spirochete (spiral)", cat: "Bacteria" },
+  { front: "Three types of horizontal gene transfer?", back: "Transformation (free DNA uptake), Transduction (via phage), Conjugation (via pilus, F plasmid)", cat: "Bacteria" },
+  { front: "What is a photoautotroph?", back: "An organism that uses light for energy and CO₂ for carbon. Example: cyanobacteria, plants.", cat: "Bacteria" },
+  { front: "How do Archaea differ from Bacteria?", back: "Ether-linked lipids, no peptidoglycan, RNA polymerase more like eukaryotes, not known to cause disease", cat: "Bacteria" },
+  { front: "Why are protists considered polyphyletic?", back: "They do not share a single common ancestor exclusive to the group. 'Protist' is a convenience label for eukaryotes that are not plants, animals, or fungi.", cat: "Protists" },
+  { front: "What is Plasmodium and how is it transmitted?", back: "An apicomplexan protist that causes malaria, transmitted by Anopheles mosquitoes", cat: "Protists" },
+  { front: "Which algae are closest relatives of land plants?", back: "Green algae, specifically Charophytes. They share chlorophylls a & b, cellulose walls, and starch storage.", cat: "Protists" },
+  { front: "What caused the Irish potato famine?", back: "Phytophthora infestans, an oomycete (water mold) protist. Not a true fungus (has cellulose walls, not chitin).", cat: "Protists" },
+  { front: "What are dinoflagellates known for?", back: "Two flagella, cellulose plates, some cause red tides, some are bioluminescent", cat: "Protists" },
+  { front: "What makes up fungal cell walls?", back: "Chitin (same polysaccharide in arthropod exoskeletons)", cat: "Fungi" },
+  { front: "Hyphae vs. Mycelium?", back: "Hyphae are individual thread-like filaments. Mycelium is the entire network of hyphae forming the fungal body.", cat: "Fungi" },
+  { front: "Four fungal phyla?", back: "Chytridiomycota (flagellated spores), Zygomycota (bread molds), Ascomycota (sac fungi), Basidiomycota (club fungi/mushrooms)", cat: "Fungi" },
+  { front: "What are mycorrhizae?", back: "Mutualistic associations between fungi and plant roots. Fungus enhances water/mineral absorption; plant provides sugars. ~90% of plants have them.", cat: "Fungi" },
+  { front: "What is a lichen?", back: "A mutualism between a fungus (usually ascomycete) and a photosynthetic partner (green alga or cyanobacterium)", cat: "Fungi" },
+  { front: "What is alternation of generations?", back: "Life cycle alternating between diploid sporophyte (produces spores by meiosis) and haploid gametophyte (produces gametes by mitosis)", cat: "Plants" },
+  { front: "Four major plant groups?", back: "Bryophytes (nonvascular, no seeds), Seedless vascular (ferns), Gymnosperms (naked seeds), Angiosperms (flowering, enclosed seeds)", cat: "Plants" },
+  { front: "Why do bryophytes need water for reproduction?", back: "Their sperm are flagellated and must swim through water to reach the egg. They also lack vascular tissue.", cat: "Plants" },
+  { front: "Monocot vs. eudicot cotyledons?", back: "Monocots: 1 cotyledon. Eudicots: 2 cotyledons.", cat: "Plants" },
+  { front: "Key land plant adaptations?", back: "Cuticle (prevents water loss), stomata (gas exchange), vascular tissue (transport), seeds (protection), pollen (no water needed for fertilization)", cat: "Plants" },
+  { front: "Three germ layers and what they form?", back: "Ectoderm → skin, nervous system. Mesoderm → muscle, bone, circulatory. Endoderm → gut lining, lungs, liver.", cat: "Animals" },
+  { front: "Protostome vs. deuterostome mouth formation?", back: "Protostome: blastopore becomes mouth first. Deuterostome: blastopore becomes anus; mouth forms second.", cat: "Animals" },
+  { front: "What are the four membranes of an amniotic egg?", back: "Amnion (fluid cushion), Chorion (gas exchange), Allantois (waste storage), Yolk sac (nutrition)", cat: "Animals" },
+  { front: "Open vs. closed circulatory system?", back: "Open: hemolymph bathes organs in hemocoel (arthropods, most mollusks). Closed: blood in vessels, higher pressure (annelids, cephalopods, vertebrates).", cat: "Animals" },
+  { front: "Ectotherm vs. endotherm?", back: "Ectotherm: body temp from environment (fish, amphibians, reptiles). Endotherm: generates own heat via metabolism (birds, mammals).", cat: "Animals" },
+  { front: "Key features of Phylum Arthropoda?", back: "Exoskeleton of chitin, jointed appendages, segmented body, open circulatory system, most species-rich animal phylum", cat: "Invertebrates" },
+  { front: "How many legs do insects have? Arachnids?", back: "Insects: 6 legs (3 pairs). Arachnids: 8 legs (4 pairs, no antennae).", cat: "Invertebrates" },
+  { front: "Three parts of the mollusk body plan?", back: "Muscular foot (movement), visceral mass (organs), mantle (may secrete shell)", cat: "Invertebrates" },
+  { front: "What is unique about echinoderms?", back: "Deuterostomes with radial symmetry as adults, water vascular system, endoskeleton of calcium carbonate plates", cat: "Invertebrates" },
+  { front: "Four defining features of chordates?", back: "Notochord, dorsal hollow nerve cord, pharyngeal slits, post-anal tail (at some life stage)", cat: "Vertebrates" },
+  { front: "How many heart chambers do fish, amphibians, and mammals have?", back: "Fish: 2 (1 atrium, 1 ventricle). Amphibians: 3 (2 atria, 1 ventricle). Mammals/birds: 4 (complete separation).", cat: "Vertebrates" },
+  { front: "Three mammal subgroups?", back: "Monotremes (lay eggs: platypus), Marsupials (pouch: kangaroo), Placental/Eutherians (placenta: most mammals)", cat: "Vertebrates" },
+  { front: "What does xylem transport? Phloem?", back: "Xylem: water and minerals upward (dead cells). Phloem: sugars (sucrose) from source to sink (living cells).", cat: "Plant Function" },
+  { front: "What is transpiration-cohesion-tension?", back: "Water evaporates from stomata (transpiration) → creates tension → pulls water up xylem via cohesion (H-bonds) and adhesion (sticking to walls)", cat: "Plant Function" },
+  { front: "What is double fertilization?", back: "In angiosperms: one sperm + egg = zygote (2n), second sperm + 2 polar nuclei = endosperm (3n). Ovule becomes seed, ovary becomes fruit.", cat: "Plant Function" },
+  { front: "Exponential vs. logistic growth?", back: "Exponential (J-curve): dN/dt = rN, unlimited growth. Logistic (S-curve): dN/dt = rN(K-N)/K, levels off at carrying capacity K.", cat: "Ecology" },
+  { front: "What is a keystone species?", back: "A species with disproportionately large impact on its community relative to its abundance. Removing it causes major community changes.", cat: "Ecology" },
+  { front: "r-selected vs. K-selected species?", back: "r-selected: many offspring, little care (insects). K-selected: few offspring, much care (elephants, whales).", cat: "Ecology" },
+  { front: "What is the 10% rule?", back: "Only ~10% of energy at one trophic level is transferred to the next. The rest is lost as heat via cellular respiration.", cat: "Ecology" },
+  { front: "HIPPO threats to biodiversity?", back: "Habitat loss, Invasive species, Pollution, Population (human), Overexploitation. Habitat loss is the greatest single threat.", cat: "Ecology" }
+];
+
+// ============ FLASHCARD ENGINE ============
+let fcIndex = 0, fcFiltered = [...flashcards];
+function buildFilters() {
+  const cats = [...new Set(flashcards.map(f => f.cat))];
+  const el = document.getElementById('fc-filters');
+  let html = '<button class="fc-filter-btn active" onclick="filterCards(\'all\', this)">All</button>';
+  cats.forEach(c => { html += '<button class="fc-filter-btn" onclick="filterCards(\'' + c + '\', this)">' + c + '</button>'; });
+  el.innerHTML = html;
+}
+function filterCards(cat, btn) {
+  document.querySelectorAll('.fc-filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  fcFiltered = cat === 'all' ? [...flashcards] : flashcards.filter(f => f.cat === cat);
+  fcIndex = 0;
+  showCard();
+}
+function showCard() {
+  const card = document.getElementById('fc-card');
+  card.classList.remove('flipped');
+  document.getElementById('fc-front').textContent = fcFiltered[fcIndex].front;
+  document.getElementById('fc-back').textContent = fcFiltered[fcIndex].back;
+  document.getElementById('fc-counter').textContent = (fcIndex + 1) + ' / ' + fcFiltered.length;
+}
+function flipCard() { document.getElementById('fc-card').classList.toggle('flipped'); }
+function nextCard() { fcIndex = (fcIndex + 1) % fcFiltered.length; showCard(); }
+function prevCard() { fcIndex = (fcIndex - 1 + fcFiltered.length) % fcFiltered.length; showCard(); }
+function buildFlashcards() { showCard(); }
+
+// ============ SHORT ANSWER DATA ============
+const saQuestions = [
+  {
+    q: "Explain the difference between Gram-positive and Gram-negative bacteria. Why does this distinction matter medically?",
+    concepts: [
+      { label: "thick peptidoglycan", terms: ["thick peptidoglycan", "thick cell wall", "thick wall"], weight: 2 },
+      { label: "retains crystal violet / stains purple", terms: ["crystal violet", "purple", "retains stain", "stains purple"], weight: 1 },
+      { label: "thin peptidoglycan with outer membrane", terms: ["thin peptidoglycan", "outer membrane", "thin wall"], weight: 2 },
+      { label: "lipopolysaccharides (LPS)", terms: ["lps", "lipopolysaccharide", "endotoxin"], weight: 1 },
+      { label: "stains pink with safranin", terms: ["safranin", "pink", "counterstain"], weight: 1 },
+      { label: "medical relevance (antibiotic resistance, treatment)", terms: ["antibiotic", "treatment", "resistance", "medical", "penicillin"], weight: 1 }
+    ],
+    fullAnswer: "Gram-positive bacteria have a thick peptidoglycan cell wall that retains crystal violet stain, appearing purple. Gram-negative bacteria have a thin peptidoglycan layer surrounded by an outer membrane containing lipopolysaccharides (LPS), staining pink with the safranin counterstain. This distinction matters medically because it affects antibiotic susceptibility. The outer membrane of Gram-negative bacteria makes them more resistant to many antibiotics, and LPS can trigger severe immune responses (endotoxic shock)."
+  },
+  {
+    q: "Describe the process of double fertilization in angiosperms and explain what structures develop from it.",
+    concepts: [
+      { label: "one sperm + egg = zygote (2n)", terms: ["sperm", "egg", "zygote", "2n"], weight: 2 },
+      { label: "second sperm + polar nuclei = endosperm (3n)", terms: ["endosperm", "3n", "polar nuclei", "triploid", "second sperm"], weight: 2 },
+      { label: "ovule becomes seed", terms: ["ovule", "seed"], weight: 1 },
+      { label: "ovary becomes fruit", terms: ["ovary", "fruit"], weight: 1 },
+      { label: "unique to angiosperms", terms: ["angiosperm", "flowering plant", "unique"], weight: 1 }
+    ],
+    fullAnswer: "In double fertilization, a pollen tube delivers two sperm to the ovule. One sperm fuses with the egg cell to form a diploid zygote (2n), which develops into the embryo. The second sperm fuses with two polar nuclei to form the triploid endosperm (3n), which provides nutrition for the developing embryo. After fertilization, the ovule develops into the seed and the ovary develops into the fruit. This process is unique to angiosperms (flowering plants)."
+  },
+  {
+    q: "Compare and contrast protostome and deuterostome development. Give examples of each.",
+    concepts: [
+      { label: "blastopore becomes mouth in protostomes", terms: ["mouth first", "blastopore.*mouth", "proto.*mouth"], weight: 2 },
+      { label: "blastopore becomes anus in deuterostomes", terms: ["anus first", "blastopore.*anus", "mouth second", "deutero.*anus"], weight: 2 },
+      { label: "spiral determinate cleavage vs radial indeterminate", terms: ["spiral", "radial", "determinate", "indeterminate", "cleavage"], weight: 1 },
+      { label: "protostome examples (arthropods, mollusks, annelids)", terms: ["arthropod", "mollusk", "annelid", "insect"], weight: 1 },
+      { label: "deuterostome examples (echinoderms, chordates)", terms: ["echinoderm", "chordate", "vertebrate", "sea star"], weight: 1 }
+    ],
+    fullAnswer: "In protostome development, the blastopore (first opening in the embryo) becomes the mouth, cleavage is spiral and determinate, and the coelom forms by splitting of mesoderm (schizocoely). Examples include arthropods, mollusks, and annelids. In deuterostome development, the blastopore becomes the anus (mouth forms second), cleavage is radial and indeterminate, and the coelom forms from outpocketings of the gut (enterocoely). Examples include echinoderms and chordates."
+  },
+  {
+    q: "Explain how the transpiration-cohesion-tension mechanism moves water from roots to leaves in plants.",
+    concepts: [
+      { label: "transpiration (evaporation from stomata/leaves)", terms: ["transpiration", "evaporat", "stomata", "leaves"], weight: 2 },
+      { label: "creates tension/negative pressure in xylem", terms: ["tension", "negative pressure", "pull"], weight: 2 },
+      { label: "cohesion (H-bonds between water molecules)", terms: ["cohesion", "hydrogen bond", "h-bond", "water.*water"], weight: 2 },
+      { label: "adhesion (water sticking to xylem walls)", terms: ["adhesion", "stick", "xylem wall", "cling"], weight: 1 },
+      { label: "continuous water column in xylem", terms: ["column", "continuous", "xylem", "chain"], weight: 1 }
+    ],
+    fullAnswer: "Water evaporates from leaf stomata through transpiration, creating negative pressure (tension) at the top of the plant. Due to cohesion (hydrogen bonds between water molecules), this tension pulls a continuous column of water upward through the xylem. Adhesion (water molecules sticking to the xylem cell walls) also helps maintain the water column and prevent it from breaking. This mechanism does not require energy expenditure by the plant; it is driven entirely by solar energy causing evaporation at the leaf surface."
+  },
+  {
+    q: "Why are fungi not classified as plants? Describe at least three key differences.",
+    concepts: [
+      { label: "no photosynthesis / heterotrophic", terms: ["heterotroph", "no photosynthes", "cannot photosynthes", "don't photosynthes", "absorb"], weight: 2 },
+      { label: "chitin cell walls, not cellulose", terms: ["chitin", "not cellulose"], weight: 2 },
+      { label: "absorptive nutrition / external digestion", terms: ["absorb", "external digestion", "secrete enzyme", "digest externally"], weight: 2 },
+      { label: "store glycogen, not starch", terms: ["glycogen", "not starch"], weight: 1 },
+      { label: "closer to animals genetically", terms: ["animal", "opisthokon", "genetically closer", "more related"], weight: 1 }
+    ],
+    fullAnswer: "Fungi are not plants because they are fundamentally different in nutrition, structure, and evolutionary history. Fungi are heterotrophic (they cannot photosynthesize) and obtain nutrition by secreting digestive enzymes externally and absorbing the resulting nutrients (absorptive heterotrophy). Their cell walls are made of chitin, not cellulose. They store energy as glycogen, not starch. Molecular evidence shows fungi are actually more closely related to animals than to plants; both belong to the clade Opisthokonta."
+  },
+  {
+    q: "Describe the difference between r-selected and K-selected species. Give an example of each and explain how survivorship curves relate to these strategies.",
+    concepts: [
+      { label: "r-selected: many offspring, little parental care", terms: ["many offspring", "little care", "r-selected", "r selected", "high reproduct"], weight: 2 },
+      { label: "K-selected: few offspring, high parental investment", terms: ["few offspring", "high investment", "k-selected", "k selected", "parental care"], weight: 2 },
+      { label: "r-selected example (insects, bacteria, fish)", terms: ["insect", "bacteria", "fish", "oyster", "frog"], weight: 1 },
+      { label: "K-selected example (elephant, whale, human)", terms: ["elephant", "whale", "human", "primate"], weight: 1 },
+      { label: "Type I (K) vs Type III (r) survivorship", terms: ["type i", "type iii", "type 1", "type 3", "survivorship"], weight: 2 }
+    ],
+    fullAnswer: "r-selected species invest in producing many offspring with little parental care, maximizing reproductive rate. Examples include insects, bacteria, and many fish. K-selected species produce few offspring with significant parental investment, competing well near carrying capacity. Examples include elephants, whales, and humans. These strategies relate to survivorship curves: K-selected species typically show Type I curves (low mortality until old age), while r-selected species show Type III curves (very high mortality early in life, with few surviving to adulthood). Type II curves show constant mortality at all ages (some birds)."
+  },
+  {
+    q: "Explain the ecological concept of a keystone species. Why is its role considered disproportionate?",
+    concepts: [
+      { label: "disproportionately large effect relative to abundance", terms: ["disproportionate", "large effect", "relative to abundance", "outsized"], weight: 2 },
+      { label: "removal causes major community changes", terms: ["remov", "community change", "cascade", "collapse", "dramatic"], weight: 2 },
+      { label: "example (sea otter, sea star, wolf)", terms: ["sea otter", "otter", "sea star", "wolf", "pisaster"], weight: 1 },
+      { label: "controls other populations", terms: ["control", "regulate", "population", "prey", "top-down"], weight: 1 },
+      { label: "maintains biodiversity/community structure", terms: ["biodiversity", "diversity", "community structure", "balance"], weight: 1 }
+    ],
+    fullAnswer: "A keystone species has an ecological impact that is disproportionately large relative to its abundance in the community. Its role is considered disproportionate because removing it triggers cascading effects that dramatically alter community structure and biodiversity, even though it may not be the most abundant species. The classic example is the sea otter: otters eat sea urchins, which eat kelp. Without otters, urchin populations explode and destroy kelp forests, eliminating habitat for many other species. This shows how a single species can regulate an entire community through top-down control."
+  },
+  {
+    q: "Compare open and closed circulatory systems. Which animal groups use each type, and what are the advantages of a closed system?",
+    concepts: [
+      { label: "open: hemolymph bathes organs in hemocoel", terms: ["hemolymph", "hemocoel", "bathe", "open cavity"], weight: 2 },
+      { label: "open system examples (arthropods, most mollusks)", terms: ["arthropod", "mollusk", "insect", "crab"], weight: 1 },
+      { label: "closed: blood confined to vessels", terms: ["blood in vessel", "confined to vessel", "closed vessel", "blood stays"], weight: 2 },
+      { label: "closed system examples (annelids, cephalopods, vertebrates)", terms: ["annelid", "cephalopod", "vertebrate", "earthworm", "octopus"], weight: 1 },
+      { label: "advantages: higher pressure, more efficient delivery, faster", terms: ["higher pressure", "efficient", "faster", "precise", "direct"], weight: 2 }
+    ],
+    fullAnswer: "In an open circulatory system, hemolymph (a fluid combining blood and interstitial fluid) is pumped by the heart into a hemocoel where it directly bathes the organs. There is no distinction between blood and interstitial fluid. Arthropods and most mollusks use this system. In a closed circulatory system, blood is confined to vessels (arteries, veins, capillaries) and is kept separate from interstitial fluid. Annelids, cephalopods, and all vertebrates use closed systems. Advantages of a closed system include higher blood pressure for more efficient delivery of oxygen and nutrients, faster circulation, and the ability to direct blood flow to specific organs as needed."
+  }
+];
+
+// ============ SHORT ANSWER ENGINE ============
+function buildShortAnswer() {
+  const c = document.getElementById('sa-container');
+  let html = '';
+  saQuestions.forEach((q, i) => {
+    html += '<div class="sa-question"><p>' + (i + 1) + '. ' + q.q + '</p>';
+    html += '<textarea class="sa-textarea" id="sa-input-' + i + '" placeholder="Write your answer here..."></textarea>';
+    html += '<button class="sa-submit" onclick="gradeAnswer(' + i + ')">Check Answer</button>';
+    html += '<div class="sa-loading" id="sa-loading-' + i + '">Analyzing your answer...</div>';
+    html += '<div class="sa-feedback" id="sa-feedback-' + i + '"></div></div>';
+  });
+  c.innerHTML = html;
+}
+
+function gradeAnswer(idx) {
+  const q = saQuestions[idx];
+  const input = document.getElementById('sa-input-' + idx).value.trim().toLowerCase();
+  const btn = event.target;
+  const loading = document.getElementById('sa-loading-' + idx);
+  const fb = document.getElementById('sa-feedback-' + idx);
+
+  if (!input) return;
+  btn.disabled = true;
+  loading.style.display = 'block';
+  fb.className = 'sa-feedback';
+  fb.innerHTML = '';
+
+  setTimeout(() => {
+    let totalWeight = 0, earnedWeight = 0;
+    let matched = [], missed = [];
+
+    q.concepts.forEach(concept => {
+      totalWeight += concept.weight;
+      const found = concept.terms.some(term => {
+        if (term.includes('.*')) {
+          const parts = term.split('.*');
+          return parts.every(p => input.includes(p));
+        }
+        return input.includes(term);
+      });
+      if (found) { earnedWeight += concept.weight; matched.push(concept.label); }
+      else { missed.push(concept); }
+    });
+
+    const pct = earnedWeight / totalWeight;
+    let grade, icon, cls;
+    if (pct >= 0.65) { grade = 'good'; icon = '✓ Strong answer!'; cls = 'grade-good'; }
+    else if (pct >= 0.35) { grade = 'partial'; icon = '○ Getting there!'; cls = 'grade-partial'; }
+    else { grade = 'needs_work'; icon = '✗ Keep working on this one.'; cls = 'grade-needs-work'; }
+
+    let feedback = '';
+    if (matched.length > 0) feedback += 'You correctly addressed: ' + matched.join('; ') + '. ';
+    if (grade === 'good' && missed.length > 0) {
+      feedback += 'To strengthen your answer, also mention: ' + missed.slice(0, 2).map(m => m.label).join('; ') + '.';
+    } else if (grade === 'partial') {
+      feedback += 'Key concepts you missed: ' + missed.slice(0, 3).map(m => m.label).join('; ') + '.';
+    } else if (grade === 'needs_work') {
+      feedback += 'Your answer needs more detail. Key concepts to include: ' + missed.slice(0, 3).map(m => m.label).join('; ') + '.';
+    }
+    feedback += '<br><br><strong>Model answer:</strong> ' + q.fullAnswer;
+
+    loading.style.display = 'none';
+    btn.disabled = false;
+    fb.className = 'sa-feedback show ' + cls;
+    fb.innerHTML = '<strong>' + icon + '</strong> ' + feedback;
+  }, 600);
+}
+
+document.addEventListener('DOMContentLoaded', () => { buildQuiz(); buildFilters(); buildFlashcards(); buildShortAnswer(); });
 </script>
 </body>
 </html>
