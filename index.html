@@ -127,16 +127,47 @@
       .toc-grid { grid-template-columns: 1fr; }
       .tab-btn { padding: 0.6rem 0.8rem; font-size: 0.9rem; }
     }
-  </style>
+  
+/* ─── WCAG 2.1 AA: Visible focus indicators ─── */
+:focus-visible {
+  outline: 3px solid #005fcc !important;
+  outline-offset: 2px !important;
+}
+.tab-btn:focus-visible, .nav-btn:focus-visible {
+  outline: 3px solid #005fcc !important;
+  outline-offset: 2px !important;
+}
+/* ─── Skip link ─── */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: #005fcc;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0 0 6px 6px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  z-index: 9999;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+</style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 
 <div class="hero">
   <h1>Biology II Fundamentals</h1>
   <p>Diversity of Life — The essential facts, comparisons, and definitions you need to know</p>
 </div>
 
-<div class="container">
+<div class="container" id="main-content" role="main">
 
   <!-- TABLE OF CONTENTS -->
   <div class="toc">
@@ -154,7 +185,7 @@
       <a href="#animal-function"><span class="toc-num">10</span>Animal Form &amp; Function</a>
       <a href="#ecology"><span class="toc-num">11</span>Ecology</a>
       <a href="#key-numbers"><span class="toc-num">12</span>Key Numbers &amp; Constants</a>
-      <a href="#interactive"><span class="toc-num">⚡</span>Quiz, Flashcards &amp; Practice</a>
+      <a href="#interactive"><span class="toc-num"><span aria-hidden="true">⚡</span></span>Quiz, Flashcards &amp; Practice</a>
     </div>
   </div>
 
@@ -187,7 +218,7 @@
     <h3>Bacterial Cell Structure</h3>
     <p>All bacteria have a plasma membrane, cytoplasm, ribosomes, and DNA. Most have a cell wall made of peptidoglycan. Gram-positive bacteria have a thick peptidoglycan wall that retains the crystal violet stain (appears purple). Gram-negative bacteria have a thin peptidoglycan layer surrounded by an outer membrane with lipopolysaccharides (LPS), stain pink with safranin counterstain.</p>
 
-    <div class="formula">Gram stain procedure: Crystal violet → Iodine (mordant) → Alcohol decolorizer → Safranin (counterstain)</div>
+    <div class="formula">Gram stain procedure: Crystal violet <span aria-hidden="true">→</span> Iodine (mordant) <span aria-hidden="true">→</span> Alcohol decolorizer <span aria-hidden="true">→</span> Safranin (counterstain)</div>
 
     <h3>Bacterial Shapes</h3>
     <table class="fact-table">
@@ -255,7 +286,7 @@
     <h2>05 — Plant Diversity</h2>
     <p>Plants are multicellular, photosynthetic eukaryotes with cell walls made of cellulose. They evolved from green algae (Charophytes are the closest living relatives). All plants exhibit alternation of generations, cycling between a diploid sporophyte and a haploid gametophyte.</p>
 
-    <div class="formula">Alternation of generations: Sporophyte (2n) → meiosis → spores → Gametophyte (n) → mitosis → gametes → fertilization → Sporophyte (2n)</div>
+    <div class="formula">Alternation of generations: Sporophyte (2n) <span aria-hidden="true">→</span> meiosis <span aria-hidden="true">→</span> spores <span aria-hidden="true">→</span> Gametophyte (n) <span aria-hidden="true">→</span> mitosis <span aria-hidden="true">→</span> gametes <span aria-hidden="true">→</span> fertilization <span aria-hidden="true">→</span> Sporophyte (2n)</div>
 
     <h3>Four Major Plant Groups</h3>
     <table class="fact-table">
@@ -293,7 +324,7 @@
 
     <p>Body cavities: acoelomates have no body cavity (flatworms). Pseudocoelomates have a body cavity not fully lined by mesoderm (roundworms). Coelomates have a true coelom fully lined by mesoderm (annelids, chordates).</p>
 
-    <div class="formula">Ectoderm → skin, nervous system | Mesoderm → muscle, bone, circulatory | Endoderm → gut lining, lungs, liver</div>
+    <div class="formula">Ectoderm <span aria-hidden="true">→</span> skin, nervous system | Mesoderm <span aria-hidden="true">→</span> muscle, bone, circulatory | Endoderm <span aria-hidden="true">→</span> gut lining, lungs, liver</div>
 
     <h3>Protostomes vs. Deuterostomes</h3>
     <table class="fact-table">
@@ -367,7 +398,7 @@
     <h2>09 — Plant Form &amp; Function</h2>
     <p>Vascular plants have two transport tissues: xylem carries water and dissolved minerals upward from roots (dead cells at maturity, tracheids and vessel elements), and phloem transports sugars (sucrose) from sources to sinks (living cells, sieve-tube elements with companion cells).</p>
 
-    <div class="formula">Transpiration-Cohesion-Tension: Water evaporates from stomata (transpiration) → creates tension → pulls water up xylem via cohesion (H-bonds between water molecules) and adhesion (water sticking to xylem walls)</div>
+    <div class="formula">Transpiration-Cohesion-Tension: Water evaporates from stomata (transpiration) <span aria-hidden="true">→</span> creates tension <span aria-hidden="true">→</span> pulls water up xylem via cohesion (H-bonds between water molecules) and adhesion (water sticking to xylem walls)</div>
 
     <h3>Roots, Stems, Leaves</h3>
     <p>Roots absorb water and minerals via root hairs (extensions of epidermal cells). The Casparian strip in the endodermis forces water through cell membranes, providing selective control over what enters the vascular tissue. Stems provide support and contain vascular bundles. Leaves are the primary site of photosynthesis. Stomata are pores on leaves regulated by guard cells that open and close to balance gas exchange with water loss.</p>
@@ -378,7 +409,7 @@
     <h3>Double Fertilization (Angiosperms only)</h3>
     <p>One sperm fuses with the egg to form the zygote (2n). A second sperm fuses with two polar nuclei to form the endosperm (3n), which nourishes the developing embryo. This is unique to angiosperms. After fertilization, the ovule becomes the seed and the ovary becomes the fruit.</p>
 
-    <div class="formula">Ovule → Seed | Ovary → Fruit | Zygote (2n) + Endosperm (3n) = Double fertilization</div>
+    <div class="formula">Ovule <span aria-hidden="true">→</span> Seed | Ovary <span aria-hidden="true">→</span> Fruit | Zygote (2n) + Endosperm (3n) = Double fertilization</div>
   </div>
 
   <!-- SECTION 10: ANIMAL FORM & FUNCTION -->
@@ -389,7 +420,7 @@
     <p>All gas exchange requires a moist surface. Aquatic organisms use gills (large surface area, countercurrent exchange in fish maximizes O₂ extraction). Terrestrial insects use tracheae (branching tubes delivering air directly to cells). Terrestrial vertebrates use lungs. Amphibians supplement lung breathing with cutaneous (skin) respiration.</p>
 
     <h3>Circulatory Systems</h3>
-    <p>Open circulatory systems (arthropods, most mollusks): hemolymph bathes organs directly in a hemocoel; no distinction between blood and interstitial fluid. Closed circulatory systems (annelids, cephalopods, vertebrates): blood confined to vessels, allowing higher pressure and more efficient delivery. Vertebrate heart evolution: 2-chambered (fish) → 3-chambered (amphibians, most reptiles) → 4-chambered (crocodilians, birds, mammals) with complete separation of oxygenated and deoxygenated blood.</p>
+    <p>Open circulatory systems (arthropods, most mollusks): hemolymph bathes organs directly in a hemocoel; no distinction between blood and interstitial fluid. Closed circulatory systems (annelids, cephalopods, vertebrates): blood confined to vessels, allowing higher pressure and more efficient delivery. Vertebrate heart evolution: 2-chambered (fish) <span aria-hidden="true">→</span> 3-chambered (amphibians, most reptiles) <span aria-hidden="true">→</span> 4-chambered (crocodilians, birds, mammals) with complete separation of oxygenated and deoxygenated blood.</p>
 
     <h3>Digestion</h3>
     <p>Incomplete digestive systems have one opening (cnidarians, flatworms). Complete digestive systems have a mouth and anus, allowing specialization of regions and one-way flow. Ruminants (cows) have a four-chambered stomach with symbiotic microbes to digest cellulose.</p>
@@ -446,7 +477,7 @@
       <tr><td>Most species-rich animal phylum</td><td>Arthropoda</td></tr>
       <tr><td>Most species-rich insect order</td><td>Coleoptera (beetles)</td></tr>
       <tr><td>Endosperm ploidy (angiosperms)</td><td>Triploid (3n)</td></tr>
-      <tr><td>Alternation of generations</td><td>Sporophyte (2n) ↔ Gametophyte (n)</td></tr>
+      <tr><td>Alternation of generations</td><td>Sporophyte (2n) <span aria-hidden="true">↔</span> Gametophyte (n)</td></tr>
       <tr><td>Fish heart chambers</td><td>2</td></tr>
       <tr><td>Amphibian heart chambers</td><td>3</td></tr>
       <tr><td>Mammal/bird heart chambers</td><td>4</td></tr>
@@ -482,9 +513,9 @@
         </div>
       </div>
       <div class="fc-nav">
-        <button onclick="prevCard()">← Prev</button>
+        <button onclick="prevCard()"><span aria-hidden="true">←</span> Prev</button>
         <span class="fc-counter" id="fc-counter">1 / 45</span>
-        <button onclick="nextCard()">Next →</button>
+        <button onclick="nextCard()">Next <span aria-hidden="true">→</span></button>
       </div>
     </div>
 
@@ -798,9 +829,9 @@ function gradeAnswer(idx) {
 
     const pct = earnedWeight / totalWeight;
     let grade, icon, cls;
-    if (pct >= 0.65) { grade = 'good'; icon = '✓ Strong answer!'; cls = 'grade-good'; }
-    else if (pct >= 0.35) { grade = 'partial'; icon = '○ Getting there!'; cls = 'grade-partial'; }
-    else { grade = 'needs_work'; icon = '✗ Keep working on this one.'; cls = 'grade-needs-work'; }
+    if (pct >= 0.65) { grade = 'good'; icon = '<span aria-hidden="true">✓</span> Strong answer!'; cls = 'grade-good'; }
+    else if (pct >= 0.35) { grade = 'partial'; icon = '<span aria-hidden="true">○</span> Getting there!'; cls = 'grade-partial'; }
+    else { grade = 'needs_work'; icon = '<span aria-hidden="true">✗</span> Keep working on this one.'; cls = 'grade-needs-work'; }
 
     let feedback = '';
     if (matched.length > 0) feedback += 'You correctly addressed: ' + matched.join('; ') + '. ';
@@ -824,7 +855,7 @@ document.addEventListener('DOMContentLoaded', () => { buildQuiz(); buildFilters(
 </script>
 
   <div style="max-width: 800px; margin: 40px auto; padding: 20px 30px; background: #fff8e1; border-left: 4px solid #f9a825; border-radius: 8px; font-size: 14px; line-height: 1.6; color: #555;">
-  <div style="font-weight: bold; font-size: 15px; margin-bottom: 10px;">⚠️ Important Notice</div>
+  <div style="font-weight: bold; font-size: 15px; margin-bottom: 10px;"><span aria-hidden="true">⚠️</span> Important Notice</div>
   <p style="margin: 0 0 10px 0;">These study resources are provided free of charge for educational purposes only. They are intended as supplemental study aids and should not be used as a substitute for your course textbooks, lecture materials, or the guidance of your instructors.</p>
   <p style="margin: 0 0 10px 0;">While every effort has been made to ensure accuracy, this content may contain errors, omissions, or information that is out of date. Science is constantly evolving, and material that was accurate at the time of writing may no longer reflect current understanding. Always verify important facts, formulas, and concepts against your official course materials.</p>
   <p style="margin: 0 0 10px 0;">No guarantees are made regarding the completeness, accuracy, or reliability of any information presented on these sites. Use at your own discretion. If you spot an error, we appreciate you letting us know so it can be corrected.</p>
