@@ -127,7 +127,7 @@
       .toc-grid { grid-template-columns: 1fr; }
       .tab-btn { padding: 0.6rem 0.8rem; font-size: 0.9rem; }
     }
-  
+
 /* ─── WCAG 2.1 AA: Visible focus indicators ─── */
 :focus-visible {
   outline: 3px solid #005fcc !important;
@@ -155,12 +155,25 @@
 .skip-link:focus {
   top: 0;
 }
-
+/* ─── Screen-reader only utility ─── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
 </style>
 </head>
 <body>
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
+<!-- Live announce region for screen readers -->
+<div id="live-announce" class="sr-only" aria-live="polite" aria-atomic="true"></div>
 
 <div class="hero">
   <h1>Biology II Fundamentals</h1>
@@ -170,7 +183,7 @@
 <div class="container" id="main-content" role="main">
 
   <!-- TABLE OF CONTENTS -->
-  <div class="toc">
+  <nav class="toc" aria-label="Table of Contents">
     <h2>Contents</h2>
     <div class="toc-grid">
       <a href="#tree-of-life"><span class="toc-num">01</span>Tree of Life &amp; Phylogenetics</a>
@@ -187,15 +200,16 @@
       <a href="#key-numbers"><span class="toc-num">12</span>Key Numbers &amp; Constants</a>
       <a href="#interactive"><span class="toc-num"><span aria-hidden="true">⚡</span></span>Quiz, Flashcards &amp; Practice</a>
     </div>
-  </div>
+  </nav>
 
   <!-- SECTION 1: TREE OF LIFE -->
-  <div class="card" id="tree-of-life">
+  <section class="card" id="tree-of-life">
     <h2>01 — Tree of Life &amp; Phylogenetics</h2>
     <p>All life is classified into three domains: Bacteria, Archaea, and Eukarya. Bacteria and Archaea are prokaryotic (no membrane-bound nucleus), while Eukarya includes all organisms with membrane-bound nuclei and organelles. The three-domain system was proposed by Carl Woese based on ribosomal RNA sequence comparisons.</p>
 
     <table class="fact-table">
-      <tr><th>Domain</th><th>Cell Type</th><th>Membrane Lipids</th><th>Examples</th></tr>
+      <caption class="sr-only">Comparison of the three domains of life</caption>
+      <tr><th scope="col">Domain</th><th scope="col">Cell Type</th><th scope="col">Membrane Lipids</th><th scope="col">Examples</th></tr>
       <tr><td>Bacteria</td><td>Prokaryotic</td><td>Ester-linked, unbranched fatty acids</td><td>E. coli, Streptococcus, cyanobacteria</td></tr>
       <tr><td>Archaea</td><td>Prokaryotic</td><td>Ether-linked, branched hydrocarbons</td><td>Methanogens, halophiles, thermophiles</td></tr>
       <tr><td>Eukarya</td><td>Eukaryotic</td><td>Ester-linked, unbranched fatty acids</td><td>Animals, plants, fungi, protists</td></tr>
@@ -208,10 +222,10 @@
 
     <h3>Key Concepts</h3>
     <p>Homologous structures share a common evolutionary origin (bat wing vs. human arm). Analogous structures have similar function but different origins (bird wing vs. insect wing) and result from convergent evolution. Molecular phylogenetics uses DNA, RNA, or protein sequences to determine relationships. The more similar the sequences, the more closely related the organisms.</p>
-  </div>
+  </section>
 
   <!-- SECTION 2: BACTERIA & ARCHAEA -->
-  <div class="card" id="bacteria-archaea">
+  <section class="card" id="bacteria-archaea">
     <h2>02 — Bacteria &amp; Archaea</h2>
     <p>Prokaryotes are the most abundant organisms on Earth. They lack a membrane-bound nucleus and membrane-bound organelles. Their DNA is a single circular chromosome in the nucleoid region, and many carry small circular DNA molecules called plasmids. Ribosomes are 70S (compared to 80S in eukaryotes).</p>
 
@@ -222,7 +236,8 @@
 
     <h3>Bacterial Shapes</h3>
     <table class="fact-table">
-      <tr><th>Shape</th><th>Name</th><th>Example</th></tr>
+      <caption class="sr-only">Bacterial shapes and examples</caption>
+      <tr><th scope="col">Shape</th><th scope="col">Name</th><th scope="col">Example</th></tr>
       <tr><td>Sphere</td><td>Coccus (pl. cocci)</td><td>Staphylococcus, Streptococcus</td></tr>
       <tr><td>Rod</td><td>Bacillus (pl. bacilli)</td><td>E. coli, Bacillus subtilis</td></tr>
       <tr><td>Spiral</td><td>Spirillum / Spirochete</td><td>Treponema (syphilis), Borrelia (Lyme)</td></tr>
@@ -235,7 +250,8 @@
 
     <h3>Metabolic Diversity</h3>
     <table class="fact-table">
-      <tr><th>Category</th><th>Energy Source</th><th>Carbon Source</th><th>Example</th></tr>
+      <caption class="sr-only">Metabolic categories of prokaryotes</caption>
+      <tr><th scope="col">Category</th><th scope="col">Energy Source</th><th scope="col">Carbon Source</th><th scope="col">Example</th></tr>
       <tr><td>Photoautotroph</td><td>Light</td><td>CO₂</td><td>Cyanobacteria</td></tr>
       <tr><td>Chemoautotroph</td><td>Inorganic chemicals</td><td>CO₂</td><td>Nitrifying bacteria</td></tr>
       <tr><td>Photoheterotroph</td><td>Light</td><td>Organic compounds</td><td>Purple nonsulfur bacteria</td></tr>
@@ -244,10 +260,10 @@
 
     <h3>Archaea vs. Bacteria</h3>
     <p>Archaea are often found in extreme environments (extremophiles), though many live in moderate conditions. Key differences from bacteria: archaea lack peptidoglycan in their cell walls, have ether-linked membrane lipids (branched isoprene chains), and their RNA polymerase and ribosomal proteins are more similar to eukaryotes. Archaea are not known to cause human disease.</p>
-  </div>
+  </section>
 
   <!-- SECTION 3: PROTISTS -->
-  <div class="card" id="protists">
+  <section class="card" id="protists">
     <h2>03 — Protists</h2>
     <p>Protists are eukaryotes that are not plants, animals, or fungi. They are an informal, polyphyletic group (meaning they do not share a single common ancestor exclusive to the group). Protists can be unicellular, colonial, or multicellular, and include autotrophs, heterotrophs, and mixotrophs.</p>
 
@@ -259,16 +275,17 @@
 
     <h3>Fungus-like Protists</h3>
     <p>Slime molds and water molds superficially resemble fungi but are not closely related. Plasmodial slime molds form a large multinucleate mass called a plasmodium. Cellular slime molds live as individual amoeboid cells that aggregate when food is scarce. Oomycetes (water molds) have cellulose cell walls (not chitin like true fungi) and include Phytophthora infestans, which caused the Irish potato famine.</p>
-  </div>
+  </section>
 
   <!-- SECTION 4: FUNGI -->
-  <div class="card" id="fungi">
+  <section class="card" id="fungi">
     <h2>04 — Fungi</h2>
     <p>Fungi are eukaryotic heterotrophs that digest food externally by secreting enzymes and absorbing nutrients (absorptive heterotrophy). Cell walls are made of chitin. Most are multicellular except yeasts. The body of a multicellular fungus is called a mycelium, composed of thread-like hyphae. Hyphae can be septate (divided by cross-walls) or coenocytic (no septa, multinucleate).</p>
 
     <h3>Major Fungal Phyla</h3>
     <table class="fact-table">
-      <tr><th>Phylum</th><th>Common Name</th><th>Key Feature</th><th>Examples</th></tr>
+      <caption class="sr-only">Major fungal phyla and their features</caption>
+      <tr><th scope="col">Phylum</th><th scope="col">Common Name</th><th scope="col">Key Feature</th><th scope="col">Examples</th></tr>
       <tr><td>Chytridiomycota</td><td>Chytrids</td><td>Flagellated spores (only fungi with flagella)</td><td>Batrachochytrium (frog pathogen)</td></tr>
       <tr><td>Zygomycota</td><td>Bread molds</td><td>Zygospore (thick-walled sexual spore)</td><td>Rhizopus (black bread mold)</td></tr>
       <tr><td>Ascomycota</td><td>Sac fungi</td><td>Ascus (sac-shaped spore structure)</td><td>Yeast, morels, truffles, Penicillium</td></tr>
@@ -279,10 +296,10 @@
     <p>Fungi are critical decomposers, breaking down dead organic matter and recycling nutrients. Mycorrhizae are mutualistic associations between fungi and plant roots. Ectomycorrhizae form a sheath around roots; arbuscular mycorrhizae penetrate root cell walls. About 90% of plant species associate with mycorrhizal fungi. Lichens are a mutualism between a fungus (usually ascomycete) and a photosynthetic partner (green alga or cyanobacterium). The fungus provides structure and moisture; the photosynthetic partner provides food.</p>
 
     <div class="mnemonic"><strong>Remember:</strong> "Fungi are not plants. They don't photosynthesize. Chitin walls, external digestion, absorptive nutrition."</div>
-  </div>
+  </section>
 
   <!-- SECTION 5: PLANT DIVERSITY -->
-  <div class="card" id="plants">
+  <section class="card" id="plants">
     <h2>05 — Plant Diversity</h2>
     <p>Plants are multicellular, photosynthetic eukaryotes with cell walls made of cellulose. They evolved from green algae (Charophytes are the closest living relatives). All plants exhibit alternation of generations, cycling between a diploid sporophyte and a haploid gametophyte.</p>
 
@@ -290,7 +307,8 @@
 
     <h3>Four Major Plant Groups</h3>
     <table class="fact-table">
-      <tr><th>Group</th><th>Vascular?</th><th>Seeds?</th><th>Flowers?</th><th>Examples</th></tr>
+      <caption class="sr-only">Four major plant groups and their characteristics</caption>
+      <tr><th scope="col">Group</th><th scope="col">Vascular?</th><th scope="col">Seeds?</th><th scope="col">Flowers?</th><th scope="col">Examples</th></tr>
       <tr><td>Bryophytes</td><td>No</td><td>No</td><td>No</td><td>Mosses, liverworts, hornworts</td></tr>
       <tr><td>Seedless vascular</td><td>Yes</td><td>No</td><td>No</td><td>Ferns, horsetails, club mosses</td></tr>
       <tr><td>Gymnosperms</td><td>Yes</td><td>Yes (naked)</td><td>No</td><td>Conifers, cycads, ginkgo</td></tr>
@@ -302,7 +320,8 @@
 
     <h3>Monocots vs. Eudicots</h3>
     <table class="fact-table">
-      <tr><th>Feature</th><th>Monocots</th><th>Eudicots</th></tr>
+      <caption class="sr-only">Comparison of monocots and eudicots</caption>
+      <tr><th scope="col">Feature</th><th scope="col">Monocots</th><th scope="col">Eudicots</th></tr>
       <tr><td>Cotyledons</td><td>One</td><td>Two</td></tr>
       <tr><td>Leaf veins</td><td>Parallel</td><td>Branching (net)</td></tr>
       <tr><td>Flower parts</td><td>Multiples of 3</td><td>Multiples of 4 or 5</td></tr>
@@ -310,10 +329,10 @@
       <tr><td>Root system</td><td>Fibrous</td><td>Taproot</td></tr>
       <tr><td>Examples</td><td>Grasses, lilies, corn, rice</td><td>Roses, beans, oaks, sunflowers</td></tr>
     </table>
-  </div>
+  </section>
 
   <!-- SECTION 6: ANIMAL DIVERSITY -->
-  <div class="card" id="animal-diversity">
+  <section class="card" id="animal-diversity">
     <h2>06 — Animal Diversity &amp; Body Plans</h2>
     <p>Animals are multicellular, heterotrophic eukaryotes that lack cell walls. Most animals reproduce sexually, and most are motile at some stage of life. Animals evolved from a colonial, flagellated protist ancestor.</p>
 
@@ -328,7 +347,8 @@
 
     <h3>Protostomes vs. Deuterostomes</h3>
     <table class="fact-table">
-      <tr><th>Feature</th><th>Protostomes</th><th>Deuterostomes</th></tr>
+      <caption class="sr-only">Comparison of protostome and deuterostome development</caption>
+      <tr><th scope="col">Feature</th><th scope="col">Protostomes</th><th scope="col">Deuterostomes</th></tr>
       <tr><td>Mouth forms</td><td>First (from blastopore)</td><td>Second</td></tr>
       <tr><td>Cleavage</td><td>Spiral, determinate</td><td>Radial, indeterminate</td></tr>
       <tr><td>Coelom formation</td><td>Schizocoely (splitting of mesoderm)</td><td>Enterocoely (outpocketing of gut)</td></tr>
@@ -336,14 +356,15 @@
     </table>
 
     <div class="mnemonic"><strong>Remember:</strong> "Protostome = mouth first (proto = first, stoma = mouth). Deuterostome = mouth second (deutero = second)."</div>
-  </div>
+  </section>
 
   <!-- SECTION 7: INVERTEBRATES -->
-  <div class="card" id="invertebrates">
+  <section class="card" id="invertebrates">
     <h2>07 — Invertebrates</h2>
 
     <table class="fact-table">
-      <tr><th>Phylum</th><th>Key Features</th><th>Examples</th></tr>
+      <caption class="sr-only">Major invertebrate phyla</caption>
+      <tr><th scope="col">Phylum</th><th scope="col">Key Features</th><th scope="col">Examples</th></tr>
       <tr><td>Porifera</td><td>Sessile, no true tissues, filter feeders, choanocytes</td><td>Sponges</td></tr>
       <tr><td>Cnidaria</td><td>Radial symmetry, diploblastic, cnidocytes (stinging cells), polyp and medusa forms</td><td>Jellyfish, corals, hydra, anemones</td></tr>
       <tr><td>Platyhelminthes</td><td>Bilateral, acoelomate, flat body for gas exchange, some parasitic</td><td>Planaria, tapeworms, flukes</td></tr>
@@ -356,7 +377,8 @@
 
     <h3>Arthropod Subgroups</h3>
     <table class="fact-table">
-      <tr><th>Subgroup</th><th>Body Regions</th><th>Legs</th><th>Antennae</th><th>Examples</th></tr>
+      <caption class="sr-only">Arthropod subgroups compared</caption>
+      <tr><th scope="col">Subgroup</th><th scope="col">Body Regions</th><th scope="col">Legs</th><th scope="col">Antennae</th><th scope="col">Examples</th></tr>
       <tr><td>Insects</td><td>Head, thorax, abdomen</td><td>6 (3 pairs)</td><td>1 pair</td><td>Beetles, butterflies, ants</td></tr>
       <tr><td>Arachnids</td><td>Cephalothorax, abdomen</td><td>8 (4 pairs)</td><td>None</td><td>Spiders, ticks, scorpions</td></tr>
       <tr><td>Crustaceans</td><td>Cephalothorax, abdomen</td><td>Variable (5+ pairs)</td><td>2 pairs</td><td>Crabs, lobsters, shrimp</td></tr>
@@ -365,16 +387,17 @@
 
     <h3>Mollusk Body Plan</h3>
     <p>All mollusks share three basic features: a muscular foot (for movement), a visceral mass (containing internal organs), and a mantle (tissue that may secrete a shell). Gastropods (snails, slugs) have a single shell or none. Bivalves (clams, mussels) have two hinged shells. Cephalopods (octopus, squid) have a reduced or absent shell, a closed circulatory system, and are the most intelligent invertebrates.</p>
-  </div>
+  </section>
 
   <!-- SECTION 8: VERTEBRATES -->
-  <div class="card" id="vertebrates">
+  <section class="card" id="vertebrates">
     <h2>08 — Vertebrates</h2>
     <p>All vertebrates are chordates (Phylum Chordata). The four defining chordate features, present at some stage of life, are: a notochord, a dorsal hollow nerve cord, pharyngeal slits, and a post-anal tail. In vertebrates, the notochord is largely replaced by a vertebral column.</p>
 
     <h3>Vertebrate Classes</h3>
     <table class="fact-table">
-      <tr><th>Class</th><th>Key Features</th><th>Heart</th><th>Respiration</th><th>Examples</th></tr>
+      <caption class="sr-only">Vertebrate classes and their features</caption>
+      <tr><th scope="col">Class</th><th scope="col">Key Features</th><th scope="col">Heart</th><th scope="col">Respiration</th><th scope="col">Examples</th></tr>
       <tr><td>Chondrichthyes</td><td>Cartilaginous skeleton, no swim bladder, lateral line</td><td>2-chambered</td><td>Gills</td><td>Sharks, rays, skates</td></tr>
       <tr><td>Osteichthyes</td><td>Bony skeleton, swim bladder, operculum covers gills</td><td>2-chambered</td><td>Gills</td><td>Salmon, tuna, goldfish</td></tr>
       <tr><td>Amphibia</td><td>Moist skin for gas exchange, aquatic larvae, terrestrial adults (most)</td><td>3-chambered</td><td>Gills (larval), lungs + skin (adult)</td><td>Frogs, salamanders, caecilians</td></tr>
@@ -391,10 +414,10 @@
 
     <h3>Ectotherms vs. Endotherms</h3>
     <p>Ectotherms rely on external sources to regulate body temperature (fish, amphibians, reptiles). Endotherms generate their own body heat through metabolism (birds, mammals). Endothermy allows activity in cold environments but requires significantly more food/energy.</p>
-  </div>
+  </section>
 
   <!-- SECTION 9: PLANT FORM & FUNCTION -->
-  <div class="card" id="plant-function">
+  <section class="card" id="plant-function">
     <h2>09 — Plant Form &amp; Function</h2>
     <p>Vascular plants have two transport tissues: xylem carries water and dissolved minerals upward from roots (dead cells at maturity, tracheids and vessel elements), and phloem transports sugars (sucrose) from sources to sinks (living cells, sieve-tube elements with companion cells).</p>
 
@@ -410,10 +433,10 @@
     <p>One sperm fuses with the egg to form the zygote (2n). A second sperm fuses with two polar nuclei to form the endosperm (3n), which nourishes the developing embryo. This is unique to angiosperms. After fertilization, the ovule becomes the seed and the ovary becomes the fruit.</p>
 
     <div class="formula">Ovule <span aria-hidden="true">→</span> Seed | Ovary <span aria-hidden="true">→</span> Fruit | Zygote (2n) + Endosperm (3n) = Double fertilization</div>
-  </div>
+  </section>
 
   <!-- SECTION 10: ANIMAL FORM & FUNCTION -->
-  <div class="card" id="animal-function">
+  <section class="card" id="animal-function">
     <h2>10 — Animal Form &amp; Function</h2>
 
     <h3>Gas Exchange</h3>
@@ -427,10 +450,10 @@
 
     <h3>Reproduction</h3>
     <p>Asexual reproduction: budding (hydra), fragmentation (sea stars), parthenogenesis (development from unfertilized egg, some reptiles and insects). Sexual reproduction involves meiosis and fusion of gametes. External fertilization occurs in water (most fish, amphibians). Internal fertilization occurs on land (reptiles, birds, mammals) and requires less gamete production but more parental investment.</p>
-  </div>
+  </section>
 
   <!-- SECTION 11: ECOLOGY -->
-  <div class="card" id="ecology">
+  <section class="card" id="ecology">
     <h2>11 — Ecology</h2>
 
     <h3>Population Ecology</h3>
@@ -442,7 +465,8 @@
 
     <h3>Community Interactions</h3>
     <table class="fact-table">
-      <tr><th>Interaction</th><th>Species 1</th><th>Species 2</th><th>Example</th></tr>
+      <caption class="sr-only">Types of community interactions</caption>
+      <tr><th scope="col">Interaction</th><th scope="col">Species 1</th><th scope="col">Species 2</th><th scope="col">Example</th></tr>
       <tr><td>Mutualism</td><td>+</td><td>+</td><td>Mycorrhizae (fungus + plant roots)</td></tr>
       <tr><td>Commensalism</td><td>+</td><td>0</td><td>Barnacles on whales</td></tr>
       <tr><td>Parasitism</td><td>+</td><td>-</td><td>Tapeworm in host intestine</td></tr>
@@ -461,13 +485,14 @@
     <p>The major threats to biodiversity can be remembered by HIPPO: Habitat loss (the single greatest threat), Invasive species, Pollution, Population growth (human), and Overexploitation. Habitat fragmentation reduces connectivity and increases edge effects.</p>
 
     <div class="mnemonic"><strong>HIPPO:</strong> Habitat loss, Invasive species, Pollution, Population (human), Overexploitation</div>
-  </div>
+  </section>
 
   <!-- SECTION 12: KEY NUMBERS -->
-  <div class="card" id="key-numbers">
+  <section class="card" id="key-numbers">
     <h2>12 — Key Numbers &amp; Constants</h2>
     <table class="fact-table">
-      <tr><th>Fact</th><th>Value / Detail</th></tr>
+      <caption class="sr-only">Key numbers and constants for Biology II</caption>
+      <tr><th scope="col">Fact</th><th scope="col">Value / Detail</th></tr>
       <tr><td>Domains of life</td><td>3 (Bacteria, Archaea, Eukarya)</td></tr>
       <tr><td>Kingdoms in Eukarya</td><td>4 (Protista, Fungi, Plantae, Animalia)</td></tr>
       <tr><td>Linnean hierarchy</td><td>Domain, Kingdom, Phylum, Class, Order, Family, Genus, Species</td></tr>
@@ -486,41 +511,44 @@
     </table>
 
     <div class="mnemonic"><strong>Taxonomy order:</strong> "Dear King Philip Came Over For Good Spaghetti" = Domain, Kingdom, Phylum, Class, Order, Family, Genus, Species</div>
-  </div>
+  </section>
 
   <!-- INTERACTIVE SECTION -->
   <div class="interactive-section" id="interactive">
-    <div class="tab-bar">
-      <button class="tab-btn active" onclick="switchTab('quiz')">Multiple Choice Quiz</button>
-      <button class="tab-btn" onclick="switchTab('flashcards')">Flashcards</button>
-      <button class="tab-btn" onclick="switchTab('shortanswer')">Short Answer</button>
+    <div class="tab-bar" role="tablist" aria-label="Study tools">
+      <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="panel-quiz" id="tab-quiz" onclick="switchTab('quiz', this)">Multiple Choice Quiz</button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-flashcards" id="tab-flashcards" onclick="switchTab('flashcards', this)">Flashcards</button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-shortanswer" id="tab-shortanswer" onclick="switchTab('shortanswer', this)">Short Answer</button>
     </div>
 
     <!-- QUIZ PANEL -->
-    <div class="tab-panel active" id="panel-quiz">
-      <div class="quiz-progress" id="quiz-progress">Question 1 of 30 | Score: 0</div>
+    <div class="tab-panel active" id="panel-quiz" role="tabpanel" aria-labelledby="tab-quiz">
+      <div class="quiz-progress" id="quiz-progress" role="status">Question 1 of 30 | Score: 0</div>
       <div id="quiz-container"></div>
-      <div class="quiz-score" id="quiz-final" style="display:none;"></div>
+      <div class="quiz-score" id="quiz-final" role="status" style="display:none;"></div>
     </div>
 
     <!-- FLASHCARD PANEL -->
-    <div class="tab-panel" id="panel-flashcards">
-      <div class="fc-filters" id="fc-filters"></div>
+    <div class="tab-panel" id="panel-flashcards" role="tabpanel" aria-labelledby="tab-flashcards">
+      <div class="fc-filters" id="fc-filters">
+        <label for="fc-filter-group" class="sr-only">Filter flashcards by topic</label>
+        <span id="fc-filter-group"></span>
+      </div>
       <div class="fc-container">
-        <div class="fc-card" id="fc-card" onclick="flipCard()">
+        <div class="fc-card" id="fc-card" tabindex="0" role="button" aria-label="Flashcard. Press Enter or Space to flip." onclick="flipCard()" onkeydown="handleFcKey(event)">
           <div class="fc-face fc-front" id="fc-front"></div>
           <div class="fc-face fc-back" id="fc-back"></div>
         </div>
       </div>
       <div class="fc-nav">
-        <button onclick="prevCard()"><span aria-hidden="true">←</span> Prev</button>
-        <span class="fc-counter" id="fc-counter">1 / 45</span>
-        <button onclick="nextCard()">Next <span aria-hidden="true">→</span></button>
+        <button onclick="prevCard()" aria-label="Previous flashcard"><span aria-hidden="true">\u2190</span> Prev</button>
+        <span class="fc-counter" id="fc-counter" role="status">1 / 45</span>
+        <button onclick="nextCard()" aria-label="Next flashcard">Next <span aria-hidden="true">\u2192</span></button>
       </div>
     </div>
 
     <!-- SHORT ANSWER PANEL -->
-    <div class="tab-panel" id="panel-shortanswer">
+    <div class="tab-panel" id="panel-shortanswer" role="tabpanel" aria-labelledby="tab-shortanswer">
       <div class="sa-note">
         The grader looks for whether you've addressed the important ideas, not for exact wording. Write in your own words as if explaining to a classmate. After grading, a model answer is shown so you can compare.
       </div>
@@ -533,12 +561,23 @@
 <footer>Biology II Fundamentals — Diversity of Life — Study Reference</footer>
 
 <script>
+// ============ LIVE ANNOUNCE HELPER ============
+function announce(msg) {
+  var el = document.getElementById('live-announce');
+  if (el) { el.textContent = msg; }
+}
+
 // ============ TAB SWITCHING ============
-function switchTab(tab) {
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-  event.target.classList.add('active');
+function switchTab(tab, btn) {
+  document.querySelectorAll('.tab-btn').forEach(function(b) {
+    b.classList.remove('active');
+    b.setAttribute('aria-selected', 'false');
+  });
+  document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+  btn.classList.add('active');
+  btn.setAttribute('aria-selected', 'true');
   document.getElementById('panel-' + tab).classList.add('active');
+  announce(tab.charAt(0).toUpperCase() + tab.slice(1) + ' panel selected');
 }
 
 // ============ QUIZ DATA ============
@@ -558,7 +597,7 @@ const quizQuestions = [
   { q: "Double fertilization is unique to:", options: ["Gymnosperms", "Bryophytes", "Angiosperms", "Ferns"], correct: 2, explanation: "Double fertilization, where one sperm fertilizes the egg (2n zygote) and another fuses with two polar nuclei (3n endosperm), is exclusive to angiosperms (flowering plants)." },
   { q: "A lichen is a mutualism between:", options: ["Two fungi", "A fungus and a plant root", "A fungus and an alga or cyanobacterium", "An alga and a bacterium"], correct: 2, explanation: "Lichens consist of a fungus (usually ascomycete) providing structure/moisture and a photosynthetic partner (green alga or cyanobacterium) providing food via photosynthesis." },
   { q: "Which type of horizontal gene transfer uses a bacteriophage?", options: ["Transformation", "Transduction", "Conjugation", "Binary fission"], correct: 1, explanation: "Transduction is the transfer of bacterial DNA from one cell to another via a bacteriophage (bacterial virus). Transformation uses free DNA, and conjugation uses a pilus." },
-  { q: "Countercurrent exchange in fish gills maximizes:", options: ["CO₂ retention", "O₂ extraction from water", "Temperature regulation", "Nutrient absorption"], correct: 1, explanation: "In countercurrent exchange, blood flows opposite to water flow across the gills, maintaining a concentration gradient that allows fish to extract up to 80% of dissolved oxygen." },
+  { q: "Countercurrent exchange in fish gills maximizes:", options: ["CO\u2082 retention", "O\u2082 extraction from water", "Temperature regulation", "Nutrient absorption"], correct: 1, explanation: "In countercurrent exchange, blood flows opposite to water flow across the gills, maintaining a concentration gradient that allows fish to extract up to 80% of dissolved oxygen." },
   { q: "The carrying capacity of an environment is represented by:", options: ["r", "N", "K", "dN/dt"], correct: 2, explanation: "K represents the carrying capacity, the maximum population size an environment can sustain long-term. In the logistic growth equation, population growth slows as N approaches K." },
   { q: "Which organisms are deuterostomes?", options: ["Arthropods and mollusks", "Annelids and nematodes", "Echinoderms and chordates", "Cnidarians and sponges"], correct: 2, explanation: "Deuterostomes include echinoderms and chordates. In deuterostome development, the blastopore becomes the anus and the mouth forms second." },
   { q: "A mushroom belongs to which fungal phylum?", options: ["Chytridiomycota", "Zygomycota", "Ascomycota", "Basidiomycota"], correct: 3, explanation: "Mushrooms are Basidiomycota (club fungi). They produce spores on club-shaped structures called basidia, typically found on the gills of the mushroom cap." },
@@ -576,24 +615,26 @@ const quizQuestions = [
 ];
 
 // ============ QUIZ ENGINE ============
-let quizIndex = 0, quizScore = 0;
+var quizIndex = 0, quizScore = 0;
 function buildQuiz() {
-  const c = document.getElementById('quiz-container');
+  var c = document.getElementById('quiz-container');
   c.innerHTML = '';
-  const q = quizQuestions[quizIndex];
-  let html = '<div class="quiz-question"><p>' + (quizIndex + 1) + '. ' + q.q + '</p>';
-  q.options.forEach((opt, i) => {
-    html += '<button class="quiz-option" onclick="answerQuiz(' + i + ')">' + opt + '</button>';
+  var q = quizQuestions[quizIndex];
+  var html = '<div class="quiz-question"><p>' + (quizIndex + 1) + '. ' + q.q + '</p>';
+  html += '<fieldset><legend class="sr-only">Choose an answer for question ' + (quizIndex + 1) + '</legend>';
+  q.options.forEach(function(opt, i) {
+    html += '<button class="quiz-option" onclick="answerQuiz(' + i + ')" aria-label="Option: ' + opt.replace(/"/g, '&quot;') + '">' + opt + '</button>';
   });
-  html += '<div class="quiz-explanation" id="quiz-exp">' + q.explanation + '</div></div>';
+  html += '</fieldset>';
+  html += '<div class="quiz-explanation" id="quiz-exp" role="alert">' + q.explanation + '</div></div>';
   c.innerHTML = html;
   document.getElementById('quiz-progress').textContent = 'Question ' + (quizIndex + 1) + ' of ' + quizQuestions.length + ' | Score: ' + quizScore;
 }
 
 function answerQuiz(selected) {
-  const q = quizQuestions[quizIndex];
-  const buttons = document.querySelectorAll('.quiz-option');
-  buttons.forEach((b, i) => {
+  var q = quizQuestions[quizIndex];
+  var buttons = document.querySelectorAll('.quiz-option');
+  buttons.forEach(function(b, i) {
     b.disabled = true;
     if (i === q.correct) b.classList.add('correct');
     if (i === selected && selected !== q.correct) b.classList.add('incorrect');
@@ -601,14 +642,16 @@ function answerQuiz(selected) {
   if (selected === q.correct) quizScore++;
   document.getElementById('quiz-exp').style.display = 'block';
   document.getElementById('quiz-progress').textContent = 'Question ' + (quizIndex + 1) + ' of ' + quizQuestions.length + ' | Score: ' + quizScore;
-  setTimeout(() => {
+  announce(selected === q.correct ? 'Correct!' : 'Incorrect. The correct answer is ' + q.options[q.correct] + '.');
+  setTimeout(function() {
     quizIndex++;
     if (quizIndex < quizQuestions.length) { buildQuiz(); }
     else {
       document.getElementById('quiz-container').innerHTML = '';
-      const pct = Math.round(quizScore / quizQuestions.length * 100);
+      var pct = Math.round(quizScore / quizQuestions.length * 100);
       document.getElementById('quiz-final').style.display = 'block';
       document.getElementById('quiz-final').textContent = 'Final Score: ' + quizScore + ' / ' + quizQuestions.length + ' (' + pct + '%)';
+      announce('Quiz complete. Final score: ' + quizScore + ' out of ' + quizQuestions.length);
     }
   }, 2200);
 }
@@ -623,7 +666,7 @@ const flashcards = [
   { front: "Gram-positive vs. Gram-negative?", back: "Gram+: thick peptidoglycan, stains purple. Gram-: thin peptidoglycan + outer membrane with LPS, stains pink.", cat: "Bacteria" },
   { front: "Three bacterial shapes?", back: "Coccus (sphere), Bacillus (rod), Spirillum/Spirochete (spiral)", cat: "Bacteria" },
   { front: "Three types of horizontal gene transfer?", back: "Transformation (free DNA uptake), Transduction (via phage), Conjugation (via pilus, F plasmid)", cat: "Bacteria" },
-  { front: "What is a photoautotroph?", back: "An organism that uses light for energy and CO₂ for carbon. Example: cyanobacteria, plants.", cat: "Bacteria" },
+  { front: "What is a photoautotroph?", back: "An organism that uses light for energy and CO\u2082 for carbon. Example: cyanobacteria, plants.", cat: "Bacteria" },
   { front: "How do Archaea differ from Bacteria?", back: "Ether-linked lipids, no peptidoglycan, RNA polymerase more like eukaryotes, not known to cause disease", cat: "Bacteria" },
   { front: "Why are protists considered polyphyletic?", back: "They do not share a single common ancestor exclusive to the group. 'Protist' is a convenience label for eukaryotes that are not plants, animals, or fungi.", cat: "Protists" },
   { front: "What is Plasmodium and how is it transmitted?", back: "An apicomplexan protist that causes malaria, transmitted by Anopheles mosquitoes", cat: "Protists" },
@@ -640,7 +683,7 @@ const flashcards = [
   { front: "Why do bryophytes need water for reproduction?", back: "Their sperm are flagellated and must swim through water to reach the egg. They also lack vascular tissue.", cat: "Plants" },
   { front: "Monocot vs. eudicot cotyledons?", back: "Monocots: 1 cotyledon. Eudicots: 2 cotyledons.", cat: "Plants" },
   { front: "Key land plant adaptations?", back: "Cuticle (prevents water loss), stomata (gas exchange), vascular tissue (transport), seeds (protection), pollen (no water needed for fertilization)", cat: "Plants" },
-  { front: "Three germ layers and what they form?", back: "Ectoderm → skin, nervous system. Mesoderm → muscle, bone, circulatory. Endoderm → gut lining, lungs, liver.", cat: "Animals" },
+  { front: "Three germ layers and what they form?", back: "Ectoderm \u2192 skin, nervous system. Mesoderm \u2192 muscle, bone, circulatory. Endoderm \u2192 gut lining, lungs, liver.", cat: "Animals" },
   { front: "Protostome vs. deuterostome mouth formation?", back: "Protostome: blastopore becomes mouth first. Deuterostome: blastopore becomes anus; mouth forms second.", cat: "Animals" },
   { front: "What are the four membranes of an amniotic egg?", back: "Amnion (fluid cushion), Chorion (gas exchange), Allantois (waste storage), Yolk sac (nutrition)", cat: "Animals" },
   { front: "Open vs. closed circulatory system?", back: "Open: hemolymph bathes organs in hemocoel (arthropods, most mollusks). Closed: blood in vessels, higher pressure (annelids, cephalopods, vertebrates).", cat: "Animals" },
@@ -653,7 +696,7 @@ const flashcards = [
   { front: "How many heart chambers do fish, amphibians, and mammals have?", back: "Fish: 2 (1 atrium, 1 ventricle). Amphibians: 3 (2 atria, 1 ventricle). Mammals/birds: 4 (complete separation).", cat: "Vertebrates" },
   { front: "Three mammal subgroups?", back: "Monotremes (lay eggs: platypus), Marsupials (pouch: kangaroo), Placental/Eutherians (placenta: most mammals)", cat: "Vertebrates" },
   { front: "What does xylem transport? Phloem?", back: "Xylem: water and minerals upward (dead cells). Phloem: sugars (sucrose) from source to sink (living cells).", cat: "Plant Function" },
-  { front: "What is transpiration-cohesion-tension?", back: "Water evaporates from stomata (transpiration) → creates tension → pulls water up xylem via cohesion (H-bonds) and adhesion (sticking to walls)", cat: "Plant Function" },
+  { front: "What is transpiration-cohesion-tension?", back: "Water evaporates from stomata (transpiration) \u2192 creates tension \u2192 pulls water up xylem via cohesion (H-bonds) and adhesion (sticking to walls)", cat: "Plant Function" },
   { front: "What is double fertilization?", back: "In angiosperms: one sperm + egg = zygote (2n), second sperm + 2 polar nuclei = endosperm (3n). Ovule becomes seed, ovary becomes fruit.", cat: "Plant Function" },
   { front: "Exponential vs. logistic growth?", back: "Exponential (J-curve): dN/dt = rN, unlimited growth. Logistic (S-curve): dN/dt = rN(K-N)/K, levels off at carrying capacity K.", cat: "Ecology" },
   { front: "What is a keystone species?", back: "A species with disproportionately large impact on its community relative to its abundance. Removing it causes major community changes.", cat: "Ecology" },
@@ -663,29 +706,39 @@ const flashcards = [
 ];
 
 // ============ FLASHCARD ENGINE ============
-let fcIndex = 0, fcFiltered = [...flashcards];
+var fcIndex = 0, fcFiltered = [].concat(flashcards);
 function buildFilters() {
-  const cats = [...new Set(flashcards.map(f => f.cat))];
-  const el = document.getElementById('fc-filters');
-  let html = '<button class="fc-filter-btn active" onclick="filterCards(\'all\', this)">All</button>';
-  cats.forEach(c => { html += '<button class="fc-filter-btn" onclick="filterCards(\'' + c + '\', this)">' + c + '</button>'; });
+  var cats = [];
+  flashcards.forEach(function(f) { if (cats.indexOf(f.cat) === -1) cats.push(f.cat); });
+  var el = document.getElementById('fc-filter-group');
+  var html = '<button class="fc-filter-btn active" onclick="filterCards(\'all\', this)" aria-pressed="true">All</button>';
+  cats.forEach(function(c) { html += '<button class="fc-filter-btn" onclick="filterCards(\'' + c + '\', this)" aria-pressed="false">' + c + '</button>'; });
   el.innerHTML = html;
 }
 function filterCards(cat, btn) {
-  document.querySelectorAll('.fc-filter-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.fc-filter-btn').forEach(function(b) {
+    b.classList.remove('active');
+    b.setAttribute('aria-pressed', 'false');
+  });
   btn.classList.add('active');
-  fcFiltered = cat === 'all' ? [...flashcards] : flashcards.filter(f => f.cat === cat);
+  btn.setAttribute('aria-pressed', 'true');
+  fcFiltered = cat === 'all' ? [].concat(flashcards) : flashcards.filter(function(f) { return f.cat === cat; });
   fcIndex = 0;
   showCard();
+  announce('Showing ' + fcFiltered.length + ' cards for ' + cat);
 }
 function showCard() {
-  const card = document.getElementById('fc-card');
+  var card = document.getElementById('fc-card');
   card.classList.remove('flipped');
   document.getElementById('fc-front').textContent = fcFiltered[fcIndex].front;
   document.getElementById('fc-back').textContent = fcFiltered[fcIndex].back;
   document.getElementById('fc-counter').textContent = (fcIndex + 1) + ' / ' + fcFiltered.length;
+  card.setAttribute('aria-label', 'Flashcard ' + (fcIndex + 1) + ' of ' + fcFiltered.length + '. ' + fcFiltered[fcIndex].front + '. Press Enter or Space to flip.');
 }
 function flipCard() { document.getElementById('fc-card').classList.toggle('flipped'); }
+function handleFcKey(e) {
+  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flipCard(); }
+}
 function nextCard() { fcIndex = (fcIndex + 1) % fcFiltered.length; showCard(); }
 function prevCard() { fcIndex = (fcIndex - 1 + fcFiltered.length) % fcFiltered.length; showCard(); }
 function buildFlashcards() { showCard(); }
@@ -785,24 +838,25 @@ const saQuestions = [
 
 // ============ SHORT ANSWER ENGINE ============
 function buildShortAnswer() {
-  const c = document.getElementById('sa-container');
-  let html = '';
-  saQuestions.forEach((q, i) => {
+  var c = document.getElementById('sa-container');
+  var html = '';
+  saQuestions.forEach(function(q, i) {
     html += '<div class="sa-question"><p>' + (i + 1) + '. ' + q.q + '</p>';
+    html += '<label for="sa-input-' + i + '" class="sr-only">Your answer for question ' + (i + 1) + '</label>';
     html += '<textarea class="sa-textarea" id="sa-input-' + i + '" placeholder="Write your answer here..."></textarea>';
     html += '<button class="sa-submit" onclick="gradeAnswer(' + i + ')">Check Answer</button>';
-    html += '<div class="sa-loading" id="sa-loading-' + i + '">Analyzing your answer...</div>';
-    html += '<div class="sa-feedback" id="sa-feedback-' + i + '"></div></div>';
+    html += '<div class="sa-loading" id="sa-loading-' + i + '" aria-live="polite">Analyzing your answer...</div>';
+    html += '<div class="sa-feedback" id="sa-feedback-' + i + '" role="alert"></div></div>';
   });
   c.innerHTML = html;
 }
 
 function gradeAnswer(idx) {
-  const q = saQuestions[idx];
-  const input = document.getElementById('sa-input-' + idx).value.trim().toLowerCase();
-  const btn = event.target;
-  const loading = document.getElementById('sa-loading-' + idx);
-  const fb = document.getElementById('sa-feedback-' + idx);
+  var q = saQuestions[idx];
+  var input = document.getElementById('sa-input-' + idx).value.trim().toLowerCase();
+  var btn = event.target;
+  var loading = document.getElementById('sa-loading-' + idx);
+  var fb = document.getElementById('sa-feedback-' + idx);
 
   if (!input) return;
   btn.disabled = true;
@@ -810,37 +864,37 @@ function gradeAnswer(idx) {
   fb.className = 'sa-feedback';
   fb.innerHTML = '';
 
-  setTimeout(() => {
-    let totalWeight = 0, earnedWeight = 0;
-    let matched = [], missed = [];
+  setTimeout(function() {
+    var totalWeight = 0, earnedWeight = 0;
+    var matched = [], missed = [];
 
-    q.concepts.forEach(concept => {
+    q.concepts.forEach(function(concept) {
       totalWeight += concept.weight;
-      const found = concept.terms.some(term => {
-        if (term.includes('.*')) {
-          const parts = term.split('.*');
-          return parts.every(p => input.includes(p));
+      var found = concept.terms.some(function(term) {
+        if (term.indexOf('.*') !== -1) {
+          var parts = term.split('.*');
+          return parts.every(function(p) { return input.indexOf(p) !== -1; });
         }
-        return input.includes(term);
+        return input.indexOf(term) !== -1;
       });
       if (found) { earnedWeight += concept.weight; matched.push(concept.label); }
       else { missed.push(concept); }
     });
 
-    const pct = earnedWeight / totalWeight;
-    let grade, icon, cls;
-    if (pct >= 0.65) { grade = 'good'; icon = '<span aria-hidden="true">✓</span> Strong answer!'; cls = 'grade-good'; }
-    else if (pct >= 0.35) { grade = 'partial'; icon = '<span aria-hidden="true">○</span> Getting there!'; cls = 'grade-partial'; }
-    else { grade = 'needs_work'; icon = '<span aria-hidden="true">✗</span> Keep working on this one.'; cls = 'grade-needs-work'; }
+    var pct = earnedWeight / totalWeight;
+    var grade, icon, cls;
+    if (pct >= 0.65) { grade = 'good'; icon = '\u2713 Strong answer!'; cls = 'grade-good'; }
+    else if (pct >= 0.35) { grade = 'partial'; icon = '\u25CB Getting there!'; cls = 'grade-partial'; }
+    else { grade = 'needs_work'; icon = '\u2717 Keep working on this one.'; cls = 'grade-needs-work'; }
 
-    let feedback = '';
+    var feedback = '';
     if (matched.length > 0) feedback += 'You correctly addressed: ' + matched.join('; ') + '. ';
     if (grade === 'good' && missed.length > 0) {
-      feedback += 'To strengthen your answer, also mention: ' + missed.slice(0, 2).map(m => m.label).join('; ') + '.';
+      feedback += 'To strengthen your answer, also mention: ' + missed.slice(0, 2).map(function(m) { return m.label; }).join('; ') + '.';
     } else if (grade === 'partial') {
-      feedback += 'Key concepts you missed: ' + missed.slice(0, 3).map(m => m.label).join('; ') + '.';
+      feedback += 'Key concepts you missed: ' + missed.slice(0, 3).map(function(m) { return m.label; }).join('; ') + '.';
     } else if (grade === 'needs_work') {
-      feedback += 'Your answer needs more detail. Key concepts to include: ' + missed.slice(0, 3).map(m => m.label).join('; ') + '.';
+      feedback += 'Your answer needs more detail. Key concepts to include: ' + missed.slice(0, 3).map(function(m) { return m.label; }).join('; ') + '.';
     }
     feedback += '<br><br><strong>Model answer:</strong> ' + q.fullAnswer;
 
@@ -851,7 +905,7 @@ function gradeAnswer(idx) {
   }, 600);
 }
 
-document.addEventListener('DOMContentLoaded', () => { buildQuiz(); buildFilters(); buildFlashcards(); buildShortAnswer(); });
+document.addEventListener('DOMContentLoaded', function() { buildQuiz(); buildFilters(); buildFlashcards(); buildShortAnswer(); });
 </script>
 
   <div style="max-width: 800px; margin: 40px auto; padding: 20px 30px; background: #fff8e1; border-left: 4px solid #f9a825; border-radius: 8px; font-size: 14px; line-height: 1.6; color: #555;">
